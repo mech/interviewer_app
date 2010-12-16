@@ -9,6 +9,18 @@ module ApplicationHelper
 IE_HTML
   end
 
+  def flash_message
+    if flash.any?
+      if flash.notice
+        return flash.notice
+      elsif flash.alert
+        return flash.alert
+      end
+    end
+  ensure
+    flash.clear if flash.any?
+  end
+
   def google_analytics
     return if Rails.env =~ /development|test/
     g_code = <<-GOOGLE

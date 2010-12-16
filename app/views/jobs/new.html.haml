@@ -1,0 +1,13 @@
+%h1 Add a new job
+
+= form_for @job do |f|
+  = f.label :title, "Title"
+  = f.text_field :title
+
+  = f.label :description, "Description"
+  = f.text_area :description
+
+  = f.label :location, "Location"
+  = f.text_field :location
+
+  = f.submit "Add a new job"

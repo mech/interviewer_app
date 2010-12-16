@@ -11,7 +11,9 @@ gem 'gravatar_image_tag'
 group :development, :test do
   gem 'rspec-rails'
   gem 'cucumber-rails'
+  gem 'mongoid-rspec'
   gem 'factory_girl_rails'
-  gem 'webrat'
+  gem 'capybara'
+  gem 'mocha'
   gem 'database_cleaner'
 end
