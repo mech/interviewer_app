@@ -11,7 +11,7 @@ describe JobsController do
 
   describe "GET 'show'" do
     it "should be successful" do
-      get 'show'
+      get 'show', :id => 1
       response.should be_success
     end
   end
@@ -26,27 +26,29 @@ describe JobsController do
   describe "GET 'create'" do
     it "should be successful" do
       get 'create'
-      response.should be_success
+      response.should redirect_to(:action => "index")
     end
   end
 
   describe "GET 'edit'" do
     it "should be successful" do
-      get 'edit'
+      get 'edit', :id => 1
       response.should be_success
     end
   end
 
   describe "GET 'update'" do
     it "should be successful" do
-      get 'update'
+      pending
+      get 'update', :id => 1
       response.should be_success
     end
   end
 
   describe "GET 'destroy'" do
     it "should be successful" do
-      get 'destroy'
+      pending
+      get 'destroy', :id => 1
       response.should be_success
     end
   end

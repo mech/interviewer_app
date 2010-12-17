@@ -1,13 +1,35 @@
-%h1 Add a new job
+%header#sub-action
+  
 
-= form_for @job do |f|
-  = f.label :title, "Title"
-  = f.text_field :title
+#splitview-wrap.group
+  %section#action
+    = form_tag("/") do
+      = text_field_tag(:q, "", :class => "search", :placeholder => "Find jobs")
 
-  = f.label :description, "Description"
-  = f.text_area :description
+    %header
+      %hgroup
+        %h1 JOB OPENINGS
+        = link_to("Options", "/", :class => "options")
+        %small Last access 1 day ago
 
-  = f.label :location, "Location"
-  = f.text_field :location
+  %section#view
+    = form_for @job, :html => {:class => "entry"} do |f|
+      %fieldset
+        %div
+          = f.label :title, "Title"
+          = f.text_field :title, :size => 40
 
-  = f.submit "Add a new job"
+        %div
+          %label{:for => "job_description"}
+            Description
+            %small Job requirements, salary, etc.
+          = f.text_area :description, :rows => 10, :cols => 70
+
+        %div
+          = f.label :location, "Location"
+          = f.text_field :location, :size => 40
+
+        %div.action
+          = f.submit "Add a new job", :class => "button"
+          or
+          = link_to "Cancel", jobs_path
