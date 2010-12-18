@@ -9,5 +9,6 @@ describe "jobs/new.html.haml" do
 
   it "renders a form to create a job position" do
     render
+    rendered.should =~ /form/
   end
 end

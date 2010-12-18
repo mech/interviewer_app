@@ -7,6 +7,8 @@ gem 'jquery-rails'
 gem 'mongoid', '2.0.0.beta.20'
 gem 'bson_ext'
 gem 'gravatar_image_tag'
+gem 'therubyracer', :require => false
+gem 'barista', "0.7.0.pre3"
 
 group :development, :test do
   gem 'rspec-rails'

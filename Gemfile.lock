@@ -29,8 +29,10 @@ GEM
       activesupport (= 3.0.3)
     activesupport (3.0.3)
     arel (2.0.6)
-    bson (1.1.4)
-    bson_ext (1.1.4)
+    barista (0.7.0.pre3)
+      coffee-script (~> 2.1.1)
+    bson (1.1.5)
+    bson_ext (1.1.5)
     builder (2.1.2)
     capybara (0.4.0)
       celerity (>= 0.7.9)
@@ -41,9 +43,12 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (>= 0.0.27)
       xpath (~> 0.1.2)
-    celerity (0.8.5)
+    celerity (0.8.6)
     childprocess (0.1.4)
       ffi (~> 0.6.3)
+    coffee-script (2.1.1)
+      coffee-script-source
+    coffee-script-source (0.9.5)
     cucumber (0.10.0)
       builder (>= 2.1.2)
       diff-lcs (~> 1.1.2)
@@ -67,7 +72,7 @@ GEM
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
     gravatar_image_tag (0.1.0)
-    haml (3.0.24)
+    haml (3.0.25)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
       activesupport (~> 3.0)
@@ -87,8 +92,8 @@ GEM
     mime-types (1.16)
     mocha (0.9.10)
       rake
-    mongo (1.1.4)
-      bson (>= 1.1.1)
+    mongo (1.1.5)
+      bson (>= 1.1.5)
     mongoid (2.0.0.beta.20)
       activemodel (~> 3.0)
       mongo (~> 1.1)
@@ -122,11 +127,11 @@ GEM
       rspec-core (~> 2.3.0)
       rspec-expectations (~> 2.3.0)
       rspec-mocks (~> 2.3.0)
-    rspec-core (2.3.0)
+    rspec-core (2.3.1)
     rspec-expectations (2.3.0)
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.3.0)
-    rspec-rails (2.3.0)
+    rspec-rails (2.3.1)
       actionpack (~> 3.0)
       activesupport (~> 3.0)
       railties (~> 3.0)
@@ -138,6 +143,7 @@ GEM
       json_pure
       rubyzip
     term-ansicolor (1.0.5)
+    therubyracer (0.8.0)
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
@@ -150,6 +156,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  barista (= 0.7.0.pre3)
   bson_ext
   capybara
   cucumber-rails
@@ -163,3 +170,4 @@ DEPENDENCIES
   mongoid-rspec
   rails (= 3.0.3)
   rspec-rails
+  therubyracer
