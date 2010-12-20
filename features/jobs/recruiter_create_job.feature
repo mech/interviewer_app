@@ -2,6 +2,7 @@ Feature: Recruiter create job position
   In order to setup an interview session
   Recruiter wants to manage job positions
 
+  @selenium
   Scenario: Add job
     Given I am on "the new job page"
     When I fill in the following:

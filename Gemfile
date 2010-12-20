@@ -16,6 +16,8 @@ group :development, :test do
   gem 'mongoid-rspec'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'webrat'
   gem 'mocha'
   gem 'database_cleaner'
+  gem 'selenium-client'
 end

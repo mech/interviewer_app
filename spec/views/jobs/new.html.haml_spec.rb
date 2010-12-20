@@ -9,6 +9,8 @@ describe "jobs/new.html.haml" do
 
   it "renders a form to create a job position" do
     render
-    rendered.should =~ /form/
+    rendered.should have_selector("form", :method => "post", :action => jobs_path) do |form|
+      form.should have_selector("input", :type => "submit")
+    end
   end
 end
