@@ -9,6 +9,13 @@ describe JobsController do
       get 'index'
       response.should be_success
     end
+
+    it "assigns @jobs" do
+      get 'index'
+      assigns(:jobs).should_not be_empty
+    end
+
+    it "jobs scoped to user's company"
   end
 
   describe "GET 'show'" do
@@ -32,7 +39,8 @@ describe JobsController do
 
   describe "POST 'create'" do
     before do
-      @valid_params = {:job => {
+      @valid_params = {
+        :job => {
           :title => "Ruby developer",
           :description => "Looking for Ruby ninja",
           :location => "Tampines"

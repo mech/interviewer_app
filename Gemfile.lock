@@ -94,6 +94,7 @@ GEM
       rake
     mongo (1.1.5)
       bson (>= 1.1.5)
+    mongo_ext (0.19.3)
     mongoid (2.0.0.beta.20)
       activemodel (~> 3.0)
       mongo (~> 1.1)
@@ -171,6 +172,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   mocha
+  mongo_ext
   mongoid (= 2.0.0.beta.20)
   mongoid-rspec
   rails (= 3.0.3)
