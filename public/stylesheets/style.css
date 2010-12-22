@@ -241,22 +241,67 @@ body {
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;
+        position: relative;
         float: left;
         margin-left: 1em;
-        text-align: center;
-        padding: 5px; }
+        text-align: left;
+        padding: 3px 10px; }
         #header-wrap header nav li a {
           text-decoration: none;
-          font-size: 130%;
+          font-size: 120%;
           font-weight: bold;
-          color: #333333;
+          color: #333;
           text-shadow: 0 1px 0 #b2c0cd; }
+        #header-wrap header nav li a.sub {
+          background: url("/images/sdm.png") center right no-repeat;
+          padding-right: 15px; }
         #header-wrap header nav li small {
           display: block;
           color: #e8e8e8; }
+        #header-wrap header nav li ul.sub {
+          display: none;
+          position: absolute;
+          left: 0;
+          padding: 3px 0;
+          background: #fff;
+          z-index: 10;
+          width: 120px;
+          -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+          -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+          -webkit-border-bottom-left-radius: 3px;
+          -webkit-border-bottom-right-radius: 3px;
+          -moz-border-radius-bottomleft: 3px;
+          -moz-border-radius-bottomright: 3px;
+          border-bottom-left-radius: 3px;
+          border-bottom-right-radius: 3px;
+          -webkit-border-top-right-radius: 3px;
+          -moz-border-radius-topright: 3px;
+          border-top-right-radius: 3px; }
+          #header-wrap header nav li ul.sub li {
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+            float: none;
+            display: block;
+            margin: 0;
+            text-align: left;
+            margin: 0;
+            padding: 0; }
+            #header-wrap header nav li ul.sub li a {
+              font: normal 89.358% "Helvetica Neue", Helvetica, Arial, sans-serif;
+              display: block;
+              text-shadow: none;
+              padding: 3px 5px 3px 10px; }
+              #header-wrap header nav li ul.sub li a:hover {
+                background: #838b93;
+                color: #f2f2f2; }
+              #header-wrap header nav li ul.sub li a:active {
+                background: #676e76; }
       #header-wrap header nav li.selected, #header-wrap header nav li:hover {
-        background: rgba(80, 90, 100, 0.5);
-        border: 1px solid rgba(255, 255, 255, 0.5); }
+        background: #fff; }
+        #header-wrap header nav li.selected a, #header-wrap header nav li:hover a {
+          text-shadow: none; }
 
 #content-wrap {
   width: 960px;
@@ -411,6 +456,12 @@ form.entry {
   .button:active {
     background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#bdd3de), to(#d3e8ed));
     background-image: -moz-linear-gradient(top, #bdd3de, #d3e8ed); }
+
+html.ie6 .group {
+  height: 1%; }
+
+*:first-child + html.ie7 .group {
+  min-height: 1px; }
 
 @media all and (orientation:portrait) {}
 @media all and (orientation:landscape) {}

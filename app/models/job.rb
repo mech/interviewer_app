@@ -6,6 +6,7 @@ class Job
   field :status,      :type => String, :default => "open"
   field :description, :type => String
   field :location,    :type => String
+  field :salary,      :type => BigDecimal
 
   references_one :company
 

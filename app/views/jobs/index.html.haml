@@ -1,1 +1,16 @@
-%h1 Jobs#index
+%header#sub-action
+
+
+#splitview-wrap.group
+  %section#action
+    = form_tag("/") do
+      = text_field_tag(:q, "", :class => "search", :placeholder => "Find jobs")
+
+    %header
+      %hgroup
+        %h1 JOB OPENINGS
+        = link_to("Options", "/", :class => "options")
+        %small Last access 1 day ago
+
+  %section#view
+

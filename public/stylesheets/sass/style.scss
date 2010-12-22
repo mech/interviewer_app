@@ -130,6 +130,12 @@ button {  width: auto; overflow: visible; }
   border-bottom-right-radius: $val;
 }
 
+@mixin rounded-top-right-corner($val) {
+  -webkit-border-top-right-radius: $val;
+  -moz-border-radius-topright: $val;
+  border-top-right-radius: $val;
+}
+
 @mixin blue_button {
   @include rounded-corner(2px);
   @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
@@ -153,6 +159,10 @@ button {  width: auto; overflow: visible; }
   }
 }
 
+@mixin helvetica($size, $weight) {
+  font: $weight $size/1.231 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 $helvetica: normal 13px/1.231 "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 body {
@@ -172,25 +182,70 @@ body {
 
       li {
         @include rounded-corner(3px);
-        float: left; margin-left: 1em; text-align: center; padding: 5px;
+        position: relative;
+        float: left; margin-left: 1em; text-align: left; padding: 3px 10px;
 
         a {
           text-decoration: none;
-          font-size: 130%;
+          font-size: 120%;
           font-weight: bold;
-          color: #333333;
+          color: #333;
           text-shadow: 0 1px 0 #b2c0cd;
+        }
+
+        a.sub {
+          background: url('/images/sdm.png') center right no-repeat;
+          padding-right: 15px;
         }
 
         small {
           display: block;
           color: #e8e8e8;
         }
+
+        ul.sub {
+          display: none;
+          position: absolute; left: 0; padding: 3px 0;
+          background: #fff;
+          z-index: 10;
+          width: 120px;
+          @include box-shadow(0 3px 3px rgba(0, 0, 0, 0.1));
+          @include rounded-bottom-corner(3px);
+          @include rounded-top-right-corner(3px);
+
+          li {
+            @include rounded-corner(0);
+            float: none;
+            display: block;
+            margin: 0;
+            text-align: left;
+            margin: 0; padding: 0;
+
+            a {
+              @include helvetica(110%, normal);
+              display: block;
+              text-shadow: none;
+              padding: 3px 5px 3px 10px;
+
+              &:hover {
+                background: #838b93;
+                color: #f2f2f2;
+              }
+
+              &:active {
+                background: #676e76
+              }
+            }
+          }
+        }
       }
 
       li.selected, li:hover {
-        background: rgba(80,90,100,0.5);
-        border: 1px solid rgba(255,255,255,0.5);
+        background: #fff;
+
+        a {
+          text-shadow: none;
+        }
       }
     }
   }
@@ -337,7 +392,13 @@ form.entry {
 
 
 
+html.ie6 .group {
+  height:1%;
+}
 
+*:first-child+html.ie7 .group {
+  min-height:1px;
+}
 
 
 @media all and (orientation:portrait) {
