@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
   def index
+    @jobs = Job.paginate
   end
 
   def show

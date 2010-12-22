@@ -37,8 +37,8 @@ h1,h2,h3,h4,h5,h6 { font-weight: bold; }
 html { overflow-y: scroll; }
 
 a:hover, a:active { outline: none; }
-a, a:active, a:visited { color: #607890; }
-a:hover { color: #036; }
+a, a:active, a:visited { color: #0283c5; }
+a:hover { color: #2d68a5; }
 
 ul, ol { margin-left: 1.8em; }
 ol { list-style-type: decimal; }
@@ -136,26 +136,26 @@ button {  width: auto; overflow: visible; }
   border-top-right-radius: $val;
 }
 
-@mixin blue_button {
+@mixin button($from, $to, $text_color, $border_color, $text_shadow_color, $hover_border_color, $active_from, $active_to) {
   @include rounded-corner(2px);
   @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
   display: inline-block;
-  color: #4b6c7c;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d3e8ed), to(#bdd3de));
-  background-image: -moz-linear-gradient(top, #d3e8ed, #bdd3de);
-  border: 1px solid #82a2b0;
+  color: $text_color;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+  background-image: -moz-linear-gradient(top, $from, $to);
+  border: 1px solid $border_color;
   padding: .4em .8em;
   font-weight: bold;
   cursor: pointer;
-  text-shadow: 0 1px 0 #f5f5f5;
+  text-shadow: 0 1px 0 $text_shadow_color;
 
   &:hover {
-    border-color: #638ea1;
+    border-color: $hover_border_color;
   }
 
   &:active {
-    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#bdd3de), to(#d3e8ed));
-    background-image: -moz-linear-gradient(top, #bdd3de, #d3e8ed);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($active_from), to($active_to));
+    background-image: -moz-linear-gradient(top, $active_from, $active_to);
   }
 }
 
@@ -228,12 +228,12 @@ body {
               padding: 3px 5px 3px 10px;
 
               &:hover {
-                background: #838b93;
+                background: #85909c;
                 color: #f2f2f2;
               }
 
               &:active {
-                background: #676e76
+                background: #6a727b;
               }
             }
           }
@@ -306,7 +306,7 @@ section#action {
     }
 
     a.options {
-      background: transparent url('../images/13_icons.png') 0 -26px no-repeat;
+      background: transparent url('/images/13_icons.png') 0 -26px no-repeat;
       width: 13px; height: 13px;
       position: absolute; right: 0; top: 0px;
       display: block;
@@ -323,7 +323,7 @@ section#action {
 
 section#view {
   @include rounded-bottom-right-corner(3px);
-  background: #fff;
+  background: #fff url('/images/view_bg.gif') repeat-x;
   width: 769px; float: right;
   min-height: 400px;
   border-left: 1px solid #bfbfbf;
@@ -378,13 +378,55 @@ form.entry {
   }
 }
 
-.button {
-  @include blue_button;
+.b_button {
+  @include button(#d3e8ed, #bdd3de, #4b6c7c, #82a2b0, #f5f5f5, #638ea1, #bdd3de, #d3e8ed);
 }
 
+.button {
+  @include button(#60b165, #459c4b, #ffffff, #398b3e, #286c2d, #3f682d, #459c4b, #60b165)
+}
 
+div.records {
+  padding: 10px;
+}
 
+table.records {
+  @include rounded-corner(3px);
+  width: 100%;
+  border-collapse: separate;
+  border: 1px solid #e6e6e6;
 
+  thead {
+    display: none;
+  }
+
+  tbody {
+    tr {
+      td {
+        padding: 5px;
+        border: 1px solid #e6e6e6;
+      }
+
+      td.title {
+        h1 {
+          font-weight: bold;
+
+          a {
+            color: #555;
+            text-decoration: none;
+            font-size: 110%;
+          }
+        }
+
+        p.desc {
+          color: #aaa;
+        }
+      }
+
+      td.location {}
+    }
+  }
+}
 
 
 

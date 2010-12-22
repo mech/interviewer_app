@@ -3,4 +3,3 @@ $ ->
   sub_hide = -> $(this).find("ul.sub").hide()
 
   $("nav li").hover sub_show, sub_hide
-

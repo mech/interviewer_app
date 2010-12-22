@@ -90,10 +90,10 @@ a:hover, a:active {
   outline: none; }
 
 a, a:active, a:visited {
-  color: #607890; }
+  color: #0283c5; }
 
 a:hover {
-  color: #036; }
+  color: #2d68a5; }
 
 ul, ol {
   margin-left: 1.8em; }
@@ -294,10 +294,10 @@ body {
               text-shadow: none;
               padding: 3px 5px 3px 10px; }
               #header-wrap header nav li ul.sub li a:hover {
-                background: #838b93;
+                background: #85909c;
                 color: #f2f2f2; }
               #header-wrap header nav li ul.sub li a:active {
-                background: #676e76; }
+                background: #6a727b; }
       #header-wrap header nav li.selected, #header-wrap header nav li:hover {
         background: #fff; }
         #header-wrap header nav li.selected a, #header-wrap header nav li:hover a {
@@ -367,7 +367,7 @@ section#action {
         text-shadow: 0 1px 0 #eaeaf4;
         padding-left: 20px; }
     section#action header a.options {
-      background: transparent url("../images/13_icons.png") 0 -26px no-repeat;
+      background: transparent url("/images/13_icons.png") 0 -26px no-repeat;
       width: 13px;
       height: 13px;
       position: absolute;
@@ -384,7 +384,7 @@ section#view {
   -webkit-border-bottom-right-radius: 3px;
   -moz-border-radius-bottomright: 3px;
   border-bottom-right-radius: 3px;
-  background: #fff;
+  background: white url("/images/view_bg.gif") repeat-x;
   width: 769px;
   float: right;
   min-height: 400px;
@@ -435,7 +435,7 @@ form.entry {
     border-top: 1px solid #ccc;
     text-align: right; }
 
-.button {
+.b_button {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -451,11 +451,57 @@ form.entry {
   font-weight: bold;
   cursor: pointer;
   text-shadow: 0 1px 0 #f5f5f5; }
-  .button:hover {
+  .b_button:hover {
     border-color: #638ea1; }
-  .button:active {
+  .b_button:active {
     background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#bdd3de), to(#d3e8ed));
     background-image: -moz-linear-gradient(top, #bdd3de, #d3e8ed); }
+
+.button {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  color: white;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#60b165), to(#459c4b));
+  background-image: -moz-linear-gradient(top, #60b165, #459c4b);
+  border: 1px solid #398b3e;
+  padding: .4em .8em;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0 1px 0 #286c2d; }
+  .button:hover {
+    border-color: #3f682d; }
+  .button:active {
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#459c4b), to(#60b165));
+    background-image: -moz-linear-gradient(top, #459c4b, #60b165); }
+
+div.records {
+  padding: 10px; }
+
+table.records {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  width: 100%;
+  border-collapse: separate;
+  border: 1px solid #e6e6e6; }
+  table.records thead {
+    display: none; }
+  table.records tbody tr td {
+    padding: 5px;
+    border: 1px solid #e6e6e6; }
+  table.records tbody tr td.title h1 {
+    font-weight: bold; }
+    table.records tbody tr td.title h1 a {
+      color: #555;
+      text-decoration: none;
+      font-size: 110%; }
+  table.records tbody tr td.title p.desc {
+    color: #aaa; }
 
 html.ie6 .group {
   height: 1%; }

@@ -12,7 +12,7 @@ describe JobsController do
 
     it "assigns @jobs" do
       get 'index'
-      assigns(:jobs).should_not be_empty
+      assigns(:jobs).should be_empty
     end
 
     it "jobs scoped to user's company"
