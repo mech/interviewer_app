@@ -497,11 +497,14 @@ table.records {
   table.records tbody tr td.title h1 {
     font-weight: bold; }
     table.records tbody tr td.title h1 a {
-      color: #555;
+      color: #333;
       text-decoration: none;
       font-size: 110%; }
   table.records tbody tr td.title p.desc {
     color: #aaa; }
+  table.records tbody tr td.location {
+    background: url("/images/13_icons.png") 0 -46px no-repeat;
+    padding-left: 14px; }
 
 html.ie6 .group {
   height: 1%; }

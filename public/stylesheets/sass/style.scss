@@ -412,7 +412,7 @@ table.records {
           font-weight: bold;
 
           a {
-            color: #555;
+            color: #333;
             text-decoration: none;
             font-size: 110%;
           }
@@ -423,7 +423,10 @@ table.records {
         }
       }
 
-      td.location {}
+      td.location {
+        background: url('/images/13_icons.png') 0 -46px no-repeat;
+        padding-left: 14px;        
+      }
     }
   }
 }
