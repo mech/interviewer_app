@@ -453,6 +453,8 @@ form.entry {
     border-top: 1px solid #ddd;
     background: #eee;
     text-align: right; }
+  form.entry .field_with_errors input[type=text] {
+    border: 1px solid #d94349; }
 
 .b_button {
   -webkit-border-radius: 2px;
@@ -525,6 +527,26 @@ table.records {
   table.records tbody tr td.location {
     background: url("/images/13_icons.png") 5px -44px no-repeat;
     padding-left: 20px; }
+
+.error_messages {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background: #f9f2d1;
+  padding: 5px;
+  margin-bottom: 1em; }
+  .error_messages h2 {
+    background: url("/images/alert.png") 3px left no-repeat;
+    padding-left: 20px;
+    color: #d94349; }
+  .error_messages ul {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 5px 20px; }
+    .error_messages ul li {
+      font-size: 100%;
+      color: #888; }
 
 html.ie6 .group {
   height: 1%; }

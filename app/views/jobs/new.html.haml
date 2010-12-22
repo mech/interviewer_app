@@ -17,6 +17,7 @@
       %header
         %h1 New job
       = form_for @job, :html => {:class => "entry"} do |f|
+        = render "shared/error_messages", :target => @job
         %fieldset
           %div
             = f.label :title, "Title"

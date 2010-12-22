@@ -1,0 +1,6 @@
+- if target.errors.any?
+  .error_messages
+    %h2 Please fix the following #{pluralize(target.errors.count, "error")}.
+    %ul
+      - target.errors.full_messages.each do |error|
+        %li= error

@@ -10,7 +10,7 @@ class Job
 
   references_one :company
 
-  validates_presence_of :title, :status, :company
+  validates_presence_of :title, :status#, :company
 
   attr_protected :_id
 
