@@ -384,15 +384,32 @@ section#view {
   -webkit-border-bottom-right-radius: 3px;
   -moz-border-radius-bottomright: 3px;
   border-bottom-right-radius: 3px;
-  background: white url("/images/view_bg.gif") repeat-x;
+  background: #f6f5ee url("/images/view_bg.png") repeat-x;
   width: 769px;
   float: right;
   min-height: 400px;
   border-left: 1px solid #bfbfbf; }
 
-form.entry {
-  width: 749px;
+div.entry {
   padding: 10px; }
+  div.entry header {
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: 5px 10px;
+    background: #e0e0de url("/images/entry_bg.png") repeat-x;
+    border-top: 1px solid #d6d6d6;
+    height: 18px;
+    text-shadow: 0 1px 0 #e4e4e4; }
+
+form.entry {
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #c7c7c7;
+  border-top: 1px solid #ac9d88; }
   form.entry fieldset > div {
     margin-bottom: 1em; }
   form.entry label {
@@ -431,8 +448,10 @@ form.entry {
     border: 1px solid #777;
     outline: 0; }
   form.entry .action {
-    padding-top: 5px;
-    border-top: 1px solid #ccc;
+    margin: 0px -10px -10px -10px;
+    padding: 5px;
+    border-top: 1px solid #ddd;
+    background: #eee;
     text-align: right; }
 
 .b_button {
@@ -472,7 +491,7 @@ form.entry {
   padding: .4em .8em;
   font-weight: bold;
   cursor: pointer;
-  text-shadow: 0 1px 0 #286c2d; }
+  text-shadow: 0 1px 0 #276b35; }
   .button:hover {
     border-color: #3f682d; }
   .button:active {
@@ -486,14 +505,15 @@ table.records {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+  background: #fff;
   width: 100%;
-  border-collapse: separate;
-  border: 1px solid #e6e6e6; }
+  /*border-collapse: separate; */
+  border: 1px solid #c7c7c7; }
   table.records thead {
     display: none; }
   table.records tbody tr td {
-    padding: 5px;
-    border: 1px solid #e6e6e6; }
+    padding: 8px;
+    border: 1px solid #c7c7c7; }
   table.records tbody tr td.title h1 {
     font-weight: bold; }
     table.records tbody tr td.title h1 a {
@@ -503,8 +523,8 @@ table.records {
   table.records tbody tr td.title p.desc {
     color: #aaa; }
   table.records tbody tr td.location {
-    background: url("/images/13_icons.png") 0 -46px no-repeat;
-    padding-left: 14px; }
+    background: url("/images/13_icons.png") 5px -44px no-repeat;
+    padding-left: 20px; }
 
 html.ie6 .group {
   height: 1%; }

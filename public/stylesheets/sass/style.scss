@@ -323,15 +323,30 @@ section#action {
 
 section#view {
   @include rounded-bottom-right-corner(3px);
-  background: #fff url('/images/view_bg.gif') repeat-x;
+  background: #f6f5ee url('/images/view_bg.png') repeat-x;
   width: 769px; float: right;
   min-height: 400px;
   border-left: 1px solid #bfbfbf;
 }
 
-form.entry {
-  width: 749px;
+div.entry {
   padding: 10px;
+
+  header {
+    @include rounded-top-corner(3px);
+    padding: 5px 10px;
+    background: #e0e0de url('/images/entry_bg.png') repeat-x;
+    border-top: 1px solid #d6d6d6;
+    height: 18px;
+    text-shadow: 0 1px 0 #e4e4e4;
+  }
+}
+
+form.entry {
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #c7c7c7; border-top: 1px solid #ac9d88;
+  
   fieldset > div {
     margin-bottom: 1em;
   }
@@ -372,8 +387,10 @@ form.entry {
   }
 
   .action {
-    padding-top: 5px;
-    border-top: 1px solid #ccc;
+    margin: 0px -10px -10px -10px;
+    padding: 5px;
+    border-top: 1px solid #ddd;
+    background: #eee;
     text-align: right;
   }
 }
@@ -383,7 +400,7 @@ form.entry {
 }
 
 .button {
-  @include button(#60b165, #459c4b, #ffffff, #398b3e, #286c2d, #3f682d, #459c4b, #60b165)
+  @include button(#60b165, #459c4b, #ffffff, #398b3e, #276b35, #3f682d, #459c4b, #60b165)
 }
 
 div.records {
@@ -392,9 +409,10 @@ div.records {
 
 table.records {
   @include rounded-corner(3px);
+  background: #fff;
   width: 100%;
-  border-collapse: separate;
-  border: 1px solid #e6e6e6;
+  /*border-collapse: separate; */
+  border: 1px solid #c7c7c7;
 
   thead {
     display: none;
@@ -403,8 +421,8 @@ table.records {
   tbody {
     tr {
       td {
-        padding: 5px;
-        border: 1px solid #e6e6e6;
+        padding: 8px;
+        border: 1px solid #c7c7c7;
       }
 
       td.title {
@@ -424,8 +442,8 @@ table.records {
       }
 
       td.location {
-        background: url('/images/13_icons.png') 0 -46px no-repeat;
-        padding-left: 14px;        
+        background: url('/images/13_icons.png') 5px -44px no-repeat;
+        padding-left: 20px;        
       }
     }
   }

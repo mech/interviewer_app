@@ -13,21 +13,24 @@
         %small Last access 1 day ago
 
   %section#view
-    = form_for @job, :html => {:class => "entry"} do |f|
-      %fieldset
-        %div
-          = f.label :title, "Title"
-          = f.text_field :title, :size => 40
+    .entry
+      %header
+        %h1 New job
+      = form_for @job, :html => {:class => "entry"} do |f|
+        %fieldset
+          %div
+            = f.label :title, "Title"
+            = f.text_field :title, :size => 40
 
-        %div
-          %label{:for => "job_description"}
-            Description
-            %small Job requirements
-          = f.text_area :description, :rows => 10, :cols => 70
+          %div
+            %label{:for => "job_description"}
+              Description
+              %small Job requirements
+            = f.text_area :description, :rows => 10, :cols => 70
 
-        %div
-          = f.label :location, "Location"
-          = f.text_field :location, :size => 40
+          %div
+            = f.label :location, "Location"
+            = f.text_field :location, :size => 40
 
         %div.action
           = f.submit "Add a new job", :class => "button"
