@@ -1,6 +1,9 @@
 class JobsController < ApplicationController
+  respond_to :html, :js, :json
+
   def index
-    @jobs = Job.paginate
+    @jobs = Job.order_by([:updated_at, :desc]).paginate
+    respond_with @jobs
   end
 
   def show
@@ -14,10 +17,10 @@ class JobsController < ApplicationController
     @job = Job.new(params[:job])
 
     if @job.save
-      redirect_to jobs_url, :notice => "Job has been created successfully."
-    else
-      render "new"
+      flash[:notice] = "Job has been created successfully."
     end
+    
+    respond_with @job, :location => jobs_url
   end
 
   def edit

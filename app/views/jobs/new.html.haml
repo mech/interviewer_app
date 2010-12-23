@@ -16,7 +16,7 @@
     .entry
       %header
         %h1 New job
-      = form_for @job, :html => {:class => "entry"} do |f|
+      = form_for @job, :html => {:class => "entry"}, :remote => true do |f|
         = render "shared/error_messages", :target => @job
         %fieldset
           %div
@@ -34,6 +34,4 @@
             = f.text_field :location, :size => 40
 
         %div.action
-          = f.submit "Add a new job", :class => "button"
-          or
-          = link_to "Cancel", jobs_path
+          = f.submit "Prepare questions", :class => "button"

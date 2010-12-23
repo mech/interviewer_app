@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Wed, 22 Dec 2010 07:22:18 GMT from
+/* DO NOT MODIFY. This file was compiled Thu, 23 Dec 2010 06:28:11 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 

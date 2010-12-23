@@ -48,6 +48,10 @@ describe JobsController do
       }
     end
 
+    context "ajax save proceed to add questions" do
+      
+    end
+
     context "when the job saves successfully" do
       it "saves a new job" do
         lambda {

@@ -2,4 +2,12 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  flash:
+    actions:
+      create:
+        notice: "{resource_name} has been created successfully."
+      update:
+        notice: "{resource_name} has been updated successfully."
+      destroy:
+        notice: "{resource_name} has been deleted successfully."
+        alert: "{resource_name} could not be deleted."

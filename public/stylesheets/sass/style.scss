@@ -141,6 +141,7 @@ button {  width: auto; overflow: visible; }
   @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
   display: inline-block;
   color: $text_color;
+  background: $from;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
   background-image: -moz-linear-gradient(top, $from, $to);
   border: 1px solid $border_color;
@@ -460,12 +461,12 @@ table.records {
 
 
 .error_messages {
-  @include rounded-corner(5px);
+  @include rounded-corner(3px);
   background: #f9f2d1;
   padding: 5px; margin-bottom: 1em;
 
   h2 {
-    background: url('/images/alert.png') 3px left no-repeat;
+    background: transparent url('/images/alert.png') left 3px no-repeat;
     padding-left: 20px;
     color: #d94349;
   }
