@@ -14,19 +14,25 @@
 
   %section#view
     .entry
+      .guide
+        %h2 Open a new job to prepare for your next interview.
+        Prepare interview questions next.
+        %small= link_to "More on interview questions", "/help/interviews#questions"
+
       %header
         %h1 New job
       = form_for @job, :html => {:class => "entry"}, :remote => true do |f|
         = render "shared/error_messages", :target => @job
         %fieldset
           %div
-            = f.label :title, "Title"
+            %label{:for => "job_title"}
+              Job title
             = f.text_field :title, :size => 40
 
           %div
             %label{:for => "job_description"}
               Description
-              %small Job requirements
+              %small Requirements, salary, etc.
             = f.text_area :description, :rows => 10, :cols => 70
 
           %div
@@ -34,4 +40,4 @@
             = f.text_field :location, :size => 40
 
         %div.action
-          = f.submit "Prepare questions", :class => "button"
+          = f.submit "Add job", :class => "button"

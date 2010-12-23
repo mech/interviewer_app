@@ -341,6 +341,23 @@ div.entry {
     height: 18px;
     text-shadow: 0 1px 0 #e4e4e4;
   }
+
+  .guide {
+    background: url('/images/guide.png') no-repeat;
+    padding-left: 50px;
+    line-height: 1.5em;
+    width: 600px;
+    margin: 1em 0;
+    font-size: 120%;
+
+    h2 {
+      font-weight: bold;      
+    }
+
+    a {
+      font-size: 100%;
+    }
+  }
 }
 
 form.entry {
@@ -466,8 +483,8 @@ table.records {
   padding: 5px; margin-bottom: 1em;
 
   h2 {
-    background: transparent url('/images/alert.png') left 3px no-repeat;
-    padding-left: 20px;
+    background: transparent url('/images/alert.png') 3px 2px no-repeat;
+    padding-left: 22px;
     color: #d94349;
   }
 
