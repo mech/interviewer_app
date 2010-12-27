@@ -454,6 +454,21 @@ div.entry {
     cursor: move; }
     .questions .question .points input {
       width: 40px; }
+  .questions .question form fieldset > div {
+    margin-bottom: 1em; }
+  .questions .question form label {
+    padding-right: 5px;
+    cursor: pointer;
+    font-size: 110%;
+    font-weight: bold;
+    float: left;
+    text-align: right;
+    width: 80px; }
+    .questions .question form label small {
+      font-size: 85%;
+      font-weight: normal;
+      color: #999;
+      display: block; }
 
 form.entry {
   background: #fff;

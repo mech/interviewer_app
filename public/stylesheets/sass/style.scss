@@ -414,6 +414,29 @@ div.entry {
         width: 40px;
       }
     }
+
+    form {
+      fieldset > div {
+        margin-bottom: 1em;
+      }
+
+      label {
+        padding-right: 5px;
+        cursor: pointer;
+        font-size: 110%;
+        font-weight: bold;
+        float: left;
+        text-align: right;
+        width: 80px;
+
+        small {
+          font-size: 85%;
+          font-weight: normal;
+          color: #999;
+          display: block;
+        }
+      }
+    }
   }
 }
 

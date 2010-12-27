@@ -20,6 +20,15 @@ class Position
   scope :open, where(:status => "open")
   scope :closed, where(:status => "closed")
 
+  # Return the stage at the position specified
+  #
+  # @param [Integer] position
+  # @return [Stage, nil] the stage at this position
+  def stage_at(position)
+    return nil if position.blank?
+    stages.where(:stage_number => position).limit(1).first
+  end
+
   protected
 
   def stage_one

@@ -20,6 +20,6 @@ class StagesController < ApplicationController
   end
 
   def find_stage
-    @stage = @position.stages.where(:stage_number => params[:id]).limit(1).first
+    @stage = @position.stage_at(params[:id])
   end
 end
