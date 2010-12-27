@@ -23,6 +23,7 @@ describe Job do
     end
 
     it "should have a company" do
+      pending("For company spec completion")
       valid_job.company = nil
       valid_job.should_not be_valid
       valid_job.should have(1).error_on(:company)

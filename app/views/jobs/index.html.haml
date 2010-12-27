@@ -14,15 +14,18 @@
 
   %section#view
     .records
-      %table.records
-        %thead
-          %tr
-            %th Title
-            %th Location
-        %tbody
-          - @jobs.each do |job|
+      - if @jobs.blank?
+        %p No positions yet.
+      - else
+        %table.records
+          %thead
             %tr
-              %td.title
-                %h1= link_to job.title, job
-                %p.desc{:title => job.description}= truncate job.description, 60
-              %td.location= job.location
+              %th Title
+              %th Location
+          %tbody
+            - @jobs.each do |job|
+              %tr
+                %td.title
+                  %h1= link_to job.title, job
+                  %p.desc{:title => job.description}= truncate job.description, 60
+                %td.location= job.location
