@@ -1,5 +1,6 @@
 class StagesController < ApplicationController
   before_filter :find_position
+  before_filter :find_stage
 
   def new
     @stage = Stage.new
@@ -8,7 +9,7 @@ class StagesController < ApplicationController
   # params[:id] will be referring to the stage position
   def show
     @stage_index = params[:id]
-    @question = @position.stages.build
+    @question = @stage.questions.build
   end
 
   private
@@ -16,5 +17,9 @@ class StagesController < ApplicationController
   def find_position
     # TODO - Scope to company
     @position = Position.find(params[:position_id]) if params[:position_id]
+  end
+
+  def find_stage
+    @stage = @position.stages.where(:stage_number => params[:id]).limit(1).first
   end
 end

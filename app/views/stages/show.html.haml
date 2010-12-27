@@ -25,7 +25,10 @@
           = form_for [@position, @question], :remote => true do |f|
             .no 1
             .entry
-
+              %fieldset
+                %div
+                  = f.label :category
+                  = f.select :category, StageQuestion::CATEGORIES
             .points
               = f.text_field :points, :size => 2, :maxlength => 3
               pts

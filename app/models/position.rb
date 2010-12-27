@@ -23,6 +23,6 @@ class Position
   protected
 
   def stage_one
-    self.stages.build(:points => 0)
+    self.stages.build(:points => 0, :stage_number => 1)
   end
 end
