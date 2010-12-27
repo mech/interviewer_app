@@ -15,7 +15,9 @@
   %section#view
     .records
       - if @positions.blank?
-        %p No positions yet.
+        %p.welcome
+          Welcome to Interviewer App. Start an interview by
+          = link_to("creating a position.", new_position_path)
       - else
         %table.records
           %thead

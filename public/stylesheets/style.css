@@ -404,17 +404,24 @@ div.entry {
     border-top: 1px solid #d6d6d6;
     height: 18px;
     text-shadow: 0 1px 0 #e4e4e4; }
-  div.entry .guide {
+  div.entry .guide, div.entry .question_guide {
     background: url("/images/guide.png") no-repeat;
     padding-left: 50px;
     line-height: 1.5em;
-    width: 600px;
     margin: 0 0 2em 0;
     font-size: 120%; }
-    div.entry .guide h2 {
+    div.entry .guide h2, div.entry .question_guide h2 {
       font-weight: bold; }
-    div.entry .guide a {
+    div.entry .guide a, div.entry .question_guide a {
       font-size: 100%; }
+  div.entry .question_guide {
+    background: url("/images/question_guide.png") no-repeat; }
+  div.entry .points {
+    float: right;
+    position: relative;
+    top: -1em;
+    padding: 5px;
+    font-weight: bold; }
 
 form.entry {
   background: #fff;
@@ -466,6 +473,10 @@ form.entry {
     text-align: right; }
   form.entry .field_with_errors input[type=text] {
     border: 1px solid #d94349; }
+
+a.fw {
+  background: url("/images/arrow.gif") right center no-repeat;
+  padding-right: 20px; }
 
 .b_button {
   -webkit-border-radius: 2px;
@@ -560,6 +571,16 @@ table.records {
     .error_messages ul li {
       font-size: 100%;
       color: #888; }
+
+p.welcome {
+  margin: 2em auto;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 160%;
+  color: #555;
+  text-align: center;
+  width: 400px;
+  text-shadow: 0 1px 0 #fff; }
 
 html.ie6 .group {
   height: 1%; }

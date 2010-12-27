@@ -18,9 +18,12 @@ class PositionsController < ApplicationController
 
     if @position.save
       flash[:notice] = "Position has been created successfully."
+      respond_with @position, :location => new_position_stage_url(@position)
+    else
+      respond_with @position
     end
 
-    respond_with @position, :location => positions_url
+
   end
 
   def edit

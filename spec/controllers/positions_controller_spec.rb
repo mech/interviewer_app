@@ -69,9 +69,9 @@ describe PositionsController do
         flash[:notice].should == "Position has been created successfully."
       end
 
-      it "redirects to the positions index page" do
+      it "redirects to the new stage page" do
         post 'create', @valid_params
-        response.should redirect_to(:action => "index")
+        response.should redirect_to(new_position_stage_path(assigns(:position)))
       end
     end
 
