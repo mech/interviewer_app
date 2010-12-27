@@ -1,4 +1,4 @@
-class Job
+class Position
   include Mongoid::Document
   include Mongoid::Timestamps
   

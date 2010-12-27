@@ -3,5 +3,5 @@ class Stage
 
   field :position, :type => Integer
 
-  embedded_in :job, :inverse_of => :jobs
+  embedded_in :position, :inverse_of => :positions
 end

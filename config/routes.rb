@@ -1,6 +1,6 @@
 InterviewerApp::Application.routes.draw do
 
-  resources :jobs
+  resources :positions
 
   get "home/index"
 

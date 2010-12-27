@@ -1,0 +1,11 @@
+<% if @position.valid? -%>
+  location.href = "/positions";
+<% else %>
+  $("form.entry").find(".error_messages").remove();
+  $(".field_with_errors input").unwrap();
+
+  $("form.entry").prepend("<%= escape_javascript(render("shared/error_messages", :target => @position)) %>");
+  <% @position.errors.each do |attr, msg| -%>
+    $("#position_<%= attr %>").wrap('<div class="field_with_errors" />');
+  <% end -%>
+<% end -%>

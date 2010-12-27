@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "jobs/create.html.haml" do
+describe "positions/show.html.haml" do
   # pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe JobsController do
+describe PositionsController do
   render_views
 
   describe "GET 'index'" do
@@ -10,12 +10,12 @@ describe JobsController do
       response.should be_success
     end
 
-    it "assigns @jobs" do
+    it "assigns @positions" do
       get 'index'
-      assigns(:jobs).should be_empty
+      assigns(:positions).should be_empty
     end
 
-    it "jobs scoped to user's company"
+    it "positions scoped to user's company"
   end
 
   describe "GET 'show'" do
@@ -31,16 +31,16 @@ describe JobsController do
       response.should be_success
     end
 
-    it "assigns @job" do
+    it "assigns @position" do
       get 'new'
-      assigns(:job).should be_true
+      assigns(:position).should be_true
     end
   end
 
   describe "POST 'create'" do
     before do
       @valid_params = {
-        :job => {
+        :position => {
           :title => "Ruby developer",
           :description => "Looking for Ruby ninja",
           :location => "Tampines"
@@ -52,44 +52,44 @@ describe JobsController do
       
     end
 
-    context "when the job saves successfully" do
-      it "saves a new job" do
+    context "when the position saves successfully" do
+      it "saves a new position" do
         lambda {
           post 'create', @valid_params
-        }.should change(Job, :count).by(1)
+        }.should change(Position, :count).by(1)
       end
 
-      it "assigns @job" do
+      it "assigns @position" do
         post 'create', @valid_params
-        assigns(:job).should be_true
+        assigns(:position).should be_true
       end
 
       it "sets a flash[:notice] message" do
         post 'create', @valid_params
-        flash[:notice].should == "Job has been created successfully."
+        flash[:notice].should == "Position has been created successfully."
       end
 
-      it "redirects to the jobs index page" do
+      it "redirects to the positions index page" do
         post 'create', @valid_params
         response.should redirect_to(:action => "index")
       end
     end
 
-    context "when the job fails to save" do
+    context "when the position fails to save" do
       before do
         @invalid_params = @valid_params
-        @invalid_params[:job][:title] = nil
+        @invalid_params[:position][:title] = nil
       end
 
-      it "does not create a job" do
+      it "does not create a position" do
         lambda {
           post 'create', @invalid_params
-        }.should_not change(Job, :count)
+        }.should_not change(Position, :count)
       end
 
-      it "assigns @job" do
+      it "assigns @position" do
         post 'create', @invalid_params
-        assigns(:job).should_not be_nil
+        assigns(:position).should_not be_nil
       end
 
       it "renders the new template" do
@@ -99,7 +99,7 @@ describe JobsController do
 
       it "show all errors" do
         post 'create', @invalid_params
-        assigns(:job).errors.should_not be_empty
+        assigns(:position).errors.should_not be_empty
       end
     end
   end
@@ -114,7 +114,7 @@ describe JobsController do
   describe "POST 'update'" do
     it "should be successful" do
       post 'update', :id => 1
-      response.should redirect_to(jobs_path)
+      response.should redirect_to(positions_path)
     end
   end
 

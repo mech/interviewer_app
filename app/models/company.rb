@@ -5,5 +5,5 @@ class Company
   field :status,      :type => String, :default => "inactive"
   field :biz_reg_num, :type => String
 
-  referenced_in :job
+  referenced_in :position
 end

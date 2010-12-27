@@ -1,36 +1,36 @@
 %header#sub-action
-  
+
 
 #splitview-wrap.group
   %section#action
     = form_tag("/") do
-      = text_field_tag(:q, "", :class => "search", :placeholder => "Find jobs")
+      = text_field_tag(:q, "", :class => "search", :placeholder => "Find positions")
 
     %header
       %hgroup
-        %h1 JOB OPENINGS
+        %h1 POSITIONS
         = link_to("Options", "/", :class => "options")
         %small Last access 1 day ago
 
   %section#view
     .entry
       .guide
-        %h2 Open a new job for your next interview.
+        %h2 Open a new position for your next interview.
         You can prepare interview questions after this.
         %small= link_to "More on interview questions", "/help/interviews#questions"
 
       %header
-        %h1 New job
-      = form_for @job, :html => {:class => "entry"}, :remote => true do |f|
-        = render "shared/error_messages", :target => @job
+        %h1 New position
+      = form_for @position, :html => {:class => "entry"}, :remote => true do |f|
+        = render "shared/error_messages", :target => @position
         %fieldset
           %div
-            %label{:for => "job_title"}
-              Job title
+            %label{:for => "position_title"}
+              Title
             = f.text_field :title, :size => 40
 
           %div
-            %label{:for => "job_description"}
+            %label{:for => "position_description"}
               Description
               %small Requirements, salary, etc.
             = f.text_area :description, :rows => 10, :cols => 70
@@ -40,4 +40,4 @@
             = f.text_field :location, :size => 40
 
         %div.action
-          = f.submit "Add job", :class => "button"
+          = f.submit "Add position", :class => "button"

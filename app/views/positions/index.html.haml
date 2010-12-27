@@ -4,17 +4,17 @@
 #splitview-wrap.group
   %section#action
     = form_tag("/") do
-      = text_field_tag(:q, "", :class => "search", :placeholder => "Find jobs")
+      = text_field_tag(:q, "", :class => "search", :placeholder => "Find positions")
 
     %header
       %hgroup
-        %h1 JOB OPENINGS
+        %h1 POSITIONS
         = link_to("Options", "/", :class => "options")
         %small Last access 1 day ago
 
   %section#view
     .records
-      - if @jobs.blank?
+      - if @positions.blank?
         %p No positions yet.
       - else
         %table.records
@@ -23,9 +23,9 @@
               %th Title
               %th Location
           %tbody
-            - @jobs.each do |job|
+            - @positions.each do |position|
               %tr
                 %td.title
-                  %h1= link_to job.title, job
-                  %p.desc{:title => job.description}= truncate job.description, 60
-                %td.location= job.location
+                  %h1= link_to position.title, position
+                  %p.desc{:title => position.description}= truncate position.description, 60
+                %td.location= position.location
