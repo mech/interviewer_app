@@ -361,13 +361,55 @@ div.entry {
   .question_guide {
     background: url('/images/question_guide.png') no-repeat;
     
+    .points {
+      float: right;
+      position: relative; top: -1em;
+      padding: 5px;
+      font-weight: bold;
+    }
   }
+}
 
-  .points {
-    float: right;
-    position: relative; top: -1em;
-    padding: 5px;
-    font-weight: bold;
+.questions {
+  .question {
+    @include rounded-corner(3px);
+    background: #fff;
+    border: 1px solid #c7c7c7;
+    width: 748px;
+
+    .no {
+      padding: 5px;
+      float: left;
+      width: 50px;
+      font-size: 150%;
+      color: #888;
+      text-align: center;
+      background: #e0e0e0;
+      border-right: 1px solid #c7c7c7;
+      border-bottom: 1px solid #c7c7c7;
+      text-shadow: 0 1px 0 #fff;
+    }
+
+    .entry {
+      padding: 5px;
+      float: left;
+
+      h2 {
+        font-size: 120%;
+      }
+    }
+
+    .points {
+      background: url('/images/drag_handle.gif') 90px center no-repeat;
+      padding: 5px;
+      float: right;
+      width: 100px;
+      cursor: move;
+
+      input {
+        width: 40px;
+      }
+    }
   }
 }
 
@@ -397,24 +439,6 @@ form.entry {
     }
   }
 
-  input[type='text'], input[type='password'], textarea {
-    @include rounded-corner(2px);
-    background: #fefefe;
-    margin: 0; padding: 4px;
-    border-top: 1px solid #8e8e8e; border-left: 1px solid #8e8e8e; border-bottom: 1px solid #e1e1e1; border-right: 1px solid #e1e1e1;
-    font-family: Arial, sans-serif;
-    font-size: 100%;
-    color: #555;
-    resize:none;
-  }
-
-  input[type='text']:focus, input[type='password']:focus, textarea:focus {
-    @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
-    background-color: #fefeee;
-    border: 1px solid #777;
-    outline: 0;
-  }
-
   .action {
     margin: 0px -10px -10px -10px;
     padding: 5px;
@@ -428,6 +452,24 @@ form.entry {
       border: 1px solid #d94349;
     }
   }
+}
+
+input[type='text'], input[type='password'], textarea {
+  @include rounded-corner(2px);
+  background: #fefefe;
+  margin: 0; padding: 4px;
+  border-top: 1px solid #8e8e8e; border-left: 1px solid #8e8e8e; border-bottom: 1px solid #e1e1e1; border-right: 1px solid #e1e1e1;
+  font-family: Arial, sans-serif;
+  font-size: 100%;
+  color: #555;
+  resize:none;
+}
+
+input[type='text']:focus, input[type='password']:focus, textarea:focus {
+  @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+  background-color: #fefeee;
+  border: 1px solid #777;
+  outline: 0;
 }
 
 a.fw {

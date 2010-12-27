@@ -20,4 +20,12 @@
         .points
           50 points
 
-      
+      .questions
+        .question#qn_1.group
+          = form_for [@position, @stage], :remote => true do |f|
+            .no 1
+            .entry
+              
+            .points
+              = f.text_field :points, :size => 2, :maxlength => 3
+              pts

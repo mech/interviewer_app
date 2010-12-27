@@ -2,7 +2,7 @@ class StagesController < ApplicationController
   before_filter :find_position
 
   def new
-    
+    @stage = Stage.new
   end
 
   private

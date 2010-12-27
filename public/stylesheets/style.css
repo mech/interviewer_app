@@ -416,12 +416,44 @@ div.entry {
       font-size: 100%; }
   div.entry .question_guide {
     background: url("/images/question_guide.png") no-repeat; }
-  div.entry .points {
-    float: right;
-    position: relative;
-    top: -1em;
+    div.entry .question_guide .points {
+      float: right;
+      position: relative;
+      top: -1em;
+      padding: 5px;
+      font-weight: bold; }
+
+.questions .question {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background: #fff;
+  border: 1px solid #c7c7c7;
+  width: 748px; }
+  .questions .question .no {
     padding: 5px;
-    font-weight: bold; }
+    float: left;
+    width: 50px;
+    font-size: 150%;
+    color: #888;
+    text-align: center;
+    background: #e0e0e0;
+    border-right: 1px solid #c7c7c7;
+    border-bottom: 1px solid #c7c7c7;
+    text-shadow: 0 1px 0 #fff; }
+  .questions .question .entry {
+    padding: 5px;
+    float: left; }
+    .questions .question .entry h2 {
+      font-size: 120%; }
+  .questions .question .points {
+    background: url("/images/drag_handle.gif") 90px center no-repeat;
+    padding: 5px;
+    float: right;
+    width: 100px;
+    cursor: move; }
+    .questions .question .points input {
+      width: 40px; }
 
 form.entry {
   background: #fff;
@@ -443,28 +475,6 @@ form.entry {
       font-weight: normal;
       color: #999;
       display: block; }
-  form.entry input[type='text'], form.entry input[type='password'], form.entry textarea {
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    background: #fefefe;
-    margin: 0;
-    padding: 4px;
-    border-top: 1px solid #8e8e8e;
-    border-left: 1px solid #8e8e8e;
-    border-bottom: 1px solid #e1e1e1;
-    border-right: 1px solid #e1e1e1;
-    font-family: Arial, sans-serif;
-    font-size: 100%;
-    color: #555;
-    resize: none; }
-  form.entry input[type='text']:focus, form.entry input[type='password']:focus, form.entry textarea:focus {
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    background-color: #fefeee;
-    border: 1px solid #777;
-    outline: 0; }
   form.entry .action {
     margin: 0px -10px -10px -10px;
     padding: 5px;
@@ -473,6 +483,30 @@ form.entry {
     text-align: right; }
   form.entry .field_with_errors input[type=text] {
     border: 1px solid #d94349; }
+
+input[type='text'], input[type='password'], textarea {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background: #fefefe;
+  margin: 0;
+  padding: 4px;
+  border-top: 1px solid #8e8e8e;
+  border-left: 1px solid #8e8e8e;
+  border-bottom: 1px solid #e1e1e1;
+  border-right: 1px solid #e1e1e1;
+  font-family: Arial, sans-serif;
+  font-size: 100%;
+  color: #555;
+  resize: none; }
+
+input[type='text']:focus, input[type='password']:focus, textarea:focus {
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: #fefeee;
+  border: 1px solid #777;
+  outline: 0; }
 
 a.fw {
   background: url("/images/arrow.gif") right center no-repeat;
