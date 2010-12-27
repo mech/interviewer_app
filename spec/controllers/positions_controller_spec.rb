@@ -71,7 +71,7 @@ describe PositionsController do
 
       it "redirects to the new stage page" do
         post 'create', @valid_params
-        response.should redirect_to(new_position_stage_path(assigns(:position)))
+        response.should redirect_to(position_stage_path(assigns(:position), 1))
       end
     end
 

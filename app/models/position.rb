@@ -1,6 +1,8 @@
 class Position
   include Mongoid::Document
   include Mongoid::Timestamps
+
+  before_create :stage_one
   
   field :title,       :type => String
   field :status,      :type => String, :default => "open"
@@ -17,4 +19,10 @@ class Position
 
   scope :open, where(:status => "open")
   scope :closed, where(:status => "closed")
+
+  protected
+
+  def stage_one
+    self.stages.build(:points => 0)
+  end
 end

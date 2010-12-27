@@ -1,0 +1,31 @@
+%header#sub-action
+
+
+#splitview-wrap.group
+  %section#action
+    = form_tag("/") do
+      = text_field_tag(:q, "", :class => "search", :placeholder => "Find positions")
+
+    %header
+      %hgroup
+        %h1 POSITIONS
+        = link_to("Options", "/", :class => "options")
+        %small Last access 1 day ago
+
+  %section#view
+    .entry
+      .question_guide
+        %h2 Stage #{@stage_index} interview
+        = link_to @position.title, @position, :class => "fw"
+        .points
+          50 points
+
+      .questions
+        .question#qn_1.group
+          = form_for [@position, @question], :remote => true do |f|
+            .no 1
+            .entry
+
+            .points
+              = f.text_field :points, :size => 2, :maxlength => 3
+              pts

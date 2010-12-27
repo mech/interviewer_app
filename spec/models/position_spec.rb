@@ -1,11 +1,15 @@
 require 'spec_helper'
 
 describe Position do
-  let(:valid_position) { Position.new(:title => "Ruby developer", :company => Company.new) }
+  let(:valid_position) { Position.create(:title => "Ruby developer") }
 
   describe "valid position" do
     it "should be valid with valid attributes" do
       valid_position.should be_valid
+    end
+
+    it "should have stage number one automatically" do
+      valid_position.should have(1).stages
     end
   end
 
@@ -29,8 +33,6 @@ describe Position do
       valid_position.should have(1).error_on(:company)
     end
   end
-
-  it "location can be geocoded"
 
   context "closed position" do
     it "should not accept any more interview"
