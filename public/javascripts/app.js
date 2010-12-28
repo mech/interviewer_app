@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Tue, 28 Dec 2010 12:03:31 GMT from
+/* DO NOT MODIFY. This file was compiled Tue, 28 Dec 2010 12:51:31 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -15,7 +15,13 @@
     $("nav li").hover(sub_show, sub_hide);
     return $(".sortable").sortable({
       axis: 'y',
-      items: 'li'
+      items: 'li',
+      handle: '.points',
+      opacity: 0.6,
+      scroll: true,
+      update: function() {
+        return alert("haha");
+      }
     });
   });
 }).call(this);

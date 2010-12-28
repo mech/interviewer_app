@@ -13,6 +13,9 @@ class QuestionsController < ApplicationController
 
   def create
     if @stage
+      @question = @stage.questions.build(params[:question])
+      @question.save
+      respond_with @question
     end
   end
 
@@ -24,6 +27,6 @@ class QuestionsController < ApplicationController
   end
 
   def find_stage
-    @stage = @position.stage_at(params[:id]) if @position
+    @stage = @position.stage_at(params[:stage_id]) if @position
   end
 end

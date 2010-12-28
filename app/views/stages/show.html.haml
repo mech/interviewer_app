@@ -21,5 +21,4 @@
           50 points
 
       %ul#questions.sortable
-        - (1..5).each do |index|
-          = render "questions/question", :question => @question, :position => @position, :stage => @stage, :index => index
+        = render "questions/question", :question => @question, :position => @position, :stage => @stage, :index => 1

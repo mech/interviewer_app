@@ -456,8 +456,15 @@ div.entry {
       float: left; }
       #questions .question .entry h2 {
         font-size: 120%; }
+      #questions .question .entry .error_messages h2 {
+        font-size: 100%; }
       #questions .question .entry textarea {
         width: 400px; }
+      #questions .question .entry .button {
+        padding: 4px 5px;
+        font-size: 90%; }
+      #questions .question .entry .field_with_errors input[type=text] {
+        border: 1px solid #d94349; }
     #questions .question .points {
       background: url("/images/drag_handle.gif") 90px center no-repeat;
       padding: 5px;
@@ -627,7 +634,7 @@ table.records {
   padding: 5px;
   margin-bottom: 1em; }
   .error_messages h2 {
-    background: transparent url("/images/alert.png") 3px 2px no-repeat;
+    background: transparent url("/images/s_alert.png") 3px 2px no-repeat;
     padding-left: 22px;
     color: #d94349; }
   .error_messages ul {

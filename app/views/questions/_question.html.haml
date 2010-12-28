@@ -3,6 +3,7 @@
     .no= index
     .entry
       %fieldset
+        = f.hidden_field :index, :value => index
         %div
           = f.label :category
           = f.select :category, StageQuestion::CATEGORIES
@@ -12,8 +13,8 @@
         %div
           = f.label :answer, "Expected answer"
           = f.text_area :answer, :rows => 3, :cols => 70
-        %div
-          = f.submit "Add", :class => "button"
+      %div.action
+        = f.submit "Add question", :class => "button"
     .points
       = f.text_field :points, :size => 2, :maxlength => 3
       pts

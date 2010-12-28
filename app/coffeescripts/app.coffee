@@ -8,5 +8,10 @@ $ ->
 
   $(".sortable").sortable({
     axis: 'y',
-    items: 'li'
+    items: 'li',
+    handle: '.points',
+    opacity: 0.6,
+    scroll: true,
+    update: ->
+      alert "haha"
   })

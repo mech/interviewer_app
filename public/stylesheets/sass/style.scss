@@ -411,7 +411,20 @@ div.entry {
         font-size: 120%;
       }
 
+      .error_messages h2 { font-size: 100%; }
+
       textarea { width: 400px; }
+
+      .button {
+        padding: 4px 5px;
+        font-size: 90%;
+      }
+
+      .field_with_errors {
+        input[type=text] {
+          border: 1px solid #d94349;
+        }
+      }
     }
 
     .points {
@@ -579,7 +592,7 @@ table.records {
   padding: 5px; margin-bottom: 1em;
 
   h2 {
-    background: transparent url('/images/alert.png') 3px 2px no-repeat;
+    background: transparent url('/images/s_alert.png') 3px 2px no-repeat;
     padding-left: 22px;
     color: #d94349;
   }
