@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Fri, 24 Dec 2010 07:57:19 GMT from
+/* DO NOT MODIFY. This file was compiled Tue, 28 Dec 2010 12:03:31 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -12,6 +12,10 @@
     sub_hide = function() {
       return $(this).find("ul.sub").hide();
     };
-    return $("nav li").hover(sub_show, sub_hide);
+    $("nav li").hover(sub_show, sub_hide);
+    return $(".sortable").sortable({
+      axis: 'y',
+      items: 'li'
+    });
   });
 }).call(this);

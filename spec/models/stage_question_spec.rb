@@ -20,15 +20,5 @@ describe StageQuestion do
       valid_stage_question.should_not be_valid
       valid_stage_question.should have(1).error_on(:question)
     end
-
-    it "should have an answer" do
-      valid_stage_question.answer= nil
-      valid_stage_question.should_not be_valid
-      valid_stage_question.should have(1).error_on(:answer)
-    end
-  end
-
-  describe "#incre" do
-
   end
 end

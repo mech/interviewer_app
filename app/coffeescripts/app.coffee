@@ -6,4 +6,7 @@ $ ->
 
   $("nav li").hover sub_show, sub_hide
 
-  
+  $(".sortable").sortable({
+    axis: 'y',
+    items: 'li'
+  })

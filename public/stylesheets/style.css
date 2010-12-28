@@ -152,6 +152,9 @@ label, input[type=button], input[type=submit], button {
 button, input, select, textarea {
   margin: 0; }
 
+select {
+  padding: 2px; }
+
 input:invalid, textarea:invalid {
   border-radius: 1px;
   -moz-box-shadow: 0px 0px 5px red;
@@ -423,54 +426,61 @@ div.entry {
       padding: 5px;
       font-weight: bold; }
 
-.questions .question {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  background: #fff;
-  border: 1px solid #c7c7c7;
-  width: 748px; }
-  .questions .question .no {
-    padding: 5px;
-    float: left;
-    width: 50px;
-    font-size: 150%;
-    color: #888;
-    text-align: center;
-    background: #e0e0e0;
-    border-right: 1px solid #c7c7c7;
-    border-bottom: 1px solid #c7c7c7;
-    text-shadow: 0 1px 0 #fff; }
-  .questions .question .entry {
-    padding: 5px;
-    float: left; }
-    .questions .question .entry h2 {
-      font-size: 120%; }
-    .questions .question .entry textarea {
-      width: 400px; }
-  .questions .question .points {
-    background: url("/images/drag_handle.gif") 90px center no-repeat;
-    padding: 5px;
-    float: right;
-    width: 100px;
-    cursor: move; }
-    .questions .question .points input {
-      width: 40px; }
-  .questions .question form fieldset > div {
-    margin-bottom: 1em; }
-  .questions .question form label {
-    padding-right: 5px;
-    cursor: pointer;
-    font-size: 110%;
-    font-weight: bold;
-    float: left;
-    text-align: right;
-    width: 80px; }
-    .questions .question form label small {
-      font-size: 85%;
-      font-weight: normal;
-      color: #999;
-      display: block; }
+#questions {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  #questions .question {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #fff;
+    border: 1px solid #c7c7c7;
+    width: 748px;
+    margin-bottom: 10px; }
+    #questions .question:last-child {
+      margin-bottom: 0px; }
+    #questions .question .no {
+      padding: 5px;
+      float: left;
+      width: 50px;
+      font-size: 150%;
+      color: #888;
+      text-align: center;
+      background: #e0e0e0;
+      border-right: 1px solid #c7c7c7;
+      border-bottom: 1px solid #c7c7c7;
+      text-shadow: 0 1px 0 #fff; }
+    #questions .question .entry {
+      padding: 5px;
+      float: left; }
+      #questions .question .entry h2 {
+        font-size: 120%; }
+      #questions .question .entry textarea {
+        width: 400px; }
+    #questions .question .points {
+      background: url("/images/drag_handle.gif") 90px center no-repeat;
+      padding: 5px;
+      float: right;
+      width: 100px;
+      cursor: move; }
+      #questions .question .points input {
+        width: 40px; }
+    #questions .question form fieldset > div {
+      margin-bottom: 1em; }
+    #questions .question form label {
+      padding-right: 5px;
+      cursor: pointer;
+      font-size: 110%;
+      font-weight: bold;
+      float: left;
+      text-align: right;
+      width: 80px; }
+      #questions .question form label small {
+        font-size: 85%;
+        font-weight: normal;
+        color: #999;
+        display: block; }
 
 form.entry {
   background: #fff;

@@ -1,0 +1,19 @@
+%li.question.group{:id => "qn_#{index}"}
+  = form_for :question, :url => position_stage_questions_path(position, stage.stage_number), :remote => true do |f|
+    .no= index
+    .entry
+      %fieldset
+        %div
+          = f.label :category
+          = f.select :category, StageQuestion::CATEGORIES
+        %div
+          = f.label :question
+          = f.text_field :question, :size => 50
+        %div
+          = f.label :answer, "Expected answer"
+          = f.text_area :answer, :rows => 3, :cols => 70
+        %div
+          = f.submit "Add", :class => "button"
+    .points
+      = f.text_field :points, :size => 2, :maxlength => 3
+      pts
