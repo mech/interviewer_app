@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Position do
   let(:valid_position) { Position.create(:title => "Ruby developer") }
 
-  describe "valid position" do
+  describe "validations" do
     it "should be valid with valid attributes" do
       valid_position.should be_valid
     end
@@ -11,9 +11,7 @@ describe Position do
     it "should have stage number one automatically" do
       valid_position.should have(1).stages
     end
-  end
-
-  describe "invalid position" do
+    
     it "should have a title" do
       valid_position.title = nil
       valid_position.should_not be_valid
@@ -42,7 +40,15 @@ describe Position do
     it "should allow searching"
   end
 
-  describe "#to_json" do
-    it "should provide JSON representation"
+  describe "#stage_at" do
+    it "should accept one Integer argument" do
+      lambda {
+        valid_position.stage_at
+      }.should raise_exception(ArgumentError)
+    end
+
+    it "should return nil if position argument is nil" do
+      valid_position.stage_at(nil).should be_nil
+    end
   end
 end

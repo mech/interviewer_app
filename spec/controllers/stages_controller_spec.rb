@@ -18,4 +18,21 @@ describe StagesController do
       assigns(:position).should be_true
     end
   end
+
+  describe "GET 'show'" do
+    it "should be successful" do
+      get 'show', :position_id => @position.id, :id => 1
+      response.should be_success
+    end
+
+    it "assigns @stage_index" do
+      get 'show', :position_id => @position.id, :id => 1
+      assigns(:stage_index).should == 1
+    end
+
+    it "assigns @question" do
+      get 'show', :position_id => @position.id, :id => 1
+      assigns(:question).should be_true
+    end
+  end
 end

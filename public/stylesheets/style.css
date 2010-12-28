@@ -173,7 +173,7 @@ input:invalid, textarea:invalid {
   text-shadow: none; }
 
 a:link {
-  -webkit-tap-highlight-color: #FF5E99; }
+  -webkit-tap-highlight-color: #99ccff; }
 
 button {
   width: auto;
@@ -446,6 +446,8 @@ div.entry {
     float: left; }
     .questions .question .entry h2 {
       font-size: 120%; }
+    .questions .question .entry textarea {
+      width: 400px; }
   .questions .question .points {
     background: url("/images/drag_handle.gif") 90px center no-repeat;
     padding: 5px;

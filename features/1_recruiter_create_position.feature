@@ -10,9 +10,4 @@ Feature: Recruiter create position
       | Description | Looking for Ruby ninja  |
       | Location    | Tampines                |
     And I press "Add position"
-    Then I should see "Position has been created successfully"
-
-  # Scenario: Categorize position
-  #   Given position is not categorized
-  #   When I select "IT" from "category"
-  #   Then position will be organized
+    Then I should see "Position has been created successfully"  

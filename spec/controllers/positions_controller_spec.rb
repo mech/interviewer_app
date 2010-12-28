@@ -97,7 +97,7 @@ describe PositionsController do
         response.should render_template("new")
       end
 
-      it "show all errors" do
+      it "shows all errors" do
         post 'create', @invalid_params
         assigns(:position).errors.should_not be_empty
       end

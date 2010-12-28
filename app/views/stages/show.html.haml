@@ -22,7 +22,7 @@
 
       .questions
         .question#qn_1.group
-          = form_for @question, :url => position_stage_questions_path(@position, @stage.stage_number), :remote => true do |f|
+          = form_for :question, :url => position_stage_questions_path(@position, @stage.stage_number), :remote => true do |f|
             .no 1
             .entry
               %fieldset

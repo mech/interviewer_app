@@ -65,7 +65,7 @@ input:invalid, textarea:invalid { border-radius: 1px;  -moz-box-shadow: 0px 0px 
 
 ::-moz-selection{ background: #99ccff; color:#fff; text-shadow: none; }
 ::selection { background:#99ccff; color:#fff; text-shadow: none; }
-a:link { -webkit-tap-highlight-color: #FF5E99; }
+a:link { -webkit-tap-highlight-color: #99ccff; }
 
 button {  width: auto; overflow: visible; }
 .ie7 img { -ms-interpolation-mode: bicubic; }
@@ -401,6 +401,8 @@ div.entry {
       h2 {
         font-size: 120%;
       }
+
+      textarea { width: 400px; }
     }
 
     .points {

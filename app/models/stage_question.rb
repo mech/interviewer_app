@@ -10,4 +10,6 @@ class StageQuestion
   CATEGORIES = ["Open-ended", "Direct", "Technical", "Teamwork"]
 
   embedded_in :stage, :inverse_of => :questions
+
+  validates_presence_of :question, :answer
 end
