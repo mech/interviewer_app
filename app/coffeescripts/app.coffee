@@ -13,5 +13,20 @@ $ ->
     opacity: 0.6,
     scroll: true,
     update: ->
-      alert "haha"
+      alert "re-ordering..."
   })
+  
+  $("ul#questions form").bind(
+    "ajax:beforeSend",
+    ->
+      $("ul#questions").animate({opacity: 0.3})
+      $("ul#questions .loading").show()
+
+  )
+
+  $("ul#questions form").bind(
+    "ajax:complete",
+    ->
+      $("ul#questions").animate({opacity: 1.0})
+      $("ul#questions .loading").hide()
+  )

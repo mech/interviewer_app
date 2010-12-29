@@ -20,5 +20,7 @@
         .points
           50 points
 
+      %p.trash= link_to "Remove all questions", [@position, @stage, :stage_questions], :confirm => "This will remove all questions for this stage. Proceed?", :method => :delete
+
       %ul#questions.sortable
         = render "stage_questions/questions", :stage => @stage

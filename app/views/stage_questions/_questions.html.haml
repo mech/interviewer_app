@@ -1,2 +1,3 @@
+= image_tag("spinner.gif", :class => "loading")
 - stage.ordered_stage_questions.each_with_index do |stage_question, index|
   = render "stage_questions/question", :stage_question => stage_question, :stage => stage, :index => stage_question.question_number || (index + 1)

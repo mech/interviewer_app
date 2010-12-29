@@ -4,6 +4,17 @@ class StageQuestionsController < ApplicationController
   before_filter :find_position
   before_filter :find_stage
 
+  def index
+    if @stage
+      @stage_questions = @stage.stage_questions
+
+      if request.delete?
+        @stage_questions.delete_all
+        respond_with [@position, @stage]
+      end
+    end
+  end
+
   def create
     if @stage
       @index = params[:stage_question][:index]

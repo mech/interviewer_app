@@ -1,6 +1,16 @@
 <% if @stage_question.valid? && !@stage_question.new_record? -%>
   <%- @stage_question = @stage.stage_questions.build %>
   $("ul#questions").html("<%= escape_javascript(render("stage_questions/questions", :stage => @stage)) %>");
+  $("ul#questions").animate({opacity: 1.0});
+  $("ul#questions form").bind("ajax:beforeSend", function() {
+    $("ul#questions").animate({opacity: 0.3});
+    $("ul#questions .loading").show();
+  });
+
+  $("ul#questions form").bind("ajax:complete", function() {
+    $("ul#questions").animate({opacity: 1.0});
+    $("ul#questions .loading").hide();
+  });
 <% else %>
   $("#qn_<%= @index %> form .entry").find(".error_messages").remove();
   $(".field_with_errors input").unwrap();

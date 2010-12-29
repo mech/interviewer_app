@@ -36,6 +36,8 @@ body, select, input, textarea {   color: #444; }
 h1,h2,h3,h4,h5,h6 { font-weight: bold; }
 html { overflow-y: scroll; }
 
+p { margin-bottom: 5px; }
+
 a:hover, a:active { outline: none; }
 a, a:active, a:visited { color: #0283c5; }
 a:hover { color: #2d68a5; }
@@ -337,6 +339,7 @@ section#view {
 
 div.entry {
   padding: 10px;
+  position: relative;
 
   header {
     @include rounded-top-corner(3px);
@@ -378,8 +381,12 @@ div.entry {
 #questions {
   list-style: none;
   margin: 0; padding: 0;
+  position: relative;
   
   .question {
+    font-size: 90%;
+    position: relative;
+    
     @include rounded-corner(3px);
     background: #fff;
     border: 1px solid #c7c7c7;
@@ -395,6 +402,7 @@ div.entry {
       float: left;
       width: 50px;
       font-size: 150%;
+      font-weight: bold;
       color: #888;
       text-align: center;
       background: #e0e0e0;
@@ -582,7 +590,17 @@ table.records {
   }
 }
 
+.trash {
+  background: url('/images/13_icons.png') 0 -78px no-repeat;
+  padding-left: 15px;
+}
 
+img.loading {
+  display: none;
+  margin-top: 2em; margin-left: 50%;
+  position: absolute;
+  z-index: 90;
+}
 
 
 

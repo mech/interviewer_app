@@ -16,9 +16,6 @@ jQuery(function ($) {
          * Triggers a custom event on an element and returns the event result
          * this is used to get around not being able to ensure callbacks are placed
          * at the end of the chain.
-         *
-         * TODO: deprecate with jQuery 1.4.2 release, in favor of subscribing to our
-         *       own events and placing ourselves at the end of the chain.
          */
         triggerAndReturn: function (name, data) {
             var event = new $.Event(name);
@@ -30,10 +27,10 @@ jQuery(function ($) {
         /**
          * Handles execution of remote calls. Provides following callbacks:
          *
-         * - ajax:beforeSend  - is executed before firing ajax call
-         * - ajax:success  - is executed when status is success
-         * - ajax:complete - is executed when the request finishes, whether in failure or success.
-         * - ajax:error    - is execute in case of error
+         * - ajax:beforeSend - is executed before firing ajax call
+         * - ajax:success	 - is executed when status is success
+         * - ajax:complete   - is executed when the request finishes, whether in failure or success
+         * - ajax:error      - is execute in case of error
          */
         callRemote: function () {
             var el      = this,
@@ -52,9 +49,13 @@ jQuery(function ($) {
                         dataType: dataType,
                         type: method.toUpperCase(),
                         beforeSend: function (xhr) {
-                            xhr.setRequestHeader("Accept", "text/javascript");
                             if ($this.triggerHandler('ajax:beforeSend') === false) {
                               return false;
+                            }
+                           // if user has used jQuery.ajaxSetup then call beforeSend callback
+                            var beforeSendGlobalCallback =  $.ajaxSettings && $.ajaxSettings.beforeSend;
+                            if (beforeSendGlobalCallback !== undefined) {
+                                beforeSendGlobalCallback(xhr);
                             }
                         },
                         success: function (data, status, xhr) {
@@ -72,9 +73,8 @@ jQuery(function ($) {
     });
 
     /**
-     *  confirmation handler
+     * confirmation handler
      */
-
     $('body').delegate('a[data-confirm], button[data-confirm], input[data-confirm]', 'click.rails', function () {
         var el = $(this);
         if (el.triggerAndReturn('confirm')) {
@@ -155,6 +155,5 @@ jQuery(function ($) {
 	if (!( (jqueryVersion === '1.4.3') || (jqueryVersion === '1.4.4'))){
 		alert('This rails.js does not support the jQuery version you are using. Please read documentation.');
 	}
-
 
 });

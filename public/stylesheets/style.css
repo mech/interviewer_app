@@ -86,6 +86,9 @@ h1, h2, h3, h4, h5, h6 {
 html {
   overflow-y: scroll; }
 
+p {
+  margin-bottom: 5px; }
+
 a:hover, a:active {
   outline: none; }
 
@@ -394,7 +397,8 @@ section#view {
   border-left: 1px solid #bfbfbf; }
 
 div.entry {
-  padding: 10px; }
+  padding: 10px;
+  position: relative; }
   div.entry header {
     -webkit-border-top-left-radius: 3px;
     -webkit-border-top-right-radius: 3px;
@@ -429,8 +433,11 @@ div.entry {
 #questions {
   list-style: none;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  position: relative; }
   #questions .question {
+    font-size: 90%;
+    position: relative;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -445,6 +452,7 @@ div.entry {
       float: left;
       width: 50px;
       font-size: 150%;
+      font-weight: bold;
       color: #888;
       text-align: center;
       background: #e0e0e0;
@@ -625,6 +633,17 @@ table.records {
   table.records tbody tr td.location {
     background: url("/images/13_icons.png") 5px -44px no-repeat;
     padding-left: 20px; }
+
+.trash {
+  background: url("/images/13_icons.png") 0 -78px no-repeat;
+  padding-left: 15px; }
+
+img.loading {
+  display: none;
+  margin-top: 2em;
+  margin-left: 50%;
+  position: absolute;
+  z-index: 90; }
 
 .error_messages {
   -webkit-border-radius: 3px;
