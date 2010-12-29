@@ -1,4 +1,5 @@
 <% if @stage_question.valid? && !@stage_question.new_record? -%>
+  <%- @stage_question = @stage.stage_questions.build %>
   $("ul#questions").html("<%= escape_javascript(render("stage_questions/questions", :stage => @stage)) %>");
 <% else %>
   $("#qn_<%= @index %> form .entry").find(".error_messages").remove();
