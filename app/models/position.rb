@@ -11,7 +11,7 @@ class Position
   field :salary,      :type => BigDecimal
 
   references_one :company
-  embed_many :stages
+  embeds_many :stages
 
   validates_presence_of :title, :status#, :company
 

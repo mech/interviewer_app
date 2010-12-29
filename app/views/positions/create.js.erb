@@ -1,4 +1,4 @@
-<% if @position.valid? -%>
+<% if @position.valid? && !@position.new_record? -%>
   location.href = "<%= position_stage_url(@position, 1) %>";
 <% else %>
   $("form.entry").find(".error_messages").remove();

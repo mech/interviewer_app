@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe QuestionsController do
+describe StageQuestionsController do
   render_views
 
   describe "POST 'create'" do
     before do
       @valid_params = {
-        :question => {
+        :stage_question => {
           :question => "Explain to me meta-programming?",
           :answer => "Write code to write more code"
         }
@@ -18,15 +18,18 @@ describe QuestionsController do
     end
 
     context "save with stage" do
+      let(:valid_position) { Position.create(:title => "Ruby developer") }
+      let(:valid_stage) { valid_position.stages.first }
+
       it "saves a new question" do
         lambda {
-          xhr :post, 'create', @valid_params
+          xhr :post, 'create', @valid_params.merge({ :position_id => valid_position.id, :stage_id => valid_stage.stage_number }) 
         }.should change(StageQuestion, :count).by(1)
       end
 
-      it "assigns @question" do
+      it "assigns @stage_question" do
         xhr :post, 'create', @valid_params
-        assigns(:question).should be_true
+        assigns(:stage_question).should be_true
       end
 
       it "presents a new question form for next question sequence"

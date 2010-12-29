@@ -9,7 +9,7 @@ class StagesController < ApplicationController
   # params[:id] will be referring to the stage position
   def show
     @stage_index = params[:id]
-    @question = @stage.questions.build
+    @stage_question = @stage.stage_questions.build
   end
 
   private

@@ -1,5 +1,5 @@
-%li.question.group{:id => "qn_#{index}"}
-  = form_for :question, :url => position_stage_questions_path(position, stage.stage_number), :remote => true do |f|
+%li.question.group{:id => "qn_#{index}", :data => {"new-record" => stage_question.new_record?.to_s}}
+  = form_for [stage.position, stage, stage_question], :remote => true do |f|
     .no= index
     .entry
       %fieldset
