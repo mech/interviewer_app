@@ -16,14 +16,8 @@ class PositionsController < ApplicationController
   def create
     @position = Position.new(params[:position])
 
-    if @position.save
-      flash[:notice] = "Position has been created successfully."
-      respond_with @position, :location => position_stage_url(@position, 1)
-    else
-      respond_with @position
-    end
-
-
+    flash[:notice] = "Position has been created successfully." if @position.save
+    respond_with [@position, @position.stage_at(1)]
   end
 
   def edit

@@ -7,17 +7,17 @@
           = f.hidden_field :index, :value => index
           %div
             = f.label :category
-            = f.select :category, StageQuestion::CATEGORIES
+            = f.select :category, StageQuestion::CATEGORIES, :tabindex => 1
           %div
             = f.label :question
-            = f.text_field :question, :size => 50, :class => "first"
+            = f.text_field :question, :size => 50, :class => "first", :tabindex => 2
           %div
             = f.label :answer, "Expected answer"
-            = f.text_area :answer, :rows => 3, :cols => 70
+            = f.text_area :answer, :rows => 3, :cols => 70, :tabindex => 3
         %div.action
-          = f.submit "Add question", :class => "button"
+          = f.submit "Add question", :class => "button", :tabindex => 5
       .points
-        = f.text_field :points, :size => 2, :maxlength => 3
+        = f.text_field :points, :size => 2, :maxlength => 3, :tabindex => 4
         pts
   - else
     .no= index
