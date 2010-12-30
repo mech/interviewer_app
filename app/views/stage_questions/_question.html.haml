@@ -25,6 +25,9 @@
       %h2
         %span.cat= stage_question.category
         = stage_question.question
+      .mode
+        = link_to("edit", "/edit")
+        = link_to("remove", "/remove")
       :markdown
         #{stage_question.answer}
     .points

@@ -36,10 +36,19 @@ $ ->
     "focus",
     ->
       $(this).parents("li").addClass("active")
-  );
+  )
 
   $("ul#questions input, ul#questions textarea, ul#questions select").live(
     "blur",
     ->
       $(this).parents("li").removeClass("active")
-  );
+  )
+
+  $("ul#questions li").live(
+    "mouseover mouseout",
+    (evt) ->
+      if evt.type == 'mouseover'
+        $(this).find(".mode").show()
+      else
+        $(this).find(".mode").hide()
+  )

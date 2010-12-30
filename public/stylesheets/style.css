@@ -468,9 +468,11 @@ div.entry {
     #questions .question .entry {
       padding: 5px;
       float: left;
-      width: 550px; }
+      width: 550px;
+      position: relative; }
       #questions .question .entry h2 {
         font-size: 120%;
+        line-height: 150%;
         margin-bottom: 8px; }
         #questions .question .entry h2 span {
           -webkit-border-radius: 15px;
@@ -479,6 +481,32 @@ div.entry {
           background: #ccc;
           padding: 2px 5px;
           font-size: 80%; }
+      #questions .question .entry .mode {
+        display: none;
+        position: absolute;
+        top: 6px;
+        right: -60px;
+        background: #fff;
+        padding: 0 10px;
+        z-index: 1000; }
+        #questions .question .entry .mode a[href*="edit"] {
+          background: url("/images/13_icons.png") 0 -130px no-repeat;
+          display: block;
+          float: left;
+          width: 13px;
+          height: 13px;
+          text-indent: -99999px;
+          margin-right: 5px; }
+        #questions .question .entry .mode a[href*="remove"] {
+          background: url("/images/13_icons.png") 0 -156px no-repeat;
+          display: block;
+          float: left;
+          width: 13px;
+          height: 13px;
+          text-indent: -99999px; }
+        #questions .question .entry .mode a:active {
+          position: relative;
+          top: 1px; }
       #questions .question .entry p {
         margin-bottom: 5px;
         color: #666; }
