@@ -24,6 +24,12 @@ class StageQuestionsController < ApplicationController
     end
   end
 
+  def update
+    if @stage
+      @stage_question = @stage.stage_question_at(params[:id])
+    end
+  end
+
   private
 
   def find_position

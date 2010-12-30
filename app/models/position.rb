@@ -1,8 +1,9 @@
 class Position
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Exceptions
 
-  before_create :stage_one
+  before_create :create_stage_one
   
   field :title,       :type => String
   field :status,      :type => String, :default => "open"
@@ -20,18 +21,26 @@ class Position
   scope :open, where(:status => "open")
   scope :closed, where(:status => "closed")
 
-  # Return the stage at the position specified
+  # Get back the stage of the interview by numbered position
+  # Ideally we would want @position.stages[0], but better don't overwrite it
   #
   # @param [Integer] position
   # @return [Stage, nil] the stage at this position
   def stage_at(position)
     return nil if position.blank?
-    stages.where(:stage_number => position).limit(1).first
+    _stages = stages.where(:stage_number => position).limit(2) # 2 is enough for us to determine duplication
+
+    if _stages.count > 1
+      # TODO - Do internal fixing, self-heal 
+      raise RepeatedStageNumberError
+    else
+      _stages.first
+    end
   end
 
   protected
 
-  def stage_one
+  def create_stage_one
     self.stages.build(:points => 0, :stage_number => 1)
   end
 end

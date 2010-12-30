@@ -435,16 +435,22 @@ div.entry {
   margin: 0;
   padding: 0;
   position: relative; }
+  #questions li.active {
+    width: 746px;
+    border: 2px solid #0093ff;
+    -webkit-box-shadow: 0 1px 5px rgba(88, 166, 220, 0.8);
+    -moz-box-shadow: 0 1px 5px rgba(88, 166, 220, 0.8);
+    box-shadow: 0 1px 5px rgba(88, 166, 220, 0.8); }
   #questions .question {
-    font-size: 90%;
-    position: relative;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
     background: #fff;
-    border: 1px solid #c7c7c7;
     width: 748px;
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    font-size: 90%;
+    position: relative;
+    border: 1px solid #c7c7c7; }
     #questions .question:last-child {
       margin-bottom: 0px; }
     #questions .question .no {
@@ -635,7 +641,7 @@ table.records {
     padding-left: 20px; }
 
 .trash {
-  background: url("/images/13_icons.png") 0 -78px no-repeat;
+  background: url("/images/13_icons.png") 0 -104px no-repeat;
   padding-left: 15px; }
 
 img.loading {

@@ -33,22 +33,33 @@ describe Position do
   end
 
   context "closed position" do
-    it "should not accept any more interview"
+    it "refuses any more interviews"
   end
 
   describe "#search" do
-    it "should allow searching"
+    it "allows searching"
   end
 
   describe "#stage_at" do
-    it "should accept one Integer argument" do
+    before do
+      @stage_one = valid_position.stages.first
+      @stage_dup = valid_position.stages.create(:stage_number => 1, :points => 20)
+    end
+
+    it "accepts one Integer argument" do
       lambda {
         valid_position.stage_at
       }.should raise_exception(ArgumentError)
     end
 
-    it "should return nil if position argument is nil" do
+    it "returns nil if position argument is nil" do
       valid_position.stage_at(nil).should be_nil
+    end
+
+    it "raises RepeatedStageNumberError when finding more than one record" do
+      lambda {
+        valid_position.stage_at(1)
+      }.should raise_exception(Exceptions::RepeatedStageNumberError)
     end
   end
 end
