@@ -10,6 +10,7 @@ gem 'bson_ext'
 gem 'gravatar_image_tag'
 gem 'therubyracer', :require => false
 gem 'barista', "0.7.0.pre3"
+gem 'rdiscount'
 
 group :development, :test do
   gem 'rspec-rails'

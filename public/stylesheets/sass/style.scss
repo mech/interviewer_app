@@ -419,9 +419,23 @@ div.entry {
     .entry {
       padding: 5px;
       float: left;
+      width: 550px;
 
       h2 {
         font-size: 120%;
+        margin-bottom: 8px;
+
+        span {
+          @include rounded-corner(15px);
+          background: #ccc;
+          padding: 2px 5px;
+          font-size: 80%;
+        }
+      }
+
+      p {
+        margin-bottom: 5px;
+        color: #666;
       }
 
       .error_messages h2 { font-size: 100%; }
@@ -441,11 +455,12 @@ div.entry {
     }
 
     .points {
-      background: url('/images/drag_handle.gif') 90px center no-repeat;
-      padding: 5px;
+      background: url('/images/drag_handle.gif') 105px center no-repeat;
+      padding: 5px; padding-right: 30px;
       float: right;
-      width: 100px;
+      width: 90px;
       cursor: move;
+      text-align: right;
 
       input {
         width: 40px;

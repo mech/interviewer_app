@@ -55,12 +55,12 @@ describe PositionsController do
     context "when the position saves successfully" do
       it "saves a new position" do
         lambda {
-          post 'create', @valid_params
+          xhr :post, 'create', @valid_params
         }.should change(Position, :count).by(1)
       end
 
       it "assigns @position" do
-        post 'create', @valid_params
+        xhr :post, 'create', @valid_params
         assigns(:position).should be_true
       end
 

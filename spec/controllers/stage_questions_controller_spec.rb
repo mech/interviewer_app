@@ -23,12 +23,13 @@ describe StageQuestionsController do
 
       it "saves a new question" do
         lambda {
-          xhr :post, 'create', @valid_params.merge({ :position_id => valid_position.id, :stage_id => valid_stage.stage_number }) 
-        }.should change(StageQuestion, :count).by(1)
+          xhr :post, 'create', @valid_params.merge({ :position_id => valid_position.id, :stage_id => valid_stage.stage_number })
+          
+        }.should change(valid_position.stages.first.stage_questions, :count).by(1)
       end
 
       it "assigns @stage_question" do
-        xhr :post, 'create', @valid_params
+        xhr :post, 'create', @valid_params.merge({ :position_id => valid_position.id, :stage_id => valid_stage.stage_number })
         assigns(:stage_question).should be_true
       end
 

@@ -467,9 +467,21 @@ div.entry {
       text-shadow: 0 1px 0 #fff; }
     #questions .question .entry {
       padding: 5px;
-      float: left; }
+      float: left;
+      width: 550px; }
       #questions .question .entry h2 {
-        font-size: 120%; }
+        font-size: 120%;
+        margin-bottom: 8px; }
+        #questions .question .entry h2 span {
+          -webkit-border-radius: 15px;
+          -moz-border-radius: 15px;
+          border-radius: 15px;
+          background: #ccc;
+          padding: 2px 5px;
+          font-size: 80%; }
+      #questions .question .entry p {
+        margin-bottom: 5px;
+        color: #666; }
       #questions .question .entry .error_messages h2 {
         font-size: 100%; }
       #questions .question .entry textarea {
@@ -480,11 +492,13 @@ div.entry {
       #questions .question .entry .field_with_errors input[type=text] {
         border: 1px solid #d94349; }
     #questions .question .points {
-      background: url("/images/drag_handle.gif") 90px center no-repeat;
+      background: url("/images/drag_handle.gif") 105px center no-repeat;
       padding: 5px;
+      padding-right: 30px;
       float: right;
-      width: 100px;
-      cursor: move; }
+      width: 90px;
+      cursor: move;
+      text-align: right; }
       #questions .question .points input {
         width: 40px; }
     #questions .question form fieldset > div {
