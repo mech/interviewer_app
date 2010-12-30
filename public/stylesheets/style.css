@@ -434,7 +434,10 @@ div.entry {
   list-style: none;
   margin: 0;
   padding: 0;
-  position: relative; }
+  position: relative;
+  /*li[data-new-record=false]:hover {*/
+  /*background: url('/images/qn_bg.gif');*/
+  /*}*/ }
   #questions li.active {
     width: 746px;
     border: 2px solid #0093ff;
@@ -473,20 +476,21 @@ div.entry {
       #questions .question .entry h2 {
         font-size: 120%;
         line-height: 150%;
-        margin-bottom: 8px; }
+        margin-bottom: 8px;
+        color: #3a3a3a; }
         #questions .question .entry h2 span {
           -webkit-border-radius: 15px;
           -moz-border-radius: 15px;
           border-radius: 15px;
-          background: #ccc;
+          background: #e33b28;
           padding: 2px 5px;
-          font-size: 80%; }
+          font-size: 70%;
+          color: #fff; }
       #questions .question .entry .mode {
         display: none;
         position: absolute;
         top: 6px;
         right: -60px;
-        background: #fff;
         padding: 0 10px;
         z-index: 1000; }
         #questions .question .entry .mode a[href*="edit"] {
@@ -509,7 +513,8 @@ div.entry {
           top: 1px; }
       #questions .question .entry p {
         margin-bottom: 5px;
-        color: #666; }
+        color: #666;
+        font-size: 110%; }
       #questions .question .entry .error_messages h2 {
         font-size: 100%; }
       #questions .question .entry textarea {

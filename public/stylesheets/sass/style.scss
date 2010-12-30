@@ -426,19 +426,20 @@ div.entry {
         font-size: 120%;
         line-height: 150%;
         margin-bottom: 8px;
+        color: #3a3a3a;
 
         span {
           @include rounded-corner(15px);
-          background: #ccc;
+          background: #e33b28;
           padding: 2px 5px;
-          font-size: 80%;
+          font-size: 70%;
+          color: #fff;
         }
       }
 
       .mode {
         display: none;
         position: absolute; top: 6px; right: -60px;
-        background: #fff;
         padding: 0 10px;
         z-index: 1000;
 
@@ -463,6 +464,7 @@ div.entry {
       p {
         margin-bottom: 5px;
         color: #666;
+        font-size: 110%;
       }
 
       .error_messages h2 { font-size: 100%; }
