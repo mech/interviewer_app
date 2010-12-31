@@ -33,4 +33,20 @@ class Stage
       _stage_questions.first
     end
   end
+
+  def sort_questions(ordering_layout=[])
+    if ordering_layout.blank?
+      ordered_stage_questions.each_with_index do |question, index|
+        question.question_number = index + 1
+      end
+
+      self.save
+    else
+      ordered_stage_questions.each do |question|
+        question.question_number = ordering_layout.find_index(question.question_number) + 1
+      end
+
+      self.save
+    end
+  end
 end

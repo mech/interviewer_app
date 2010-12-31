@@ -13,8 +13,8 @@ $ ->
     handle: '.points',
     opacity: 0.6,
     scroll: true,
-    update: ->
-      alert "re-ordering..."
+    update: (evt, ui)->
+      console.log $(this).sortable('serialize')
   })
   
   $("ul#questions form").bind(

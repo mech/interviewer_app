@@ -4,10 +4,6 @@ describe Stage do
   let(:valid_position) { Position.create(:title => "Ruby developer") }
   let(:stage_one) { valid_position.stage_at(1) }
 
-  describe "#questions" do
-    it "house a series of interview questions"
-  end
-
   describe "#next_stage" do
     it "knows its next stage given enough point"
 
@@ -21,7 +17,43 @@ describe Stage do
   end
   
   describe "#leader" do
-    it "should know who is the leader on this stage"
+    it "should know who is the leader at this stage"
+  end
+
+  describe "#sort_questions" do
+    before do
+      @pos_1 = stage_one.stage_questions.create(:question => "Position 1")
+      @pos_2 = stage_one.stage_questions.create(:question => "Position 2")
+      @pos_3 = stage_one.stage_questions.create(:question => "Position 3")
+    end
+
+    it "sorts the questions given the ordering layout 3, 1, 2" do
+      stage_one.sort_questions([3, 1, 2])
+      @pos_1.question_number.should == 2
+      @pos_2.question_number.should == 3
+      @pos_3.question_number.should == 1
+    end
+
+    it "sorts the questions given the ordering layout 1, 2, 3" do
+      stage_one.sort_questions([1, 2, 3])
+      @pos_1.question_number.should == 1
+      @pos_2.question_number.should == 2
+      @pos_3.question_number.should == 3
+    end
+
+    it "sorts the questions given the ordering layout 2, 1, 3" do
+      stage_one.sort_questions([2, 1, 3])
+      @pos_1.question_number.should == 2
+      @pos_2.question_number.should == 1
+      @pos_3.question_number.should == 3
+    end
+
+    it "sorts sequentially given nothing" do
+      stage_one.sort_questions
+      @pos_1.question_number.should == 1
+      @pos_2.question_number.should == 2
+      @pos_3.question_number.should == 3
+    end
   end
 
   describe "#stage_question_at" do
