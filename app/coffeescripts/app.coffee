@@ -17,18 +17,20 @@ $ ->
       $.post($("ul#questions").attr("data-sort-url"), $(this).sortable('serialize'))
   })
   
-  $("ul#questions form").bind(
+  $("li.question form").bind(
     "ajax:beforeSend",
     ->
-      $("ul#questions").animate({opacity: 0.3})
-      $("ul#questions .loading").show()
+      li = $(this).closest(".question")
+      li.animate({opacity: 0.3})
+      li.find(".loading").show()
   )
 
-  $("ul#questions form").bind(
+  $("li.question form").bind(
     "ajax:complete",
     ->
-      $("ul#questions").animate({opacity: 1.0})
-      $("ul#questions .loading").hide()
+      li = $(this).closest(".question")
+      li.animate({opacity: 1.0})
+      li.find(".loading").hide()
   )
 
   $("ul#questions input, ul#questions textarea, ul#questions select").live(
@@ -59,12 +61,12 @@ $ ->
       details_panel = entry_panel.find(".details")
       details_panel.hide()
       edit_form = entry_panel.find(".edit_form")
-      edit_form.fadeIn()
+      edit_form.slideDown("fast")
 
       edit_form.find("a.cancel").click(
         (e) ->
           edit_form.hide()
-          details_panel.fadeIn()
+          details_panel.show()
           e.preventDefault()
       )
 

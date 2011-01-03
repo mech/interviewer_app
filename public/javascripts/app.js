@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Mon, 03 Jan 2011 08:56:24 GMT from
+/* DO NOT MODIFY. This file was compiled Mon, 03 Jan 2011 11:32:43 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -24,17 +24,21 @@
         return $.post($("ul#questions").attr("data-sort-url"), $(this).sortable('serialize'));
       }
     });
-    $("ul#questions form").bind("ajax:beforeSend", function() {
-      $("ul#questions").animate({
+    $("li.question form").bind("ajax:beforeSend", function() {
+      var li;
+      li = $(this).closest(".question");
+      li.animate({
         opacity: 0.3
       });
-      return $("ul#questions .loading").show();
+      return li.find(".loading").show();
     });
-    $("ul#questions form").bind("ajax:complete", function() {
-      $("ul#questions").animate({
+    $("li.question form").bind("ajax:complete", function() {
+      var li;
+      li = $(this).closest(".question");
+      li.animate({
         opacity: 1.0
       });
-      return $("ul#questions .loading").hide();
+      return li.find(".loading").hide();
     });
     $("ul#questions input, ul#questions textarea, ul#questions select").live("focus", function() {
       return $(this).closest("li").addClass("active");
@@ -55,10 +59,10 @@
       details_panel = entry_panel.find(".details");
       details_panel.hide();
       edit_form = entry_panel.find(".edit_form");
-      edit_form.fadeIn();
+      edit_form.slideDown("fast");
       edit_form.find("a.cancel").click(function(e) {
         edit_form.hide();
-        details_panel.fadeIn();
+        details_panel.show();
         return e.preventDefault();
       });
       return evt.preventDefault();

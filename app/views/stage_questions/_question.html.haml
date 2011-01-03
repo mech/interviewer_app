@@ -1,5 +1,39 @@
-%li.question.group{:id => "qn_#{index}", :data => {"new-record" => stage_question.new_record?.to_s}, :class => stage_question.new_record? ? "active" : ""}
-  - if stage_question.new_record?
+- if stage_question.new_record?
+  = form_for [stage.position, stage, stage_question], :remote => true do |f|
+    .no= index
+    .entry
+      %fieldset
+        = f.hidden_field :index, :value => index
+        %div
+          = f.label :category
+          = f.select :category, StageQuestion::CATEGORIES, :tabindex => 1
+        %div
+          = f.label :question
+          = f.text_field :question, :size => 50, :class => "first", :tabindex => 2
+        %div
+          = f.label :answer, "Expected answer"
+          = f.text_area :answer, :rows => 3, :cols => 70, :tabindex => 3
+      %div.action
+        = f.submit "Add question", :class => "button", :tabindex => 5
+    .points
+      = f.text_field :points, :size => 2, :maxlength => 3, :tabindex => 4
+      pts
+- else
+  .details
+    .no= index
+    .entry
+      %h2
+        %span.cat= stage_question.category
+        = stage_question.question
+      .mode
+        = link_to "edit", [:edit, stage.position, stage, stage_question], :class => "edit"
+        = link_to "remove", [stage.position, stage, stage_question], :confirm => "Remove \"#{stage_question.question}\". Proceed?", :method => :delete, :class => "remove", :remote => true
+      :markdown
+        #{stage_question.answer}
+    .points
+      = stage_question.points
+      pts
+  .edit_form
     = form_for [stage.position, stage, stage_question], :remote => true do |f|
       .no= index
       .entry
@@ -15,44 +49,9 @@
             = f.label :answer, "Expected answer"
             = f.text_area :answer, :rows => 3, :cols => 70, :tabindex => 3
         %div.action
-          = f.submit "Add question", :class => "button", :tabindex => 5
+          = f.submit "Update question", :class => "button", :tabindex => 5
+          or
+          = link_to "Cancel", "/", :class => "cancel"
       .points
         = f.text_field :points, :size => 2, :maxlength => 3, :tabindex => 4
         pts
-  - else
-    .details
-      .no= index
-      .entry
-        %h2
-          %span.cat= stage_question.category
-          = stage_question.question
-        .mode
-          = link_to "edit", [:edit, stage.position, stage, stage_question], :class => "edit"
-          = link_to "remove", [stage.position, stage, stage_question], :confirm => "Remove \"#{stage_question.question}\". Proceed?", :method => :delete, :class => "remove", :remote => true
-        :markdown
-          #{stage_question.answer}
-      .points
-        = stage_question.points
-        pts
-    .edit_form
-      = form_for [stage.position, stage, stage_question], :remote => true do |f|
-        .no= index
-        .entry
-          %fieldset
-            = f.hidden_field :index, :value => index
-            %div
-              = f.label :category
-              = f.select :category, StageQuestion::CATEGORIES, :tabindex => 1
-            %div
-              = f.label :question
-              = f.text_field :question, :size => 50, :class => "first", :tabindex => 2
-            %div
-              = f.label :answer, "Expected answer"
-              = f.text_area :answer, :rows => 3, :cols => 70, :tabindex => 3
-          %div.action
-            = f.submit "Update question", :class => "button", :tabindex => 5
-            or
-            = link_to "Cancel", "/", :class => "cancel"
-        .points
-          = f.text_field :points, :size => 2, :maxlength => 3, :tabindex => 4
-          pts

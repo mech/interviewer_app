@@ -1,3 +1,5 @@
-= image_tag("spinner.gif", :class => "loading")
 - stage.ordered_stage_questions.each_with_index do |stage_question, index|
-  = render "stage_questions/question", :stage_question => stage_question, :stage => stage, :index => stage_question.question_number || (index + 1)
+  %li.question.group{:id => "qn_#{index + 1}", :data => {"new-record" => stage_question.new_record?.to_s}, :class => stage_question.new_record? ? "active" : ""}
+    .loading Processing...
+    .wrap
+      = render "stage_questions/question", :stage_question => stage_question, :stage => stage, :index => stage_question.question_number || (index + 1)

@@ -1,0 +1,29 @@
+<% if @stage_question.valid? -%>
+  $("#qn_<%= @stage_question.question_number %> .wrap").html("<%= escape_javascript(render("stage_questions/question", :stage_question => @stage_question, :stage => @stage_question.stage, :index => @stage_question.question_number)) %>");
+
+  $("#qn_<%= @stage_question.question_number %>").animate({opacity: 1.0});
+        $("#qn_<%= @stage_question.question_number %>").find(".loading").hide();
+
+  $("li.question form").bind("ajax:beforeSend", function() {
+    var li = $(this).closest(".question");
+    li.animate({opacity: 0.3});
+    li.find(".loading").show();
+  });
+
+  $("li.question form").bind("ajax:complete", function() {
+    var li = $(this).closest(".question");
+    li.animate({opacity: 1.0});
+    li.find(".loading").hide();
+  });
+<% else -%>
+  $("#qn_<%= @stage_question.question_number %> form .entry").find(".error_messages").remove();
+  $(".field_with_errors input").unwrap();
+
+  $("#qn_<%= @stage_question.question_number %> form .entry").prepend("<%= escape_javascript(render("shared/error_messages", :target => @stage_question)) %>");
+  <% @stage_question.errors.each do |attr, msg| -%>
+    $("#qn_<%= @stage_question.question_number %> #stage_question_<%= attr %>").wrap('<div class="field_with_errors" />');
+  <% end -%>
+
+  $("#qn_<%= @stage_question.question_number %>").addClass("active");
+  $("ul#questions li.active input.first").focus();
+<% end -%>
