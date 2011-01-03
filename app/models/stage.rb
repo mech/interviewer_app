@@ -22,6 +22,11 @@ class Stage
     stage_number.to_s
   end
 
+  # Return the stage question at that question number
+  # Raise RepeatedQuestionNumberError if more than 1 question with the same number
+  #
+  # @param [Integer] number
+  # @return [StageQuestion]
   def stage_question_at(number)
     return nil if number.blank?
     _stage_questions = stage_questions.where(:question_number => number).limit(2) # 2 is enough for us to determine duplication
@@ -34,6 +39,11 @@ class Stage
     end
   end
 
+  # Sort question number according to the layout given
+  # Layout has to be an array of question number
+  #
+  # @param [Array<Integer|String>] ordering_layout
+  # @return [Boolean]
   def sort_questions(ordering_layout=[])
     if ordering_layout.blank?
       ordered_stage_questions.each_with_index do |question, index|
@@ -42,6 +52,9 @@ class Stage
 
       self.save
     else
+      ordering_layout = ordering_layout.map(&:to_i)
+      ordering_layout.delete(ordered_stage_questions.size + 1)
+      
       ordered_stage_questions.each do |question|
         question.question_number = ordering_layout.find_index(question.question_number) + 1
       end

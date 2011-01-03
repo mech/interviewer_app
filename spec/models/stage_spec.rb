@@ -48,11 +48,39 @@ describe Stage do
       @pos_3.question_number.should == 3
     end
 
+    it "sorts the questions given the ordering layout 1, 3, 4, 2" do
+      stage_one.sort_questions([1, 3, 4, 2])
+      @pos_1.question_number.should == 1
+      @pos_2.question_number.should == 3
+      @pos_3.question_number.should == 2
+    end
+
     it "sorts sequentially given nothing" do
       stage_one.sort_questions
       @pos_1.question_number.should == 1
       @pos_2.question_number.should == 2
       @pos_3.question_number.should == 3
+    end
+
+    it "ignores extra ordering layout" do
+      stage_one.sort_questions([3, 1, 2, 4])
+      @pos_1.question_number.should == 2
+      @pos_2.question_number.should == 3
+      @pos_3.question_number.should == 1
+    end
+
+    it "remains the same given the ordering layout 1, 2, 4, 3" do
+      stage_one.sort_questions([1, 2, 4, 3])
+      @pos_1.question_number.should == 1
+      @pos_2.question_number.should == 2
+      @pos_3.question_number.should == 3
+    end
+
+    it "accepts ordering layout as array of String" do
+      stage_one.sort_questions(["3", "1", "2"])
+      @pos_1.question_number.should == 2
+      @pos_2.question_number.should == 3
+      @pos_3.question_number.should == 1
     end
   end
 

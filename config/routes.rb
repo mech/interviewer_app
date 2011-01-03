@@ -4,6 +4,7 @@ InterviewerApp::Application.routes.draw do
     resources :stages do
       resources :stage_questions do
         delete 'index', :on => :collection
+        post 'sort', :on => :collection
       end
     end
   end

@@ -1,0 +1,13 @@
+$("ul#questions").html("<%= escape_javascript(render("stage_questions/questions", :stage => @stage)) %>");
+$("ul#questions").animate({opacity: 1.0});
+$("ul#questions form").bind("ajax:beforeSend", function() {
+  $("ul#questions").animate({opacity: 0.3});
+  $("ul#questions .loading").show();
+});
+
+$("ul#questions form").bind("ajax:complete", function() {
+  $("ul#questions").animate({opacity: 1.0});
+  $("ul#questions .loading").hide();
+});
+
+$("ul#questions li.active input.first").focus();

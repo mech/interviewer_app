@@ -13,7 +13,8 @@ $ ->
     handle: '.points',
     opacity: 0.6,
     scroll: true,
-    update: (evt, ui)->
+    update: ->
+      $.post($("ul#questions").attr("data-sort-url"), $(this).sortable('serialize'))
       console.log $(this).sortable('serialize')
   })
   

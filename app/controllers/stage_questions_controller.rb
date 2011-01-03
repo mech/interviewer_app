@@ -30,6 +30,12 @@ class StageQuestionsController < ApplicationController
     end
   end
 
+  def sort
+    @ordering_layout = params[:qn] # => ["2", "1", "3"]
+    @stage.sort_questions(@ordering_layout)
+    @stage_question = @stage.stage_questions.build
+  end
+
   private
 
   def find_position

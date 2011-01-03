@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Fri, 31 Dec 2010 01:56:36 GMT from
+/* DO NOT MODIFY. This file was compiled Mon, 03 Jan 2011 01:17:51 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -20,7 +20,8 @@
       handle: '.points',
       opacity: 0.6,
       scroll: true,
-      update: function(evt, ui) {
+      update: function() {
+        $.post($("ul#questions").attr("data-sort-url"), $(this).sortable('serialize'));
         return console.log($(this).sortable('serialize'));
       }
     });

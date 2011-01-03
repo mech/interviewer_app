@@ -22,5 +22,5 @@
 
       %p.trash= link_to "Remove all questions", [@position, @stage, :stage_questions], :confirm => "This will remove all questions for this stage. Proceed?", :method => :delete
 
-      %ul#questions.sortable
+      %ul#questions.sortable{:data => {"sort-url" => sort_position_stage_stage_questions_path(@position, @stage)}}
         = render "stage_questions/questions", :stage => @stage
