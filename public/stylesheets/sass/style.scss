@@ -402,6 +402,10 @@ div.entry {
       margin-bottom: 0px;
     }
 
+    .edit_form {
+      display: none;
+    }
+
     .no {
       padding: 5px;
       float: left;
@@ -443,14 +447,14 @@ div.entry {
         padding: 0 10px;
         z-index: 1000;
 
-        a[href*="edit"] {
+        a.edit {
           background: url('/images/13_icons.png') 0 -130px no-repeat;
           display: block; float: left;
           width: 13px; height: 13px; text-indent: -99999px;
           margin-right: 5px;
         }
 
-        a[href*="remove"] {
+        a.remove {
           background: url('/images/13_icons.png') 0 -156px no-repeat;
           display: block; float: left;
           width: 13px; height: 13px; text-indent: -99999px;
@@ -477,6 +481,7 @@ div.entry {
       }
 
       .field_with_errors {
+        display: inline;
         input[type=text] {
           border: 1px solid #d94349;
         }
@@ -493,6 +498,13 @@ div.entry {
 
       input {
         width: 40px;
+      }
+
+      .field_with_errors {
+        display: inline;
+        input[type=text] {
+          border: 1px solid #d94349;
+        }
       }
     }
 
@@ -556,6 +568,7 @@ form.entry {
   }
 
   .field_with_errors {
+    display: inline;
     input[type=text] {
       border: 1px solid #d94349;
     }

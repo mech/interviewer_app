@@ -453,6 +453,8 @@ div.entry {
     border: 1px solid #c7c7c7; }
     #questions .question:last-child {
       margin-bottom: 0px; }
+    #questions .question .edit_form {
+      display: none; }
     #questions .question .no {
       padding: 5px;
       float: left;
@@ -490,7 +492,7 @@ div.entry {
         right: -60px;
         padding: 0 10px;
         z-index: 1000; }
-        #questions .question .entry .mode a[href*="edit"] {
+        #questions .question .entry .mode a.edit {
           background: url("/images/13_icons.png") 0 -130px no-repeat;
           display: block;
           float: left;
@@ -498,7 +500,7 @@ div.entry {
           height: 13px;
           text-indent: -99999px;
           margin-right: 5px; }
-        #questions .question .entry .mode a[href*="remove"] {
+        #questions .question .entry .mode a.remove {
           background: url("/images/13_icons.png") 0 -156px no-repeat;
           display: block;
           float: left;
@@ -519,8 +521,10 @@ div.entry {
       #questions .question .entry .button {
         padding: 4px 5px;
         font-size: 90%; }
-      #questions .question .entry .field_with_errors input[type=text] {
-        border: 1px solid #d94349; }
+      #questions .question .entry .field_with_errors {
+        display: inline; }
+        #questions .question .entry .field_with_errors input[type=text] {
+          border: 1px solid #d94349; }
     #questions .question .points {
       background: url("/images/drag_handle.gif") 105px center no-repeat;
       padding: 5px;
@@ -531,6 +535,10 @@ div.entry {
       text-align: right; }
       #questions .question .points input {
         width: 40px; }
+      #questions .question .points .field_with_errors {
+        display: inline; }
+        #questions .question .points .field_with_errors input[type=text] {
+          border: 1px solid #d94349; }
     #questions .question form fieldset > div {
       margin-bottom: 1em; }
     #questions .question form label {
@@ -573,8 +581,10 @@ form.entry {
     border-top: 1px solid #ddd;
     background: #eee;
     text-align: right; }
-  form.entry .field_with_errors input[type=text] {
-    border: 1px solid #d94349; }
+  form.entry .field_with_errors {
+    display: inline; }
+    form.entry .field_with_errors input[type=text] {
+      border: 1px solid #d94349; }
 
 input[type='text'], input[type='password'], textarea {
   -webkit-border-radius: 2px;

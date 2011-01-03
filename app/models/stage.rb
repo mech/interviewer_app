@@ -4,7 +4,7 @@ class Stage
 
   field :stage_number,  :type => Integer, :default => 1
   field :points,        :type => Integer, :default => 0
-  field :lock,          :type => Boolean, :default => false
+  field :locked,        :type => Boolean, :default => false
 
   embedded_in :position, :inverse_of => :stages
   embeds_many :stage_questions

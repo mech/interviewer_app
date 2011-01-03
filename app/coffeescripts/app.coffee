@@ -15,7 +15,6 @@ $ ->
     scroll: true,
     update: ->
       $.post($("ul#questions").attr("data-sort-url"), $(this).sortable('serialize'))
-      console.log $(this).sortable('serialize')
   })
   
   $("ul#questions form").bind(
@@ -23,7 +22,6 @@ $ ->
     ->
       $("ul#questions").animate({opacity: 0.3})
       $("ul#questions .loading").show()
-
   )
 
   $("ul#questions form").bind(
@@ -36,13 +34,13 @@ $ ->
   $("ul#questions input, ul#questions textarea, ul#questions select").live(
     "focus",
     ->
-      $(this).parents("li").addClass("active")
+      $(this).closest("li").addClass("active")
   )
 
   $("ul#questions input, ul#questions textarea, ul#questions select").live(
     "blur",
     ->
-      $(this).parents("li").removeClass("active")
+      $(this).closest("li").removeClass("active")
   )
 
   $("ul#questions li").live(
@@ -52,4 +50,23 @@ $ ->
         $(this).find(".mode").show()
       else
         $(this).find(".mode").hide()
+  )
+
+  $("ul#questions .mode a.edit").live(
+    "click",
+    (evt) ->
+      entry_panel = $(this).closest(".question")
+      details_panel = entry_panel.find(".details")
+      details_panel.hide()
+      edit_form = entry_panel.find(".edit_form")
+      edit_form.fadeIn()
+
+      edit_form.find("a.cancel").click(
+        (e) ->
+          edit_form.hide()
+          details_panel.fadeIn()
+          e.preventDefault()
+      )
+
+      evt.preventDefault()
   )

@@ -27,13 +27,26 @@ class StageQuestionsController < ApplicationController
   def update
     if @stage
       @stage_question = @stage.stage_question_at(params[:id])
+      @stage_question.update_attributes(params[:stage_question])
+      respond_with @stage_question
     end
   end
 
   def sort
     @ordering_layout = params[:qn] # => ["2", "1", "3"]
     @stage.sort_questions(@ordering_layout)
-    @stage_question = @stage.stage_questions.build
+    
+    @stage_question = @stage.stage_questions.build unless @stage.locked? # ready for entry
+  end
+
+  def destroy
+    # TODO - Check if we can delete question that is being used
+    if @stage
+      @stage_question = @stage.stage_question_at(params[:id])
+      @stage_question.destroy
+      
+      @stage_question = @stage.stage_questions.build unless @stage.locked? # ready for entry
+    end
   end
 
   private

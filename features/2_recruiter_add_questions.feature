@@ -9,5 +9,5 @@ Feature: Recruiter add questions to positions
     When I fill in the following:
       | Question | Explain to me meta-programming? |
       | Answer   | Write code to write more code   |
-    And I press "Add"
+    And I press "Add question"
     Then I should go to question number 2
