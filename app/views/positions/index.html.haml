@@ -1,5 +1,6 @@
 %header#sub-action
-
+  %ul
+    %li.add= link_to "New position", new_position_url
 
 #splitview-wrap.group
   %section#action
@@ -10,7 +11,7 @@
       %hgroup
         %h1 POSITIONS
         = link_to("Options", "/", :class => "options")
-        %small Last access 1 day ago
+        %small
 
   %section#view
     .records

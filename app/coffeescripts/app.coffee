@@ -74,3 +74,9 @@ $ ->
 
       evt.preventDefault()
   )
+
+  $(".question_guide input#stage_points").live(
+    "change",
+    ->
+      $(this).closest("form").submit()
+  )

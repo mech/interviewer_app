@@ -327,7 +327,24 @@ body {
   border-top-right-radius: 3px;
   background: #ebecee url("/images/header_highlight.gif") bottom repeat-x;
   height: 42px;
-  border-bottom: 1px solid #bfbfbf; }
+  border-bottom: 1px solid #bfbfbf;
+  position: relative; }
+  #sub-action ul {
+    list-style: none;
+    position: absolute;
+    top: 12px;
+    right: 10px; }
+    #sub-action ul li.add a {
+      background: url("/images/16_icons.png") 0 -32px no-repeat;
+      width: 16px;
+      height: 16px;
+      display: block;
+      text-indent: -99999px; }
+      #sub-action ul li.add a:hover {
+        opacity: 0.8; }
+      #sub-action ul li.add a:active {
+        position: relative;
+        top: 1px; }
 
 #splitview-wrap {
   -webkit-border-bottom-left-radius: 3px;

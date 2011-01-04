@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Tue, 04 Jan 2011 07:34:42 GMT from
+/* DO NOT MODIFY. This file was compiled Tue, 04 Jan 2011 09:53:10 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -54,7 +54,7 @@
         return $(this).find(".mode").hide();
       }
     });
-    return $("ul#questions .mode a.edit").live("click", function(evt) {
+    $("ul#questions .mode a.edit").live("click", function(evt) {
       var details_panel, edit_form, entry_panel;
       entry_panel = $(this).closest(".question");
       details_panel = entry_panel.find(".details");
@@ -68,6 +68,9 @@
         return e.preventDefault();
       });
       return evt.preventDefault();
+    });
+    return $(".question_guide input#stage_points").live("change", function() {
+      return $(this).closest("form").submit();
     });
   });
 }).call(this);
