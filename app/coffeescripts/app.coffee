@@ -46,7 +46,7 @@ $ ->
       $(this).closest("li").removeClass("active")
   )
 
-  $("ul#questions li").live(
+  $("ul#questions li, table.records td").live(
     "mouseover mouseout",
     (evt) ->
       if evt.type == 'mouseover'

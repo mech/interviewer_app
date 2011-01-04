@@ -635,6 +635,10 @@ table.records {
       }
 
       td.title {
+        .wrap {
+          position: relative;
+        }
+        
         h1 {
           font-weight: bold;
 
@@ -647,6 +651,28 @@ table.records {
 
         p.desc {
           color: #aaa;
+        }
+
+        .mode {
+          display: none;
+          position: absolute; top: 0px; right: 0;
+
+          a.edit {
+            background: url('/images/13_icons.png') 0 -130px no-repeat;
+            display: block; float: left;
+            width: 13px; height: 13px; text-indent: -99999px;
+            margin-right: 5px;
+          }
+
+          a.remove {
+            background: url('/images/13_icons.png') 0 -156px no-repeat;
+            display: block; float: left;
+            width: 13px; height: 13px; text-indent: -99999px;
+          }
+
+          a:active {
+            position: relative; top: 1px;
+          }
         }
       }
 

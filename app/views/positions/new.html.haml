@@ -22,7 +22,7 @@
       %header
         %h1 New position
       = form_for @position, :html => {:class => "entry"}, :remote => true do |f|
-        = render "shared/error_messages", :target => @position
+        = render "shared/error_messages", :target => @position unless @position.errors.blank?
         %fieldset
           %div
             %label{:for => "position_title"}

@@ -1,12 +1,11 @@
 class PositionsController < ApplicationController
   respond_to :html, :js, :json
 
+  before_filter :find_position, :only => [:show, :edit, :update, :destroy]
+
   def index
     @positions = Position.order_by([:updated_at, :desc]).paginate
     respond_with @positions
-  end
-
-  def show
   end
 
   def new
@@ -20,14 +19,20 @@ class PositionsController < ApplicationController
     respond_with [@position, @position.stage_at(1)]
   end
 
-  def edit
-  end
-
   def update
-    redirect_to :action => index
+    flash[:notice] = "#{@position.title} has been updated successfully." if @position.update_attributes(params[:position])
+    respond_with @position, :location => positions_url
   end
 
   def destroy
+    @position.destroy
+    redirect_to positions_url, :notice => "#{@position.title} has been removed."
+  end
+
+  protected
+
+  def find_position
+    @position = Position.find(params[:id])
   end
 
 end

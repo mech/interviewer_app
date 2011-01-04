@@ -686,6 +686,8 @@ table.records {
   table.records tbody tr td {
     padding: 8px;
     border: 1px solid #c7c7c7; }
+  table.records tbody tr td.title .wrap {
+    position: relative; }
   table.records tbody tr td.title h1 {
     font-weight: bold; }
     table.records tbody tr td.title h1 a {
@@ -694,6 +696,29 @@ table.records {
       font-size: 110%; }
   table.records tbody tr td.title p.desc {
     color: #aaa; }
+  table.records tbody tr td.title .mode {
+    display: none;
+    position: absolute;
+    top: 0px;
+    right: 0; }
+    table.records tbody tr td.title .mode a.edit {
+      background: url("/images/13_icons.png") 0 -130px no-repeat;
+      display: block;
+      float: left;
+      width: 13px;
+      height: 13px;
+      text-indent: -99999px;
+      margin-right: 5px; }
+    table.records tbody tr td.title .mode a.remove {
+      background: url("/images/13_icons.png") 0 -156px no-repeat;
+      display: block;
+      float: left;
+      width: 13px;
+      height: 13px;
+      text-indent: -99999px; }
+    table.records tbody tr td.title .mode a:active {
+      position: relative;
+      top: 1px; }
   table.records tbody tr td.location {
     background: url("/images/13_icons.png") 5px -44px no-repeat;
     padding-left: 20px; }

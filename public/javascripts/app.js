@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Tue, 04 Jan 2011 01:40:03 GMT from
+/* DO NOT MODIFY. This file was compiled Tue, 04 Jan 2011 07:34:42 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -47,7 +47,7 @@
     $("ul#questions input, ul#questions textarea, ul#questions select").live("blur", function() {
       return $(this).closest("li").removeClass("active");
     });
-    $("ul#questions li").live("mouseover mouseout", function(evt) {
+    $("ul#questions li, table.records td").live("mouseover mouseout", function(evt) {
       if (evt.type === 'mouseover') {
         return $(this).find(".mode").show();
       } else {

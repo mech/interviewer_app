@@ -1,2 +1,41 @@
-%h1 Positions#edit
-%p Find me in app/views/positions/edit.html.haml
+%header#sub-action
+
+
+#splitview-wrap.group
+  %section#action
+    = form_tag("/") do
+      = text_field_tag(:q, "", :class => "search", :placeholder => "Find positions")
+
+    %header
+      %hgroup
+        %h1 POSITIONS
+        = link_to("Options", "/", :class => "options")
+        %small Last access 1 day ago
+
+  %section#view
+    .entry
+      .guide
+        %h2= "Update \"#{@position.title.blank? ? @position.title_was : @position.title}\""
+
+      %header
+        %h1 New position
+      = form_for @position, :html => {:class => "entry"} do |f|
+        = render "shared/error_messages", :target => @position unless @position.errors.blank?
+        %fieldset
+          %div
+            %label{:for => "position_title"}
+              Title
+            = f.text_field :title, :size => 40
+
+          %div
+            %label{:for => "position_description"}
+              Description
+              %small Requirements, salary, etc.
+            = f.text_area :description, :rows => 10, :cols => 70
+
+          %div
+            = f.label :location, "Location"
+            = f.text_field :location, :size => 40
+
+        %div.action
+          = f.submit "Update position", :class => "button"
