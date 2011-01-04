@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Mon, 03 Jan 2011 11:32:43 GMT from
+/* DO NOT MODIFY. This file was compiled Tue, 04 Jan 2011 01:40:03 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -41,6 +41,7 @@
       return li.find(".loading").hide();
     });
     $("ul#questions input, ul#questions textarea, ul#questions select").live("focus", function() {
+      $("li.question").removeClass("active");
       return $(this).closest("li").addClass("active");
     });
     $("ul#questions input, ul#questions textarea, ul#questions select").live("blur", function() {
@@ -60,6 +61,7 @@
       details_panel.hide();
       edit_form = entry_panel.find(".edit_form");
       edit_form.slideDown("fast");
+      edit_form.find("input.first").focus();
       edit_form.find("a.cancel").click(function(e) {
         edit_form.hide();
         details_panel.show();

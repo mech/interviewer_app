@@ -48,10 +48,6 @@ describe PositionsController do
       }
     end
 
-    context "ajax save proceed to add questions" do
-      
-    end
-
     context "when the position saves successfully" do
       it "saves a new position" do
         lambda {
@@ -83,22 +79,22 @@ describe PositionsController do
 
       it "does not create a position" do
         lambda {
-          post 'create', @invalid_params
+          xhr :post, 'create', @invalid_params
         }.should_not change(Position, :count)
       end
 
       it "assigns @position" do
-        post 'create', @invalid_params
+        xhr :post, 'create', @invalid_params
         assigns(:position).should_not be_nil
       end
 
       it "renders the new template" do
-        post 'create', @invalid_params
-        response.should render_template("new")
+        xhr :post, 'create', @invalid_params
+        response.should render_template("shared/_error_messages")
       end
 
       it "shows all errors" do
-        post 'create', @invalid_params
+        xhr :post, 'create', @invalid_params
         assigns(:position).errors.should_not be_empty
       end
     end

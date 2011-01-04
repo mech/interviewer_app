@@ -30,9 +30,9 @@ describe StagesController do
       assigns(:stage_index).should == 1
     end
 
-    it "assigns @question" do
+    it "assigns @stage_question" do
       get 'show', :position_id => @position.id, :id => 1
-      assigns(:question).should be_true
+      assigns(:stage_question).should be_true
     end
   end
 end

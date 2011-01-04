@@ -36,6 +36,7 @@ $ ->
   $("ul#questions input, ul#questions textarea, ul#questions select").live(
     "focus",
     ->
+      $("li.question").removeClass("active")
       $(this).closest("li").addClass("active")
   )
 
@@ -62,6 +63,7 @@ $ ->
       details_panel.hide()
       edit_form = entry_panel.find(".edit_form")
       edit_form.slideDown("fast")
+      edit_form.find("input.first").focus()
 
       edit_form.find("a.cancel").click(
         (e) ->

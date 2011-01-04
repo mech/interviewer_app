@@ -22,9 +22,9 @@ describe Stage do
 
   describe "#sort_questions" do
     before do
-      @pos_1 = stage_one.stage_questions.create(:question => "Position 1")
-      @pos_2 = stage_one.stage_questions.create(:question => "Position 2")
-      @pos_3 = stage_one.stage_questions.create(:question => "Position 3")
+      @pos_1 = stage_one.stage_questions.create(:question => "Position 1", :points => 10)
+      @pos_2 = stage_one.stage_questions.create(:question => "Position 2", :points => 20)
+      @pos_3 = stage_one.stage_questions.create(:question => "Position 3", :points => 30)
     end
 
     it "sorts the questions given the ordering layout 3, 1, 2" do

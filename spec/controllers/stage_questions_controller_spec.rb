@@ -13,10 +13,6 @@ describe StageQuestionsController do
       }
     end
 
-    context "save as standalone question" do
-      pending "save question not tied to job"
-    end
-
     context "save with stage" do
       let(:valid_position) { Position.create(:title => "Ruby developer") }
       let(:valid_stage) { valid_position.stages.first }
@@ -24,7 +20,6 @@ describe StageQuestionsController do
       it "saves a new question" do
         lambda {
           xhr :post, 'create', @valid_params.merge({ :position_id => valid_position.id, :stage_id => valid_stage.stage_number })
-          
         }.should change(valid_position.stages.first.stage_questions, :count).by(1)
       end
 
