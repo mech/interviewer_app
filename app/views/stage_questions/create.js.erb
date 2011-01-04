@@ -16,6 +16,7 @@
   });
 
   $("ul#questions li.active input.first").focus();
+  $(".question_guide .points span").html("<%= pluralize(@stage.full_mark, 'point') %>");
 <% else %>
   $("#qn_<%= @index %> form .entry").find(".error_messages").remove();
   $(".field_with_errors input").unwrap();

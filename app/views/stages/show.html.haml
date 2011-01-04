@@ -21,7 +21,7 @@
           = form_for [@position, @stage], :remote => true do |f|
             = f.text_field :points, :size => 2, :maxlength => 3
           \/
-          = pluralize @stage.full_mark, "point"
+          %span= pluralize @stage.full_mark, "point"
 
       %p.trash= link_to "Remove all questions", [@position, @stage, :stage_questions], :confirm => "This will remove all questions for this stage. Proceed?", :method => :delete
 

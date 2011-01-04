@@ -1,1 +1,2 @@
 $("ul#questions").html("<%= escape_javascript(render("stage_questions/questions", :stage => @stage)) %>");
+$(".question_guide .points span").html("<%= pluralize(@stage.full_mark, 'point') %>");
