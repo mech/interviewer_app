@@ -429,6 +429,10 @@ div.entry {
       top: -1em;
       padding: 5px;
       font-weight: bold; }
+      div.entry .question_guide .points form {
+        display: inline; }
+        div.entry .question_guide .points form input {
+          width: 30px; }
 
 #questions {
   list-style: none;

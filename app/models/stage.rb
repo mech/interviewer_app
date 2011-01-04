@@ -2,12 +2,17 @@ class Stage
   include Mongoid::Document
   include Exceptions
 
+  before_validation :limit_points
+  validate :check_points_exceeded
+
   field :stage_number,  :type => Integer, :default => 1
   field :points,        :type => Integer, :default => 0
   field :locked,        :type => Boolean, :default => false
 
   embedded_in :position, :inverse_of => :stages
   embeds_many :stage_questions
+
+  validates_numericality_of :points
 
   def ordered_stage_questions
     stage_questions.order_by(:question_number.asc)
@@ -61,5 +66,16 @@ class Stage
 
       self.save
     end
+  end
+
+  protected
+
+  def limit_points
+    return unless points.is_a?(Numeric)
+    self.points = full_mark if points > full_mark
+  end
+
+  def check_points_exceeded
+    errors.add :points, "can't exceed total question points" if points.is_a?(Numeric) && points > full_mark
   end
 end

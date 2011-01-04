@@ -1,4 +1,6 @@
 class StagesController < ApplicationController
+  respond_to :html, :js, :json
+  
   before_filter :find_position
   before_filter :find_stage
 
@@ -10,6 +12,11 @@ class StagesController < ApplicationController
   def show
     @stage_index = params[:id]
     @stage_question = @stage.stage_questions.build
+  end
+
+  def update
+    @stage.update_attributes(params[:stage])
+    respond_with @stage
   end
 
   private

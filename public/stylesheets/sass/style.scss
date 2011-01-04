@@ -374,6 +374,12 @@ div.entry {
       position: relative; top: -1em;
       padding: 5px;
       font-weight: bold;
+
+      form {
+        display: inline;
+
+        input { width: 30px }
+      }
     }
   }
 }

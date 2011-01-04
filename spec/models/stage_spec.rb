@@ -20,6 +20,14 @@ describe Stage do
     it "should know who is the leader at this stage"
   end
 
+  context "save points" do
+    it "falls back to full mark if exceed full mark" do
+      stage_one.points = 20
+      stage_one.save
+      stage_one.points.should == stage_one.full_mark
+    end
+  end
+
   describe "#sort_questions" do
     before do
       @pos_1 = stage_one.stage_questions.create(:question => "Position 1", :points => 10)
