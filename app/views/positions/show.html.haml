@@ -19,4 +19,6 @@
       %ul.minibar
         %li.location= @position.location
         %li.date= relative_date @position.created_at
-    
+      .notes
+        :markdown
+          #{@position.description}

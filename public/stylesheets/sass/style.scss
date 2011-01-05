@@ -36,7 +36,7 @@ body, select, input, textarea {   color: #444; }
 h1,h2,h3,h4,h5,h6 { font-weight: bold; }
 html { overflow-y: scroll; }
 
-p { margin-bottom: 5px; }
+p { margin-bottom: 5px; line-height: 150%; }
 
 a:hover, a:active { outline: none; }
 a, a:active, a:visited { color: #0283c5; }
@@ -45,7 +45,6 @@ a:hover { color: #2d68a5; }
 ol { list-style-type: decimal; }
 
 nav ul, nav li { margin: 0; }
-small { font-size: 85%; }
 strong, th { font-weight: bold; }
 td, td img { vertical-align: top; }
 sub { vertical-align: sub; font-size: smaller; }
@@ -378,14 +377,16 @@ div.entry {
   }
 
   .guide, .question_guide {
-    background: url('/images/guide.png') no-repeat;
-    padding-left: 50px;
+    background: url('/images/guide.png') 0 5px no-repeat;
+    padding-left: 55px;
     line-height: 1.5em;
     margin: 0 0 2em 0;
     font-size: 120%;
+    min-height: 47px;
 
     h2 {
-      font-weight: bold;      
+      font-weight: bold;
+      margin-bottom: 3px;
     }
 
     a {
@@ -394,7 +395,7 @@ div.entry {
   }
 
   .question_guide {
-    background: url('/images/question_guide.png') no-repeat;
+    /*background: url('/images/question_guide.png') no-repeat;*/
     
     .points {
       float: right;
@@ -417,6 +418,7 @@ div.entry {
   h1 {
     line-height: 150%;
     font-size: 120%;
+    margin-bottom: 3px;
   }
 
   ul.minibar {
@@ -426,12 +428,25 @@ div.entry {
     li {
       display: inline;
       margin-right: 1em;
+      padding-left: 15px;
     }
 
-    li.location {
-      background: url()
-    }
+    li.location { background: url('/images/13_icons.png') 0 -182px no-repeat; }
+    li.date { background: url('/images/13_icons.png') 0 -208px no-repeat; }
   }
+}
+
+.notes {
+  @include rounded-corner(3px);
+  background: #f7f1c5 url('/images/notes.gif') repeat-y;
+  border: 1px solid #c3b3af;
+  margin: 1em 0; padding: 5px 30px;
+}
+
+.tips {
+  background: url('/images/tips.png') -2px center no-repeat;
+  padding-left: 18px;
+  font-size: 13px;
 }
 
 #questions {
@@ -752,7 +767,7 @@ table.records {
 
 .error_messages {
   @include rounded-corner(3px);
-  background: #f9f2d1;
+  /*background: #f9f2d1;*/
   padding: 5px; margin-bottom: 1em;
 
   h2 {
