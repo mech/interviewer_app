@@ -1,6 +1,7 @@
 %header#sub-action
   %ul
     %li.add= link_to "New position", new_position_url
+    %li.remove= link_to "Remove position", @position, :confirm => "Remove \"#{@position.title}\". Proceed?", :method => :delete
 
 #splitview-wrap.group
   %section#action
@@ -22,3 +23,12 @@
       .notes
         :markdown
           #{@position.description}
+
+    #stages
+      %nav
+        %ul
+          %li Stages
+          %li 1
+          %li 2
+
+    #interviews

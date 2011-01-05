@@ -25,6 +25,7 @@ class PositionsController < ApplicationController
   end
 
   def destroy
+    # TODO - if position involve in interview, do not delete it
     @position.destroy
     redirect_to positions_url, :notice => "#{@position.title} has been removed."
   end

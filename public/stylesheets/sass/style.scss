@@ -131,6 +131,12 @@ button {  width: auto; overflow: visible; }
   border-bottom-right-radius: $val;
 }
 
+@mixin rounded-top-left-corner($val) {
+  -webkit-border-top-left-radius: $val;
+  -moz-border-radius-topleft: $val;
+  border-top-left-radius: $val;
+}
+
 @mixin rounded-top-right-corner($val) {
   -webkit-border-top-right-radius: $val;
   -moz-border-radius-topright: $val;
@@ -270,12 +276,14 @@ body {
 
   ul {
     list-style: none;
-    position: absolute; top: 12px; right: 10px;
+    position: relative; top: 12px; right: 10px;
 
     li a {
-      width: 16px; height: 16px;
+      width: 16px;
       display: block;
       text-indent: -99999px;
+      float: right;
+      margin-left: 1em;
 
       &:hover {
         opacity: 0.8;
@@ -361,6 +369,7 @@ section#view {
   width: 769px; float: right;
   min-height: 400px;
   border-left: 1px solid #bfbfbf;
+  padding-top: 15px;
 }
 
 div.entry {
@@ -395,7 +404,7 @@ div.entry {
   }
 
   .question_guide {
-    /*background: url('/images/question_guide.png') no-repeat;*/
+    background: url('/images/interview_guide.png') 0 5px  no-repeat;
     
     .points {
       float: right;
@@ -436,11 +445,44 @@ div.entry {
   }
 }
 
+#stages {
+  padding: 0 10px;
+  
+  nav ul {
+    @include rounded-corner(3px);
+    
+    li {
+      float: left;
+      border: 1px solid #434a58;
+      border-top: 1px solid #535b6a;
+      border-bottom: 1px solid #373d4a;
+      background: #7a8498 url('/images/stage_bg.png') repeat-x;
+      height: 12px;
+      padding: 3px 10px 7px 10px;
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 1px 0 #525971;
+    }
+
+    li:first-child {
+      @include rounded-top-left-corner(3px);
+      @include rounded-bottom-left-corner(3px);
+      border-right: none;
+    }
+
+    li:last-child {
+      @include rounded-top-right-corner(3px);
+      @include rounded-bottom-right-corner(3px);
+      border-left: none;
+    }
+  }
+}
+
 .notes {
   @include rounded-corner(3px);
   background: #f7f1c5 url('/images/notes.gif') repeat-y;
   border: 1px solid #c3b3af;
-  margin: 1em 0; padding: 5px 30px;
+  margin-top: 1em; padding: 5px 30px;
 }
 
 .tips {
@@ -455,7 +497,6 @@ div.entry {
   position: relative;
 
   li.active {
-    width: 746px;
     border: 2px solid #0093ff;
     @include box-shadow(0 1px 5px rgba(88, 166, 220, 0.8));
   }
@@ -467,7 +508,7 @@ div.entry {
     margin-bottom: 10px;
     font-size: 90%;
     position: relative;
-    border: 1px solid #c7c7c7;
+    border: 2px solid #c7c7c7;
 
     &:last-child {
       margin-bottom: 0px;
