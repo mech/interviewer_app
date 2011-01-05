@@ -42,7 +42,6 @@ a:hover, a:active { outline: none; }
 a, a:active, a:visited { color: #0283c5; }
 a:hover { color: #2d68a5; }
 
-ul, ol { margin-left: 1.8em; }
 ol { list-style-type: decimal; }
 
 nav ul, nav li { margin: 0; }
@@ -274,21 +273,26 @@ body {
     list-style: none;
     position: absolute; top: 12px; right: 10px;
 
-    li.add {
-      a {
-        background: url('/images/16_icons.png') 0 -32px no-repeat;
-        width: 16px; height: 16px;
-        display: block;
-        text-indent: -99999px;
+    li a {
+      width: 16px; height: 16px;
+      display: block;
+      text-indent: -99999px;
 
-        &:hover {
-          opacity: 0.8;
-        }
-
-        &:active {
-          position: relative; top: 1px;
-        }
+      &:hover {
+        opacity: 0.8;
       }
+
+      &:active {
+        position: relative; top: 1px;
+      }
+    }
+
+    li.add a {
+      background: url('/images/16_icons.png') 0 -32px no-repeat;
+    }
+
+    li.remove a {
+      background: url('/images/16_icons.png') 0 -64px no-repeat;
     }
   }
 }
@@ -403,6 +407,29 @@ div.entry {
 
         input { width: 30px }
       }
+    }
+  }
+}
+
+#job_details {
+  padding: 10px;
+
+  h1 {
+    line-height: 150%;
+    font-size: 120%;
+  }
+
+  ul.minibar {
+    list-style: none;
+    color: #777;
+
+    li {
+      display: inline;
+      margin-right: 1em;
+    }
+
+    li.location {
+      background: url()
     }
   }
 }

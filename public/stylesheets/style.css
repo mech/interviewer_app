@@ -98,9 +98,6 @@ a, a:active, a:visited {
 a:hover {
   color: #2d68a5; }
 
-ul, ol {
-  margin-left: 1.8em; }
-
 ol {
   list-style-type: decimal; }
 
@@ -334,17 +331,20 @@ body {
     position: absolute;
     top: 12px;
     right: 10px; }
-    #sub-action ul li.add a {
-      background: url("/images/16_icons.png") 0 -32px no-repeat;
+    #sub-action ul li a {
       width: 16px;
       height: 16px;
       display: block;
       text-indent: -99999px; }
-      #sub-action ul li.add a:hover {
+      #sub-action ul li a:hover {
         opacity: 0.8; }
-      #sub-action ul li.add a:active {
+      #sub-action ul li a:active {
         position: relative;
         top: 1px; }
+    #sub-action ul li.add a {
+      background: url("/images/16_icons.png") 0 -32px no-repeat; }
+    #sub-action ul li.remove a {
+      background: url("/images/16_icons.png") 0 -64px no-repeat; }
 
 #splitview-wrap {
   -webkit-border-bottom-left-radius: 3px;
@@ -450,6 +450,18 @@ div.entry {
         display: inline; }
         div.entry .question_guide .points form input {
           width: 30px; }
+
+#job_details {
+  padding: 10px; }
+  #job_details h1 {
+    line-height: 150%;
+    font-size: 120%; }
+  #job_details ul.minibar {
+    list-style: none;
+    color: #777; }
+    #job_details ul.minibar li {
+      display: inline;
+      margin-right: 1em; }
 
 #questions {
   list-style: none;
