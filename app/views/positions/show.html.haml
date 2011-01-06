@@ -12,12 +12,7 @@
 
     %li
       %span.edit
-        = link_to "Edit position", [:edit, @position], :class => "pop_over"
-        .popover-wrap
-          .pointer
-          .content
-            %ul
-              %li= link_to "Add position", new_position_url
+        = link_to "Edit position", [:edit, @position]
     %li
       %span.remove
         = link_to "Remove position", @position, :confirm => "Remove \"#{@position.title}\". Proceed?", :method => :delete

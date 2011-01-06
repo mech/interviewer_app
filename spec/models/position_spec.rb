@@ -62,4 +62,12 @@ describe Position do
       }.should raise_exception(Exceptions::RepeatedStageNumberError)
     end
   end
+
+  describe "#create_next_stage" do
+    it "saves a new stage" do
+      lambda {
+        valid_position.create_next_stage
+      }.should change(valid_position.stages, :count).by(1)
+    end
+  end
 end

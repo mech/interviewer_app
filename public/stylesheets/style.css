@@ -912,7 +912,11 @@ table.records {
       font-size: 100%;
       color: #888; }
 
-p.welcome {
+.welcome {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background: #f9f8f4;
   margin: 2em auto;
   padding: 20px 50px;
   font-weight: bold;
@@ -921,11 +925,10 @@ p.welcome {
   text-align: center;
   width: 400px;
   text-shadow: 0 1px 0 #fff;
-  border: 2px dashed #dfdccb;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  background: #f9f8f4; }
+  border: 2px dashed #dfdccb; }
+  .welcome form {
+    margin-top: 1em;
+    font-size: 70%; }
 
 html.ie6 .group {
   height: 1%; }

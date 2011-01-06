@@ -462,7 +462,7 @@ div.entry {
   }
 
   .question_guide {
-    background: url('/images/interview_guide.png') 0 5px  no-repeat;
+    background: url('/images/interview_guide.png') 0 5px no-repeat;
     
     .points {
       float: right;
@@ -910,9 +910,10 @@ table.records {
   }
 }
 
-p.welcome {
-  margin: 2em auto;
-  padding: 20px 50px;
+.welcome {
+  @include rounded-corner(5px);
+  background: #f9f8f4;
+  margin: 2em auto; padding: 20px 50px;
   font-weight: bold;
   font-size: 160%;
   color: #555;
@@ -920,8 +921,11 @@ p.welcome {
   width: 400px;
   text-shadow: 0 1px 0 #fff;
   border: 2px dashed #dfdccb;
-  @include rounded-corner(5px);
-  background: #f9f8f4;
+
+  form {
+    margin-top: 1em;
+    font-size: 70%;
+  }
 }
 
 html.ie6 .group {

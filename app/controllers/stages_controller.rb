@@ -5,7 +5,13 @@ class StagesController < ApplicationController
   before_filter :find_stage
 
   def new
-    @stage = Stage.new
+    @stage = @position.stages.build
+    @next_stage_number = @position.stages.count + 1
+  end
+
+  def create
+    @stage = @position.stages.create(:points => 0, :stage_number => 1)
+    respond_with [@position, @stage]
   end
 
   # params[:id] will be referring to the stage position

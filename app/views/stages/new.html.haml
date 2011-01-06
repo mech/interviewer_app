@@ -15,17 +15,12 @@
   %section#view
     .entry
       .question_guide
-        %h2 Stage 1 interview
+        %h2 Add a new interview stage
         = link_to @position.title, @position, :class => "fw"
-        .points
-          50 points
 
-      .questions
-        .question#qn_1.group
-          = form_for [@position, @stage], :remote => true do |f|
-            .no 1
-            .entry
-              
-            .points
-              = f.text_field :points, :size => 2, :maxlength => 3
-              pts
+      .welcome
+        You're about to add Stage #{@next_stage_number} for this position. Proceed?
+        = form_for [@position, @stage] do |f|
+          = f.submit "Yes, please.", :class => "button"
+          or
+          = link_to "Not at the moment", @position
