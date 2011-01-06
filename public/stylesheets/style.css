@@ -324,26 +324,81 @@ body {
   height: 42px;
   border-bottom: 1px solid #bfbfbf;
   position: relative; }
+  #sub-action .msg {
+    color: red;
+    float: left;
+    width: 400px;
+    position: relative;
+    top: 12px; }
   #sub-action ul {
     list-style: none;
     position: relative;
     top: 12px;
     right: 10px; }
-    #sub-action ul li a {
-      width: 16px;
-      display: block;
-      text-indent: -99999px;
+    #sub-action ul li span > a {
+      display: inline;
       float: right;
-      margin-left: 1em; }
-      #sub-action ul li a:hover {
+      margin-left: 1em;
+      text-indent: -99999px;
+      width: 16px; }
+      #sub-action ul li span > a:hover {
         opacity: 0.8; }
-      #sub-action ul li a:active {
+      #sub-action ul li span > a:active {
         position: relative;
         top: 1px; }
-    #sub-action ul li.add a {
+    #sub-action ul li span .popover-wrap {
+      display: none;
+      z-index: 900;
+      position: absolute;
+      top: 15px;
+      left: 800px; }
+      #sub-action ul li span .popover-wrap .pointer {
+        background: url("/images/pointer.png") 50% top no-repeat;
+        height: 10px;
+        z-index: 900;
+        position: relative;
+        top: 1px; }
+      #sub-action ul li span .popover-wrap .content {
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        border: 1px solid #b2b2b2;
+        background: #fff; }
+        #sub-action ul li span .popover-wrap .content ul {
+          float: none;
+          position: relative;
+          top: 0px;
+          right: 0px;
+          margin: 3px 0; }
+          #sub-action ul li span .popover-wrap .content ul li {
+            display: block;
+            float: none; }
+            #sub-action ul li span .popover-wrap .content ul li a {
+              padding: 3px 5px;
+              margin: 0;
+              float: none;
+              display: block;
+              text-indent: 0;
+              text-decoration: none;
+              color: #000;
+              border-top: 1px solid #fff;
+              border-bottom: 1px solid #fff; }
+              #sub-action ul li span .popover-wrap .content ul li a:hover {
+                background: #319be7;
+                background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#319be7), to(#1b78d9));
+                background-image: -moz-linear-gradient(top, #319be7, #1b78d9);
+                border-top: 1px solid #148ddf;
+                border-bottom: 1px solid #1666c2;
+                color: #fff; }
+    #sub-action ul li span.add > a {
       background: url("/images/16_icons.png") 0 -32px no-repeat; }
-    #sub-action ul li.remove a {
+    #sub-action ul li span.remove > a {
       background: url("/images/16_icons.png") 0 -64px no-repeat; }
+    #sub-action ul li span.edit > a {
+      background: url("/images/16_icons.png") 0 -96px no-repeat; }
 
 #splitview-wrap {
   -webkit-border-bottom-left-radius: 3px;
@@ -488,6 +543,9 @@ div.entry {
       color: #fff;
       text-align: center;
       text-shadow: 0 1px 0 #525971; }
+      #stages nav ul li a {
+        color: #fff;
+        text-decoration: none; }
     #stages nav ul li:first-child {
       -webkit-border-top-left-radius: 3px;
       -moz-border-radius-topleft: 3px;
@@ -496,6 +554,8 @@ div.entry {
       -moz-border-radius-bottomleft: 3px;
       border-bottom-left-radius: 3px;
       border-right: none; }
+    #stages nav ul li:first-child + li {
+      border-left: 1px solid #434a58; }
     #stages nav ul li:last-child {
       -webkit-border-top-right-radius: 3px;
       -moz-border-radius-topright: 3px;
@@ -504,6 +564,17 @@ div.entry {
       -moz-border-radius-bottomright: 3px;
       border-bottom-right-radius: 3px;
       border-left: none; }
+
+#interviews-wrap {
+  background: url("/images/paper_stack.png") left top no-repeat;
+  padding-top: 5px;
+  margin-top: 10px;
+  margin-left: 30px; }
+  #interviews-wrap #content {
+    background: #fff;
+    border-left: 1px solid #bfbfbf;
+    min-height: 200px;
+    padding: 10px; }
 
 .notes {
   -webkit-border-radius: 3px;

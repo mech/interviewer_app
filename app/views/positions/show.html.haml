@@ -1,7 +1,26 @@
 %header#sub-action
-  %ul
-    %li.add= link_to "New position", new_position_url
-    %li.remove= link_to "Remove position", @position, :confirm => "Remove \"#{@position.title}\". Proceed?", :method => :delete
+  %ul.group
+    %li
+      %span.add
+        = link_to "New position", new_position_url, :class => "pop_over"
+        .popover-wrap
+          .pointer
+          .content
+            %ul
+              %li= link_to "Add position", new_position_url
+              %li= link_to "Add interview stage", [:new, @position, :stage]
+
+    %li
+      %span.edit
+        = link_to "Edit position", [:edit, @position], :class => "pop_over"
+        .popover-wrap
+          .pointer
+          .content
+            %ul
+              %li= link_to "Add position", new_position_url
+    %li
+      %span.remove
+        = link_to "Remove position", @position, :confirm => "Remove \"#{@position.title}\". Proceed?", :method => :delete
 
 #splitview-wrap.group
   %section#action
@@ -24,11 +43,13 @@
         :markdown
           #{@position.description}
 
-    #stages
+    #stages.group
       %nav
         %ul
           %li Stages
-          %li 1
-          %li 2
+          - @position.stages.each do |stage|
+            %li= link_to stage.stage_number
 
-    #interviews
+    #interviews-wrap
+      #content
+        Some long text

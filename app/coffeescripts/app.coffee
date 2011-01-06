@@ -80,3 +80,15 @@ $ ->
     ->
       $(this).closest("form").submit()
   )
+
+  $(".pop_over").live(
+    "click",
+    (evt) ->
+      popover = $(this).parent().find(".popover-wrap")
+      $(".popover-wrap").not(popover).hide()
+      width = popover.css("width")
+      popover.css("width", width)
+      popover.css("left", $(this).position().left - (parseInt(width)*0.33))
+      popover.toggle();
+      evt.preventDefault()
+  )

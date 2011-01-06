@@ -274,33 +274,91 @@ body {
   border-bottom: 1px solid #bfbfbf;
   position: relative;
 
+  .msg {
+    color: red;
+    float: left;
+    width: 400px;
+    position: relative; top: 12px;
+  }
+
   ul {
     list-style: none;
     position: relative; top: 12px; right: 10px;
 
-    li a {
-      width: 16px;
-      display: block;
-      text-indent: -99999px;
-      float: right;
-      margin-left: 1em;
+    li span {
+      > a {
+        display: inline;
+        float: right;
+        margin-left: 1em;
+        text-indent: -99999px;
+        width: 16px;
 
-      &:hover {
-        opacity: 0.8;
+        &:hover {
+          opacity: 0.8;
+        }
+
+        &:active {
+          position: relative; top: 1px;
+        }
       }
 
-      &:active {
-        position: relative; top: 1px;
-      }
+      .popover-wrap {
+        display: none;
+        z-index: 900;
+        position: absolute; top: 15px; left: 800px;
+
+        .pointer {
+          background: url('/images/pointer.png') 50% top no-repeat;
+          height: 10px;
+          z-index: 900;
+          position: relative; top: 1px;
+        }
+
+        .content {
+          @include rounded-corner(3px);
+          @include box-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+          
+          border: 1px solid #b2b2b2;
+          background: #fff;
+
+          ul {
+            float: none;
+            position: relative; top: 0px; right: 0px;
+            margin: 3px 0;
+
+            li {
+              display: block;
+              float: none;
+
+              a {
+                padding: 3px 5px;
+                margin: 0;
+                float: none;
+                display: block;
+                text-indent: 0;
+                text-decoration: none;
+                color: #000;
+                border-top: 1px solid #fff;
+                border-bottom: 1px solid #fff;
+
+                &:hover {
+                  background: #319be7;
+                  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#319be7), to(#1b78d9));
+                  background-image: -moz-linear-gradient(top, #319be7, #1b78d9);
+                  border-top: 1px solid #148ddf;
+                  border-bottom: 1px solid #1666c2;
+                  color: #fff;
+                }
+              }
+            }
+          }
+        }
+      }  
     }
 
-    li.add a {
-      background: url('/images/16_icons.png') 0 -32px no-repeat;
-    }
-
-    li.remove a {
-      background: url('/images/16_icons.png') 0 -64px no-repeat;
-    }
+    li span.add > a { background: url('/images/16_icons.png') 0 -32px no-repeat; }
+    li span.remove > a { background: url('/images/16_icons.png') 0 -64px no-repeat; }
+    li span.edit > a { background: url('/images/16_icons.png') 0 -96px no-repeat; }
   }
 }
 
@@ -462,6 +520,11 @@ div.entry {
       color: #fff;
       text-align: center;
       text-shadow: 0 1px 0 #525971;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
     }
 
     li:first-child {
@@ -470,11 +533,28 @@ div.entry {
       border-right: none;
     }
 
+    li:first-child + li {
+      border-left: 1px solid #434a58;
+    }
+
     li:last-child {
       @include rounded-top-right-corner(3px);
       @include rounded-bottom-right-corner(3px);
       border-left: none;
     }
+  }
+}
+
+#interviews-wrap {
+  background: url('/images/paper_stack.png') left top no-repeat;
+  padding-top: 5px;
+  margin-top: 10px; margin-left: 30px;
+  
+  #content {
+    background: #fff;
+    border-left: 1px solid #bfbfbf;
+    min-height: 200px;
+    padding: 10px;
   }
 }
 
