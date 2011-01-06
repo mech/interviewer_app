@@ -3,6 +3,8 @@ require 'spec_helper'
 describe PositionsController do
   render_views
 
+  let(:position) { Position.create(:title => "Ruby developer") }
+
   describe "GET 'index'" do
 
     it "should be successful" do
@@ -20,7 +22,7 @@ describe PositionsController do
 
   describe "GET 'show'" do
     it "should be successful" do
-      get 'show', :id => 1
+      get 'show', :id => position.id
       response.should be_success
     end
   end
@@ -102,14 +104,14 @@ describe PositionsController do
 
   describe "GET 'edit'" do
     it "should be successful" do
-      get 'edit', :id => 1
+      get 'edit', :id => position.id
       response.should be_success
     end
   end
 
   describe "POST 'update'" do
     it "should be successful" do
-      post 'update', :id => 1
+      post 'update', :id => position.id
       response.should redirect_to(positions_path)
     end
   end
