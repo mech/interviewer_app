@@ -2,6 +2,7 @@ class Stage
   include Mongoid::Document
   include Exceptions
 
+  before_create :assign_stage_number
   before_validation :limit_points
   validate :check_points_exceeded
 
@@ -77,5 +78,10 @@ class Stage
 
   def check_points_exceeded
     errors.add :points, "can't exceed total question points" if points.is_a?(Numeric) && points > full_mark
+  end
+
+  def assign_stage_number
+    # TODO - Do sequence check
+    self.stage_number = position.stages.count + 1
   end
 end

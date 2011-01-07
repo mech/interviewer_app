@@ -10,7 +10,7 @@ class StagesController < ApplicationController
   end
 
   def create
-    @stage = @position.stages.create(:points => 0, :stage_number => 1)
+    @stage = @position.create_next_stage
     respond_with [@position, @stage]
   end
 

@@ -8,7 +8,8 @@ describe StageQuestionsController do
       @valid_params = {
         :stage_question => {
           :question => "Explain to me meta-programming?",
-          :answer => "Write code to write more code"
+          :answer => "Write code to write more code",
+          :points => 10
         }
       }
     end
@@ -18,9 +19,11 @@ describe StageQuestionsController do
       let(:valid_stage) { valid_position.stages.first }
 
       it "saves a new question" do
-        lambda {
+        expect {
           xhr :post, 'create', @valid_params.merge({ :position_id => valid_position.id, :stage_id => valid_stage.stage_number })
-        }.should change(valid_position.stages.first.stage_questions, :count).by(1)
+        }.to change {
+          valid_position.reload.stages.first.stage_questions.count
+        }.by(1)
       end
 
       it "assigns @stage_question" do

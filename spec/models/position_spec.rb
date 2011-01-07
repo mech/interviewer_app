@@ -44,6 +44,8 @@ describe Position do
     before do
       @stage_one = valid_position.stages.first
       @stage_dup = valid_position.stages.create(:stage_number => 1, :points => 20)
+      @stage_dup.stage_number = 1
+      @stage_dup.save!
     end
 
     it "accepts one Integer argument" do

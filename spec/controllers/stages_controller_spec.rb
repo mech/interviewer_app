@@ -13,16 +13,19 @@ describe StagesController do
       response.should be_success
     end
 
-    it "assigns @position" do
+    it "assigns @stage" do
       get 'new', :position_id => @position.id
-      assigns(:position).should be_true
+      assigns(:stage).should be_true
     end
   end
 
   describe "POST 'create'" do
     it "saves a new stage" do
-      post :create, :position_id => @position.id
-      @position.reload.stages.count.should == 2
+      expect {
+        post :create, :position_id => @position.id
+      }.to change {
+        @position.reload.stages.count
+      }.by(1)
     end
 
     it "assigns @stage" do
@@ -31,8 +34,8 @@ describe StagesController do
     end
 
     it "redirects to stage number 2 page" do
-      pending
       post :create, :position_id => @position.id
+      response.should redirect_to [@position, assigns(:stage)]
     end
   end
 

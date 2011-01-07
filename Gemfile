@@ -22,4 +22,5 @@ group :development, :test do
   gem 'mocha'
   gem 'database_cleaner'
   gem 'selenium-client'
+  gem 'fuubar'
 end

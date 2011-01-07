@@ -38,6 +38,10 @@ class Position
     end
   end
 
+  def create_next_stage
+    stages.create
+  end
+
   protected
 
   def create_stage_one
