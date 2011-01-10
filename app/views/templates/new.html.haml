@@ -1,0 +1,33 @@
+%header#sub-action
+
+
+#splitview-wrap.group
+  %section#action
+    = form_tag("/") do
+      = text_field_tag(:q, "", :class => "search", :placeholder => "Find templates")
+
+    %header
+      %hgroup
+        %h1 TEMPLATES
+        = link_to("Options", "/", :class => "options")
+        %small Last access 1 day ago
+
+  %section#view
+    .entry
+      .template_guide
+        %h2 A new template for all your related questions
+        %p.tips
+          You will add interview questions after this.
+
+      %header
+        %h1 New template
+      = form_for @template, :html => {:class => "entry"} do |f|
+        = render "shared/error_messages", :target => @template unless @template.errors.blank?
+        %fieldset
+          %div
+            %label{:for => "template_name"}
+              Template Name
+            = f.text_field :name, :size => 40
+            %small Make it standout! E.g. Bio-engineering
+        %div.action
+          = f.submit "Add template", :class => "button"

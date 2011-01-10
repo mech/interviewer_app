@@ -10,9 +10,11 @@ class StageQuestion
   field :answer,          :type => String
   field :category,        :type => String
 
-  CATEGORIES = ["Open-ended", "Direct", "Technical", "Teamwork"]
+  # TODO - who have to know who asked what question and who is responsible
+  # Not sure if this referencing works as we are in embedded document and user is another root document
+  # referenced_in :user
 
-  embedded_in :stage, :inverse_of => :stage_questions
+  embedded_in :stage
   
   validates :question, :presence => true
   validates_numericality_of :points, :greater_than => 0

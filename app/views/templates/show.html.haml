@@ -1,0 +1,23 @@
+%header#sub-action
+  %ul
+    %li
+      %span.remove= link_to "Remove all questions", [@template, :questions], :confirm => "This will remove all questions in this template. Proceed?", :method => :delete
+
+#splitview-wrap.group
+  %section#action
+    = form_tag("/") do
+      = text_field_tag(:q, "", :class => "search", :placeholder => "Find templates")
+
+    %header
+      %hgroup
+        %h1 TEMPLATES
+        = link_to("Options", "/", :class => "options")
+        %small Last access 1 day ago
+
+  %section#view
+    .entry
+      .template_guide
+        %h2= "Add question for \"#{@template.name}\""
+
+      %ul#questions
+        = render "questions/questions", :template => @template

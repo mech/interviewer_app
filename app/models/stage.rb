@@ -7,10 +7,10 @@ class Stage
   validate :check_points_exceeded
 
   field :stage_number,  :type => Integer, :default => 1
-  field :points,        :type => Integer, :default => 0
+  field :points,        :type => Integer, :default => 0 # Entry requirement points or veto?
   field :locked,        :type => Boolean, :default => false
 
-  embedded_in :position, :inverse_of => :stages
+  embedded_in :position
   embeds_many :stage_questions
 
   validates_numericality_of :points

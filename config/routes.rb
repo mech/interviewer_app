@@ -8,6 +8,10 @@ InterviewerApp::Application.routes.draw do
       end
     end
   end
+
+  resources :templates do
+    resources :questions
+  end
   
   get "home/index"
 

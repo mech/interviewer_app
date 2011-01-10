@@ -1,0 +1,5 @@
+- template.questions.each_with_index do |question, index|
+  %li.question.group{:id => dom_id(question), :data => {"new-record" => question.new_record?.to_s}, :class => question.new_record? ? "active" : ""}
+    .loading Processing...
+    .wrap
+      = render "questions/question", :question => question, :template => template, :index => (index + 1)

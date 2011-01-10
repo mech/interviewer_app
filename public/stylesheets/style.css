@@ -483,17 +483,17 @@ div.entry {
     border-top: 1px solid #d6d6d6;
     height: 18px;
     text-shadow: 0 1px 0 #e4e4e4; }
-  div.entry .guide, div.entry .question_guide {
+  div.entry .guide, div.entry .question_guide, div.entry .template_guide {
     background: url("/images/guide.png") 0 5px no-repeat;
     padding-left: 55px;
     line-height: 1.5em;
     margin: 0 0 2em 0;
     font-size: 120%;
     min-height: 47px; }
-    div.entry .guide h2, div.entry .question_guide h2 {
+    div.entry .guide h2, div.entry .question_guide h2, div.entry .template_guide h2 {
       font-weight: bold;
       margin-bottom: 3px; }
-    div.entry .guide a, div.entry .question_guide a {
+    div.entry .guide a, div.entry .question_guide a, div.entry .template_guide a {
       font-size: 100%; }
   div.entry .question_guide {
     background: url("/images/interview_guide.png") 0 5px no-repeat; }
@@ -507,6 +507,8 @@ div.entry {
         display: inline; }
         div.entry .question_guide .points form input {
           width: 30px; }
+  div.entry .template_guide {
+    background: url("/images/template_guide.png") 0 5px no-repeat; }
 
 #job_details {
   padding: 10px; }
@@ -718,6 +720,10 @@ form.entry {
   border-top: 1px solid #ac9d88; }
   form.entry fieldset > div {
     margin-bottom: 1em; }
+  form.entry fieldset small {
+    font-size: 90%;
+    color: #888;
+    font-style: italic; }
   form.entry label {
     padding-right: 5px;
     cursor: pointer;

@@ -1,6 +1,10 @@
 %nav
   %ul
-    %li= link_to("Templates", "/templates")
+    %li
+      = link_to("Templates", templates_path, :class => "sub")
+      %ul.sub
+        %li= link_to("All templates", templates_path)
+        %li= link_to("New template", new_template_path)
     %li= link_to("Interviews", "/interviews")
     %li
       = link_to("Positions", positions_url, :class => "sub")
