@@ -1,0 +1,30 @@
+<% if @question.valid? && !@question.new_record? -%>
+  <%- @question = @template.questions.build %>
+  $("ul#questions").html("<%= escape_javascript(render("questions/questions", :template => @template)) %>");
+  $("ul#questions").animate({opacity: 1.0});
+
+  $("li.question form").bind("ajax:beforeSend", function() {
+    var li = $(this).closest(".question");
+    li.animate({opacity: 0.3});
+    li.find(".loading").show();
+  });
+
+  $("li.question form").bind("ajax:complete", function() {
+    var li = $(this).closest(".question");
+    li.animate({opacity: 1.0});
+    li.find(".loading").hide();
+  });
+
+  $("ul#questions li.active input.first").focus();
+<% else %>
+  $("#<%= dom_id(@question) %> form .entry").find(".error_messages").remove();
+  $(".field_with_errors input").unwrap();
+
+  $("#<%= dom_id(@question) %> form .entry").prepend("<%= escape_javascript(render("shared/error_messages", :target => @question)) %>");
+  <% @question.errors.each do |attr, msg| -%>
+    $("#<%= dom_id(@question) %> #question_<%= attr %>").wrap('<div class="field_with_errors" />');
+  <% end -%>
+
+  $("#<%= dom_id(@question) %>").addClass("active");
+  $("ul#questions li.active input.first").focus();
+<% end -%>

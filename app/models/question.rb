@@ -9,5 +9,8 @@ class Question
   embeds_many :notes # or comments?
   references_and_referenced_in_many :templates
 
+  validates :question, :presence => true
+  validates_numericality_of :points, :greater_than => 0
+
   CATEGORIES = ["Open-ended", "Direct", "Technical", "Teamwork"]
 end

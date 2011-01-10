@@ -9,3 +9,7 @@ end
 Then /^I should go to question number (\d+)$/ do |question_number|
   page.should have_css("#qn_#{question_number}")
 end
+
+Given /^I have a template$/ do
+  @template = Template.create(:name => "Mid-level Project Manager")
+end

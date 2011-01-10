@@ -12,6 +12,8 @@ module NavigationHelpers
       '/'
     when /the stage number (\d+) page/
       position_stage_path(@position, $1)
+    when /the show template page/
+      template_path(@template)
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

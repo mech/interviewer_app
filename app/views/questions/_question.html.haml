@@ -16,5 +16,21 @@
       %div.action
         = f.submit "Add question", :class => "button", :tabindex => 5
     .points
-      -#= f.text_field :points, :size => 2, :maxlength => 3, :tabindex => 4
+      = f.text_field :points, :size => 2, :maxlength => 3, :tabindex => 4
       pts
+- else
+  .details
+    .no= index
+    .entry
+      %h2
+        %span.cat= question.category
+        = question.question
+      .mode
+        = link_to "edit", [:edit, template, question], :class => "edit"
+        = link_to "remove", [template, question], :confirm => "Remove \"#{question.question}\". Proceed?", :method => :delete, :class => "remove", :remote => true
+      :markdown
+        #{question.answer}
+    .points
+      = question.points
+      pts
+  .edit_form
