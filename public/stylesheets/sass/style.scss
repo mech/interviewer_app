@@ -511,7 +511,7 @@ div.entry {
     
     li {
       float: left;
-      border: 1px solid #434a58;
+      border-left: 1px solid #434a58;
       border-top: 1px solid #535b6a;
       border-bottom: 1px solid #373d4a;
       background: #7a8498 url('/images/stage_bg.png') repeat-x;
@@ -530,17 +530,12 @@ div.entry {
     li:first-child {
       @include rounded-top-left-corner(3px);
       @include rounded-bottom-left-corner(3px);
-      border-right: none;
-    }
-
-    li:first-child + li {
-      border-left: 1px solid #434a58;
     }
 
     li:last-child {
       @include rounded-top-right-corner(3px);
       @include rounded-bottom-right-corner(3px);
-      border-left: none;
+      border-right: 1px solid #434a58;
     }
   }
 }

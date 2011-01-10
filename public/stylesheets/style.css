@@ -534,7 +534,7 @@ div.entry {
     border-radius: 3px; }
     #stages nav ul li {
       float: left;
-      border: 1px solid #434a58;
+      border-left: 1px solid #434a58;
       border-top: 1px solid #535b6a;
       border-bottom: 1px solid #373d4a;
       background: #7a8498 url("/images/stage_bg.png") repeat-x;
@@ -552,10 +552,7 @@ div.entry {
       border-top-left-radius: 3px;
       -webkit-border-bottom-left-radius: 3px;
       -moz-border-radius-bottomleft: 3px;
-      border-bottom-left-radius: 3px;
-      border-right: none; }
-    #stages nav ul li:first-child + li {
-      border-left: 1px solid #434a58; }
+      border-bottom-left-radius: 3px; }
     #stages nav ul li:last-child {
       -webkit-border-top-right-radius: 3px;
       -moz-border-radius-topright: 3px;
@@ -563,7 +560,7 @@ div.entry {
       -webkit-border-bottom-right-radius: 3px;
       -moz-border-radius-bottomright: 3px;
       border-bottom-right-radius: 3px;
-      border-left: none; }
+      border-right: 1px solid #434a58; }
 
 #interviews-wrap {
   background: url("/images/paper_stack.png") left top no-repeat;
