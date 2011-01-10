@@ -4,7 +4,7 @@ class PositionsController < ApplicationController
   before_filter :find_position, :only => [:show, :edit, :update, :destroy]
 
   def index
-    @positions = Position.order_by([:updated_at, :desc]).paginate
+    @positions = Position.order_by([:updated_at, :desc]).paginate(:page => params[:page])
     respond_with @positions
   end
 

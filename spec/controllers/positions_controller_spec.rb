@@ -6,7 +6,6 @@ describe PositionsController do
   let(:position) { Position.create(:title => "Ruby developer") }
 
   describe "GET 'index'" do
-
     it "should be successful" do
       get 'index'
       response.should be_success

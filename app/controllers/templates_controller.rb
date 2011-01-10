@@ -3,6 +3,10 @@ class TemplatesController < ApplicationController
 
   before_filter :find_template, :only => [:show, :edit, :update, :destroy]
 
+  def index
+    @templates = Template.paginate(:page => params[:page])
+  end
+
   def new
     @template = Template.new
   end

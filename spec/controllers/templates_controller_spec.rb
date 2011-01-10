@@ -3,6 +3,18 @@ require 'spec_helper'
 describe TemplatesController do
   render_views
 
+  describe "GET 'index'" do
+    it "should be successful" do
+      get 'index'
+      response.should be_success
+    end
+
+    it "assigns @templates" do
+      get 'index'
+      assigns(:templates).should be_empty
+    end
+  end
+
   describe "GET 'new'" do
     it "should be successful" do
       get 'new'

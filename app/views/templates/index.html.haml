@@ -1,0 +1,33 @@
+%header#sub-action
+  %ul
+    %li
+      %span.add= link_to "New template", new_template_url
+
+#splitview-wrap.group
+  %section#action
+    = form_tag("/") do
+      = text_field_tag(:q, "", :class => "search", :placeholder => "Find templates")
+
+    %header
+      %hgroup
+        %h1 TEMPLATES
+        = link_to("Options", "/", :class => "options")
+        %small
+
+  %section#view
+    .records
+      - if @templates.blank?
+        %p.welcome
+          No template available. Do you want to
+          = link_to("create one.", new_template_path)
+      - else
+        %table.records
+          %thead
+            %tr
+              %th Name
+          %tbody
+            - @templates.each do |template|
+              %tr
+                %td.title
+                  .wrap
+                    %h1= link_to template.name, template
