@@ -1,0 +1,29 @@
+<% if @question.valid? -%>
+  $("#<%= dom_id(@question) %> .wrap").html("<%= escape_javascript(render("questions/question", :question => @question, :template => @template, :index => @index)) %>");
+
+  $("#<%= dom_id(@question) %>").animate({opacity: 1.0});
+  $("#<%= dom_id(@question) %>").find(".loading").hide();
+
+  $("li.question form").bind("ajax:beforeSend", function() {
+    var li = $(this).closest(".question");
+    li.animate({opacity: 0.3});
+    li.find(".loading").show();
+  });
+
+  $("li.question form").bind("ajax:complete", function() {
+    var li = $(this).closest(".question");
+    li.animate({opacity: 1.0});
+    li.find(".loading").hide();
+  });
+<% else -%>
+  $("#<%= dom_id(@question) %> form .entry").find(".error_messages").remove();
+  $(".field_with_errors input").unwrap();
+
+  $("#<%= dom_id(@question) %> form .entry").prepend("<%= escape_javascript(render("shared/error_messages", :target => @question)) %>");
+  <% @question.errors.each do |attr, msg| -%>
+    $("#<%= dom_id(@question) %> #question_<%= attr %>").wrap('<div class="field_with_errors" />');
+  <% end -%>
+
+  $("#<%= dom_id(@question) %>").addClass("active");
+  $("ul#questions li.active input.first").focus();
+<% end -%>

@@ -31,4 +31,27 @@ describe QuestionsController do
       end
     end
   end
+
+  describe "POST 'update'" do
+    let(:valid_template) { Template.create(:name=> "Mid-level Project Manager") }
+    let(:valid_question) {
+      qn = Question.new(
+          :question => "What is Agile?",
+          :answer => "Delivering software that matters",
+          :points => 10
+      )
+      
+      valid_template.questions << qn
+      valid_template.save
+      qn
+    }
+
+    it "updates question" do
+      @params = {
+        :index => 1,
+        :question => "modified"
+      }
+      xhr :post, 'update', :template_id => valid_template.id, :id => valid_question.id, :question => @params
+    end
+  end
 end
