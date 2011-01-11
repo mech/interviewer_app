@@ -33,7 +33,7 @@ select, input, textarea, button { font:99% sans-serif; }
 pre, code, kbd, samp { font-family: monospace, sans-serif; }
 
 body, select, input, textarea {   color: #444; }
-h1,h2,h3,h4,h5,h6 { font-weight: bold; }
+h1,h2,h3,h4,h5,h6 { font-weight: bold; -webkit-font-smoothing: antialiased; }
 html { overflow-y: scroll; }
 
 p { margin-bottom: 5px; line-height: 150%; }
@@ -446,6 +446,22 @@ section#view {
 
     .content {
       padding: 10px;
+
+      form {
+        border: none;
+        
+        label {
+          display: block;
+          float: none;
+          text-align: left;
+          line-height: 150%;
+        }
+
+        .action {
+          @include rounded-bottom-left-corner(3px); @include rounded-bottom-right-corner(3px);
+          margin: 0px -20px -20px -20px;
+        }
+      }
     }
   }
 
@@ -616,9 +632,15 @@ div.entry {
 }
 
 .tips {
-  background: url('/images/tips.png') -2px center no-repeat;
+  background: url('/images/tips.png') -2px 2px no-repeat;
   padding-left: 18px;
   font-size: 13px;
+}
+
+span.eg {
+  font-size: 90%;
+  font-style: italic;
+  color: #aaa;
 }
 
 #questions {

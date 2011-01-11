@@ -494,6 +494,21 @@ section#view {
     z-index: 10; }
     section#view div.drawer .content {
       padding: 10px; }
+      section#view div.drawer .content form {
+        border: none; }
+        section#view div.drawer .content form label {
+          display: block;
+          float: none;
+          text-align: left;
+          line-height: 150%; }
+        section#view div.drawer .content form .action {
+          -webkit-border-bottom-left-radius: 3px;
+          -moz-border-radius-bottomleft: 3px;
+          border-bottom-left-radius: 3px;
+          -webkit-border-bottom-right-radius: 3px;
+          -moz-border-radius-bottomright: 3px;
+          border-bottom-right-radius: 3px;
+          margin: 0px -20px -20px -20px; }
   section#view .overlay {
     background: #f6f5ee;
     opacity: 0.7;
@@ -650,9 +665,14 @@ div.entry {
   padding: 5px 30px; }
 
 .tips {
-  background: url("/images/tips.png") -2px center no-repeat;
+  background: url("/images/tips.png") -2px 2px no-repeat;
   padding-left: 18px;
   font-size: 13px; }
+
+span.eg {
+  font-size: 90%;
+  font-style: italic;
+  color: #aaa; }
 
 #questions {
   list-style: none;

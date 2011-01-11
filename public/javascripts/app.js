@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Tue, 11 Jan 2011 10:00:32 GMT from
+/* DO NOT MODIFY. This file was compiled Tue, 11 Jan 2011 17:22:29 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -84,6 +84,7 @@
     });
     return $("a.drawer").click(function(evt) {
       $("div.drawer").slideToggle("fast");
+      $("div.drawer input.first").focus();
       $("#view").append("<div class='overlay'>");
       $(".overlay").fadeIn();
       $(".overlay").click(function() {

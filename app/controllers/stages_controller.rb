@@ -18,6 +18,7 @@ class StagesController < ApplicationController
   def show
     @stage_index = params[:id]
     @stage_question = @stage.stage_questions.build
+    @template = Template.new
   end
 
   def update

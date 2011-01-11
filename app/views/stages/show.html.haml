@@ -24,14 +24,20 @@
 
   %section#view
     .drawer
-      .content
-        this is drawer
-        .count
-          %span 4
-        %p And it has several long content to go for the records...
-        %p And it has several long content to go for the records...
-        %p And it has several long content to go for the records...
-        
+      .content.group
+        = form_for @template, :html => {:class => "entry"}, :remote => true do |f|
+          = render "shared/error_messages", :target => @template unless @template.errors.blank?
+          %fieldset
+            %div
+              %label{:for => "template_name"}
+                Template Name
+              = f.text_field :name, :size => 40, :class => "first"
+            %p.tips
+              Name your template on the industries or fields your questions are based on.
+              %span.eg e.g. Mid-level Java Developer
+              Do not append the word &quot;questions&quot; behind.
+          %div.action
+            = f.submit "Save as template", :class => "button"
     .entry
       = link_to "test drawer", "/", :class => "drawer"
       .question_guide

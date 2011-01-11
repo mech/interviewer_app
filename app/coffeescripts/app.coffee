@@ -96,6 +96,7 @@ $ ->
   $("a.drawer").click(
     (evt) ->
       $("div.drawer").slideToggle("fast")
+      $("div.drawer input.first").focus()
       $("#view").append("<div class='overlay'>")
       $(".overlay").fadeIn()
       $(".overlay").click(
