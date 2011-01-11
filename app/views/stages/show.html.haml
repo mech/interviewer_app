@@ -1,6 +1,14 @@
 %header#sub-action
   %ul
     %li
+      %span.action
+        = link_to "Action sheet", [@position, @stage], :class => "pop_over"
+        .popover-wrap
+          .pointer
+          .content
+            %ul
+              %li= link_to "Save as template...", [:templates, @position, @stage]
+
       %span.remove= link_to "Remove all questions", [@position, @stage, :stage_questions], :confirm => "This will remove all questions for this stage. Proceed?", :method => :delete
 
 #splitview-wrap.group

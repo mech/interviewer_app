@@ -15,6 +15,7 @@
           = f.text_area :answer, :rows => 3, :cols => 70, :tabindex => 3
       %div.action
         = f.submit "Add question", :class => "button", :tabindex => 5
+        = render "stage_questions/save_as_template", :questions_count => stage.stage_questions.count 
     .points
       = f.text_field :points, :size => 2, :maxlength => 3, :tabindex => 4
       pts
@@ -51,7 +52,7 @@
         %div.action
           = f.submit "Update question", :class => "button", :tabindex => 5
           or
-          = link_to "Cancel", "/", :class => "cancel"
+          = link_to "Cancel", [stage.position, stage], :class => "cancel"
       .points
         = f.text_field :points, :size => 2, :maxlength => 3, :tabindex => 4
         pts

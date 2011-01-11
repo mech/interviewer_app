@@ -399,6 +399,8 @@ body {
       background: url("/images/16_icons.png") 0 -64px no-repeat; }
     #sub-action ul li span.edit > a {
       background: url("/images/16_icons.png") 0 -96px no-repeat; }
+    #sub-action ul li span.action > a {
+      background: url("/images/16_icons.png") 0 -128px no-repeat; }
 
 #splitview-wrap {
   -webkit-border-bottom-left-radius: 3px;

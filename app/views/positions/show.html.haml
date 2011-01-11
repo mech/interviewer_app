@@ -7,8 +7,8 @@
           .pointer
           .content
             %ul
-              %li= link_to "Add position", new_position_url
               %li= link_to "Add interview stage", [:new, @position, :stage]
+              %li= link_to "Add position", new_position_url
 
     %li
       %span.edit
@@ -43,7 +43,7 @@
         %ul
           %li Stages
           - @position.stages.each do |stage|
-            %li= link_to stage.stage_number
+            %li= link_to stage.stage_number, [@position, stage]
 
     #interviews-wrap
       #content
