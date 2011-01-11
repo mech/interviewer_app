@@ -92,3 +92,16 @@ $ ->
       popover.toggle();
       evt.preventDefault()
   )
+
+  $("a.drawer").click(
+    (evt) ->
+      $("div.drawer").slideToggle("fast")
+      $("#view").append("<div class='overlay'>")
+      $(".overlay").fadeIn()
+      $(".overlay").click(
+        ->
+          $(".overlay").remove()
+          $("div.drawer").slideUp("fast")
+      )
+      evt.preventDefault()
+  )

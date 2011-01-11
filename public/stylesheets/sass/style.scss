@@ -219,7 +219,7 @@ body {
           display: none;
           position: absolute; left: 0; padding: 3px 0;
           background: #fff;
-          z-index: 10;
+          z-index: 100;
           width: 120px;
           @include box-shadow(0 3px 3px rgba(0, 0, 0, 0.1));
           @include rounded-bottom-corner(3px);
@@ -273,6 +273,7 @@ body {
   height: 42px;
   border-bottom: 1px solid #bfbfbf;
   position: relative;
+  z-index: 20;
 
   .msg {
     color: red;
@@ -291,7 +292,7 @@ body {
         float: right;
         margin-left: 1em;
         text-indent: -99999px;
-        width: 16px;
+        width: 16px; height: 16px;
 
         &:hover {
           opacity: 0.8;
@@ -317,9 +318,9 @@ body {
         .content {
           @include rounded-corner(3px);
           @include box-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
-          
           border: 1px solid #b2b2b2;
           background: #fff;
+          min-width: 130px;
 
           ul {
             float: none;
@@ -429,6 +430,55 @@ section#view {
   min-height: 400px;
   border-left: 1px solid #bfbfbf;
   padding-top: 15px;
+  position: relative;
+
+  div.drawer {
+    @include rounded-bottom-corner(3px);
+    @include box-shadow(0px 1px 10px rgba(34, 34, 34, 0.5));
+    border: 1px solid #aaa;
+    border-top: none;
+    display: none;
+    width: 500px;
+    background: #fff;
+    margin-left: 134.5px;
+    position: absolute; top: -2px;
+    z-index: 10;
+
+    .content {
+      padding: 10px;
+    }
+  }
+
+  .overlay {
+    background: #f6f5ee;
+    opacity: 0.7;
+    z-index: 9;
+    position: absolute; top: 0;
+    width: 769px;
+    height: 100%;
+    display: none;
+  }
+}
+
+.count {
+  @include rounded-corner(10px);
+  @include box-shadow(0px 1px 3px rgba(34, 34, 34, 1));
+  background: #eee;
+  height: 17px; width: 17px;
+  padding: 2px;
+  color: #fff;
+  text-align: center; line-height: 17px;
+
+  span {
+    @include rounded-corner(8px);
+    background: #ec2929;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ec2929), to(#9b0000));
+    background: -moz-linear-gradient(top, #ec2929, #9b0000);
+    height: 17px; line-height: 17px; min-width: 8px;
+    display: block;
+    text-align: center;
+    font-size: 11px; font-weight: bold;
+  }
 }
 
 div.entry {

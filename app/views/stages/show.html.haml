@@ -23,7 +23,17 @@
         %small Last access 1 day ago
 
   %section#view
+    .drawer
+      .content
+        this is drawer
+        .count
+          %span 4
+        %p And it has several long content to go for the records...
+        %p And it has several long content to go for the records...
+        %p And it has several long content to go for the records...
+        
     .entry
+      = link_to "test drawer", "/", :class => "drawer"
       .question_guide
         %h2 Stage #{@stage_index} interview
         = link_to @position.title, @position, :class => "fw"
