@@ -55,4 +55,19 @@ describe StagesController do
       assigns(:stage_question).should be_true
     end
   end
+
+  describe "POST 'templates'" do
+    it "assigns @template" do
+      xhr :post, "templates", :position_id => @position.id, :id => @position.stage_at(1).stage_number, :template => {:name => "Untitled"}
+      assigns(:template).should be_true
+    end
+
+    it "saves a new template" do
+      expect {
+        xhr :post, "templates", :position_id => @position.id, :id => @position.stage_at(1).stage_number, :template => {:name => "Untitled"}
+      }.to change {
+        Template.count
+      }.by(1)
+    end
+  end
 end

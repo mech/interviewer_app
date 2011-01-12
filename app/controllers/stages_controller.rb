@@ -26,6 +26,16 @@ class StagesController < ApplicationController
     respond_with @stage
   end
 
+  def templates
+    @template = Template.new(params[:template])
+
+    if @template.save
+      @template.add_questions_from_stage(@stage)
+    end
+    
+    respond_with @template
+  end
+
   private
 
   def find_position

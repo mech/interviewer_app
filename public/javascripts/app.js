@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Tue, 11 Jan 2011 17:22:29 GMT from
+/* DO NOT MODIFY. This file was compiled Wed, 12 Jan 2011 06:55:35 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -39,6 +39,12 @@
         opacity: 1.0
       });
       return li.find(".loading").hide();
+    });
+    $(".drawer form").bind("ajax:complete", function() {
+      return $(this).find(".button").val("Save as template");
+    });
+    $(".drawer form").bind("ajax:beforeSend", function() {
+      return $(this).find(".button").val("Saving...");
     });
     $("ul#questions input, ul#questions textarea, ul#questions select").live("focus", function() {
       $("li.question").removeClass("active");
@@ -82,9 +88,12 @@
       popover.toggle();
       return evt.preventDefault();
     });
-    return $("a.drawer").click(function(evt) {
-      $("div.drawer").slideToggle("fast");
+    return $("a.sst").click(function(evt) {
+      $(".overlay").remove();
+      $(".popover-wrap").hide();
+      $("div.drawer").slideDown("fast");
       $("div.drawer input.first").focus();
+      $("div.drawer input.first").select();
       $("#view").append("<div class='overlay'>");
       $(".overlay").fadeIn();
       $(".overlay").click(function() {

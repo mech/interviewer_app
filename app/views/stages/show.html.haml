@@ -7,7 +7,7 @@
           .pointer
           .content
             %ul
-              %li= link_to "Save as template...", [:templates, @position, @stage]
+              %li= link_to "Save as template...", [:templates, @position, @stage], :class => "sst"
 
       %span.remove= link_to "Remove all questions", [@position, @stage, :stage_questions], :confirm => "This will remove all questions for this stage. Proceed?", :method => :delete
 
@@ -25,13 +25,14 @@
   %section#view
     .drawer
       .content.group
-        = form_for @template, :html => {:class => "entry"}, :remote => true do |f|
-          = render "shared/error_messages", :target => @template unless @template.errors.blank?
+        = form_for :template, :url => [:templates, @position, @stage], :html => {:class => "entry"}, :remote => true do |f|
           %fieldset
             %div
               %label{:for => "template_name"}
                 Template Name
-              = f.text_field :name, :size => 40, :class => "first"
+              = f.text_field :name, :size => 42, :class => "first"
+              = f.check_box :public
+              %label{:for => "template_public", :class => "cb"} Share with public
             %p.tips
               Name your template on the industries or fields your questions are based on.
               %span.eg e.g. Mid-level Java Developer
@@ -39,7 +40,6 @@
           %div.action
             = f.submit "Save as template", :class => "button"
     .entry
-      = link_to "test drawer", "/", :class => "drawer"
       .question_guide
         %h2 Stage #{@stage_index} interview
         = link_to @position.title, @position, :class => "fw"

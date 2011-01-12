@@ -33,6 +33,18 @@ $ ->
       li.find(".loading").hide()
   )
 
+  $(".drawer form").bind(
+    "ajax:complete",
+    ->
+      $(this).find(".button").val("Save as template")
+  )
+
+  $(".drawer form").bind(
+    "ajax:beforeSend",
+    ->
+      $(this).find(".button").val("Saving...")
+  )
+
   $("ul#questions input, ul#questions textarea, ul#questions select").live(
     "focus",
     ->
@@ -93,10 +105,13 @@ $ ->
       evt.preventDefault()
   )
 
-  $("a.drawer").click(
+  $("a.sst").click(
     (evt) ->
-      $("div.drawer").slideToggle("fast")
+      $(".overlay").remove()
+      $(".popover-wrap").hide()
+      $("div.drawer").slideDown("fast")
       $("div.drawer input.first").focus()
+      $("div.drawer input.first").select()
       $("#view").append("<div class='overlay'>")
       $(".overlay").fadeIn()
       $(".overlay").click(

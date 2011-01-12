@@ -81,7 +81,8 @@ body, select, input, textarea {
   color: #444; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: bold; }
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased; }
 
 html {
   overflow-y: scroll; }
@@ -165,12 +166,12 @@ input:invalid, textarea:invalid {
 
 ::-moz-selection {
   background: #99ccff;
-  color: #fff;
+  color: #222;
   text-shadow: none; }
 
 ::selection {
   background: #99ccff;
-  color: #fff;
+  color: #222;
   text-shadow: none; }
 
 a:link {
@@ -491,7 +492,7 @@ section#view {
     margin-left: 134.5px;
     position: absolute;
     top: -2px;
-    z-index: 10; }
+    z-index: 11; }
     section#view div.drawer .content {
       padding: 10px; }
       section#view div.drawer .content form {
@@ -509,6 +510,8 @@ section#view {
           -moz-border-radius-bottomright: 3px;
           border-bottom-right-radius: 3px;
           margin: 0px -20px -20px -20px; }
+      section#view div.drawer .content .error_messages {
+        padding: 0; }
   section#view .overlay {
     background: #f6f5ee;
     opacity: 0.7;
@@ -768,6 +771,10 @@ span.eg {
         display: inline; }
         #questions .question .entry .field_with_errors input[type=text] {
           border: 1px solid #d94349; }
+    #questions .question .loading {
+      margin-top: 2em;
+      margin-left: 43%;
+      position: absolute; }
     #questions .question .points {
       background: url("/images/drag_handle.gif") 105px center no-repeat;
       padding: 5px;
@@ -856,6 +863,14 @@ input[type='text']:focus, input[type='password']:focus, textarea:focus {
   background-color: #fefeee;
   border: 1px solid #777;
   outline: 0; }
+
+label.cb {
+  display: inline !important;
+  font-weight: bold;
+  vertical-align: middle; }
+
+input[type='checkbox'] {
+  vertical-align: middle; }
 
 a.fw {
   background: url("/images/arrow.gif") right center no-repeat;
@@ -974,10 +989,10 @@ table.records {
   background: url("/images/spinner.gif") left center no-repeat;
   padding-left: 20px;
   display: none;
-  margin-top: 2em;
-  margin-left: 43%;
-  position: absolute;
-  z-index: 100; }
+  z-index: 10;
+  height: 16px;
+  line-height: 150%;
+  text-align: left; }
 
 .error_messages {
   -webkit-border-radius: 3px;

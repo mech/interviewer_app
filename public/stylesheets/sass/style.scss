@@ -64,8 +64,8 @@ input:invalid, textarea:invalid { border-radius: 1px;  -moz-box-shadow: 0px 0px 
 .no-boxshadow input:invalid,
 .no-boxshadow textarea:invalid { background-color: #f0dddd; }
 
-::-moz-selection{ background: #99ccff; color:#fff; text-shadow: none; }
-::selection { background:#99ccff; color:#fff; text-shadow: none; }
+::-moz-selection{ background: #99ccff; color:#222; text-shadow: none; }
+::selection { background:#99ccff; color:#222; text-shadow: none; }
 a:link { -webkit-tap-highlight-color: #99ccff; }
 
 button {  width: auto; overflow: visible; }
@@ -442,7 +442,7 @@ section#view {
     background: #fff;
     margin-left: 134.5px;
     position: absolute; top: -2px;
-    z-index: 10;
+    z-index: 11;
 
     .content {
       padding: 10px;
@@ -461,6 +461,10 @@ section#view {
           @include rounded-bottom-left-corner(3px); @include rounded-bottom-right-corner(3px);
           margin: 0px -20px -20px -20px;
         }
+      }
+
+      .error_messages {
+        padding: 0;
       }
     }
   }
@@ -752,6 +756,11 @@ span.eg {
       }
     }
 
+    .loading {
+      margin-top: 2em; margin-left: 43%;
+      position: absolute;
+    }
+
     .points {
       background: url('/images/drag_handle.gif') 105px center no-repeat;
       padding: 5px; padding-right: 30px;
@@ -863,6 +872,16 @@ input[type='text']:focus, input[type='password']:focus, textarea:focus {
   outline: 0;
 }
 
+label.cb {
+  display: inline !important;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+input[type='checkbox'] {
+  vertical-align: middle;
+}
+
 a.fw {
   background: url('/images/arrow.gif') right center no-repeat;
   padding-right: 20px;
@@ -957,9 +976,9 @@ table.records {
   background: url('/images/spinner.gif') left center no-repeat;
   padding-left: 20px;
   display: none;
-  margin-top: 2em; margin-left: 43%;
-  position: absolute;
-  z-index: 100;
+  z-index: 10;
+  height: 16px; line-height: 150%;
+  text-align: left;
 }
 
 
