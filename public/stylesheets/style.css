@@ -579,11 +579,12 @@ div.entry {
     div.entry .guide a, div.entry .question_guide a, div.entry .template_guide a {
       font-size: 100%; }
   div.entry .question_guide {
-    background: url("/images/interview_guide.png") 0 5px no-repeat; }
+    background: url("/images/interview_guide.png") 0 5px no-repeat;
+    position: relative; }
     div.entry .question_guide .points {
-      float: right;
-      position: relative;
-      top: -1em;
+      position: absolute;
+      top: 10px;
+      right: 0;
       padding: 5px;
       font-weight: bold; }
       div.entry .question_guide .points form {
@@ -669,6 +670,11 @@ div.entry {
 
 .tips {
   background: url("/images/tips.png") -2px 2px no-repeat;
+  padding-left: 18px;
+  font-size: 13px; }
+
+.pin {
+  background: url("/images/pin.png") -2px 2px no-repeat;
   padding-left: 18px;
   font-size: 13px; }
 

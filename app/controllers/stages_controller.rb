@@ -36,6 +36,10 @@ class StagesController < ApplicationController
     respond_with @template
   end
 
+  def pinned
+    
+  end
+
   private
 
   def find_position

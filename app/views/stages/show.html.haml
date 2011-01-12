@@ -43,6 +43,7 @@
       .question_guide
         %h2 Stage #{@stage_index} interview
         = link_to @position.title, @position, :class => "fw"
+        %p.pin= link_to "Pin this stage to the side", [:pinned, @position, @stage], :class => "pin_stage"
         .points
           = form_for [@position, @stage], :remote => true do |f|
             = f.text_field :points, :size => 2, :maxlength => 3

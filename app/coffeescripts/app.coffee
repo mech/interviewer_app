@@ -100,7 +100,7 @@ $ ->
       $(".popover-wrap").not(popover).hide()
       width = popover.css("width")
       popover.css("width", width)
-      popover.css("left", $(this).position().left - (parseInt(width)*0.33))
+      popover.css("left", $(this).position().left - (parseInt(width)*0.34))
       popover.toggle();
       evt.preventDefault()
   )
@@ -119,5 +119,11 @@ $ ->
           $(".overlay").remove()
           $("div.drawer").slideUp("fast")
       )
+      evt.preventDefault()
+  )
+
+  $("a.pin_stage").click(
+    (evt) ->
+      alert "hehe"
       evt.preventDefault()
   )

@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Wed, 12 Jan 2011 06:55:35 GMT from
+/* DO NOT MODIFY. This file was compiled Wed, 12 Jan 2011 11:11:14 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -84,11 +84,11 @@
       $(".popover-wrap").not(popover).hide();
       width = popover.css("width");
       popover.css("width", width);
-      popover.css("left", $(this).position().left - (parseInt(width) * 0.33));
+      popover.css("left", $(this).position().left - (parseInt(width) * 0.34));
       popover.toggle();
       return evt.preventDefault();
     });
-    return $("a.sst").click(function(evt) {
+    $("a.sst").click(function(evt) {
       $(".overlay").remove();
       $(".popover-wrap").hide();
       $("div.drawer").slideDown("fast");
@@ -100,6 +100,10 @@
         $(".overlay").remove();
         return $("div.drawer").slideUp("fast");
       });
+      return evt.preventDefault();
+    });
+    return $("a.pin_stage").click(function(evt) {
+      alert("hehe");
       return evt.preventDefault();
     });
   });
