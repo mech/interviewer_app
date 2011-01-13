@@ -9,7 +9,9 @@
       = text_field_tag(:q, "", :class => "search", :placeholder => "Find templates")
 
     #pinned
-      %h1 Pinned stages
+      %h1
+        %span.pinned= image_tag "pinned.png"
+        Pinned stages
       %ul
         %li Pin 1
         %li Pin 1
@@ -31,6 +33,8 @@
             %li Choose your template
             %li Review the questions
             %li Drag it directly to the pin
+
+          = link_to "Got it", "/", :class => "dismiss"
     .records
       - if @templates.blank?
         %p.welcome

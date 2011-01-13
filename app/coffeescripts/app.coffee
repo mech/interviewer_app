@@ -113,10 +113,10 @@ $ ->
       $("div.drawer input.first").focus()
       $("div.drawer input.first").select()
       $("#view").append("<div class='overlay'>")
-      $(".overlay").fadeIn()
+      $(".overlay").fadeIn("fast")
       $(".overlay").click(
         ->
-          $(".overlay").remove()
+          $(".overlay").fadeOut("fast")
           $("div.drawer").slideUp("fast")
       )
       evt.preventDefault()
@@ -125,5 +125,16 @@ $ ->
   $("a.pin_stage").click(
     (evt) ->
       $.post($(this).attr("href"), {"stage_number": $(this).attr("data-stage-number")})
+      evt.preventDefault()
+  )
+
+  bouncePin = ->
+    $("span.pinned").fadeIn(100).animate({top:"-=10px"},100).animate({top:"+=10px"},100).animate({top:"-=10px"},100).animate({top:"+=10px"},100).animate({top:"-=10px"},100).animate({top:"+=10px"},100)
+
+  $(".pin_location a.dismiss").click(
+    (evt) ->
+      $(".overlay").fadeOut()
+      $("div.drawer").slideUp("fast")
+      bouncePin()
       evt.preventDefault()
   )

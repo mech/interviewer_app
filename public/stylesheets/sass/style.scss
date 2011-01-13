@@ -426,11 +426,16 @@ section#action {
     border-top: 1px solid #fff;
 
     h1 {
-      background: #f2f6fb url('/images/pinned.png') 10px center no-repeat;
-      padding: 10px 5px 10px 35px;
+      padding: 5px 5px 10px 35px;
+      background: #f2f6fb;
+      padding-left: 10px;
       color: #2e69a3;
       font-size: 85%;
       text-shadow: 0 1px 0 #fff;
+      
+      span.pinned {
+        position: relative; top: 5px;
+      }
     }
 
     ul {
@@ -509,6 +514,12 @@ section#view {
         ol {
           font-size: 130%;
           line-height: 150%;
+        }
+
+        a.dismiss {
+          background: url('/images/13_icons.png') 0 -156px no-repeat;
+          display: block; position: absolute; right: 10px; bottom: 10px;
+          width: 13px; height: 13px; text-indent: -99999px;
         }
       }
     }

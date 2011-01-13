@@ -1,10 +1,10 @@
-/* DO NOT MODIFY. This file was compiled Thu, 13 Jan 2011 02:05:37 GMT from
+/* DO NOT MODIFY. This file was compiled Thu, 13 Jan 2011 09:04:01 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
 (function() {
   $(function() {
-    var sub_hide, sub_show;
+    var bouncePin, sub_hide, sub_show;
     $("input[type=text]:not(.search):first").focus();
     $("ul#questions li.active input.first").focus();
     sub_show = function() {
@@ -95,17 +95,38 @@
       $("div.drawer input.first").focus();
       $("div.drawer input.first").select();
       $("#view").append("<div class='overlay'>");
-      $(".overlay").fadeIn();
+      $(".overlay").fadeIn("fast");
       $(".overlay").click(function() {
-        $(".overlay").remove();
+        $(".overlay").fadeOut("fast");
         return $("div.drawer").slideUp("fast");
       });
       return evt.preventDefault();
     });
-    return $("a.pin_stage").click(function(evt) {
+    $("a.pin_stage").click(function(evt) {
       $.post($(this).attr("href"), {
         "stage_number": $(this).attr("data-stage-number")
       });
+      return evt.preventDefault();
+    });
+    bouncePin = function() {
+      return $("span.pinned").fadeIn(100).animate({
+        top: "-=10px"
+      }, 100).animate({
+        top: "+=10px"
+      }, 100).animate({
+        top: "-=10px"
+      }, 100).animate({
+        top: "+=10px"
+      }, 100).animate({
+        top: "-=10px"
+      }, 100).animate({
+        top: "+=10px"
+      }, 100);
+    };
+    return $(".pin_location a.dismiss").click(function(evt) {
+      $(".overlay").fadeOut();
+      $("div.drawer").slideUp("fast");
+      bouncePin();
       return evt.preventDefault();
     });
   });
