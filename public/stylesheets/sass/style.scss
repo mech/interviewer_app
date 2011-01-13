@@ -421,6 +421,34 @@ section#action {
       padding-left: 20px;
     }
   }
+
+  #pinned {
+    border-top: 1px solid #fff;
+
+    h1 {
+      background: #f2f6fb url('/images/pinned.png') 10px center no-repeat;
+      padding: 10px 5px 10px 35px;
+      color: #2e69a3;
+      font-size: 85%;
+      text-shadow: 0 1px 0 #fff;
+    }
+
+    ul {
+      background: #f2f6fb;
+      padding-left: 10px;
+      padding-bottom: 5px;
+      list-style: none;
+
+      li {
+        
+      }
+    }
+  }
+
+  .tear_off {
+    background: #cad7e5 url('/images/tear_off.png') repeat-x;
+    height: 9px;
+  }
 }
 
 section#view {
@@ -465,6 +493,23 @@ section#view {
 
       .error_messages {
         padding: 0;
+      }
+
+      h1 {
+        font-size: 150%;
+        text-align: center;
+      }
+
+      .pin_location {
+        margin-top: 1em;
+        background: url('/images/pin_location.png') 20px 0 no-repeat;
+        padding-left: 200px;
+        min-height: 128px;
+
+        ol {
+          font-size: 130%;
+          line-height: 150%;
+        }
       }
     }
   }

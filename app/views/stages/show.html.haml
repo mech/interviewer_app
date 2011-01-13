@@ -15,12 +15,11 @@
   %section#action
     = form_tag("/") do
       = text_field_tag(:q, "", :class => "search", :placeholder => "Find positions")
-
     %header
       %hgroup
         %h1 POSITIONS
         = link_to("Options", "/", :class => "options")
-        %small Last access 1 day ago
+        
 
   %section#view
     .drawer
@@ -43,7 +42,7 @@
       .question_guide
         %h2 Stage #{@stage_index} interview
         = link_to @position.title, @position, :class => "fw"
-        %p.pin= link_to "Pin this stage to the side", [:pinned, @position, @stage], :class => "pin_stage"
+        %p.pin= link_to "Pin this stage to the side", [:pinned, @position, @stage], :class => "pin_stage", "data-stage-number" => @stage.stage_number
         .points
           = form_for [@position, @stage], :remote => true do |f|
             = f.text_field :points, :size => 2, :maxlength => 3

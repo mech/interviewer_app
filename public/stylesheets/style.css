@@ -462,6 +462,22 @@ section#action {
       font-size: 9px;
       color: #6c6c6c;
       padding-left: 20px; }
+  section#action #pinned {
+    border-top: 1px solid #fff; }
+    section#action #pinned h1 {
+      background: #f2f6fb url("/images/pinned.png") 10px center no-repeat;
+      padding: 10px 5px 10px 35px;
+      color: #2e69a3;
+      font-size: 85%;
+      text-shadow: 0 1px 0 #fff; }
+    section#action #pinned ul {
+      background: #f2f6fb;
+      padding-left: 10px;
+      padding-bottom: 5px;
+      list-style: none; }
+  section#action .tear_off {
+    background: #cad7e5 url("/images/tear_off.png") repeat-x;
+    height: 9px; }
 
 section#view {
   -webkit-border-bottom-right-radius: 3px;
@@ -512,6 +528,17 @@ section#view {
           margin: 0px -20px -20px -20px; }
       section#view div.drawer .content .error_messages {
         padding: 0; }
+      section#view div.drawer .content h1 {
+        font-size: 150%;
+        text-align: center; }
+      section#view div.drawer .content .pin_location {
+        margin-top: 1em;
+        background: url("/images/pin_location.png") 20px 0 no-repeat;
+        padding-left: 200px;
+        min-height: 128px; }
+        section#view div.drawer .content .pin_location ol {
+          font-size: 130%;
+          line-height: 150%; }
   section#view .overlay {
     background: #f6f5ee;
     opacity: 0.7;

@@ -13,6 +13,8 @@ InterviewerApp::Application.routes.draw do
   end
 
   resources :templates do
+    get 'browse', :on => :collection
+    
     resources :questions
   end
   

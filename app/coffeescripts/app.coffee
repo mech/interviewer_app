@@ -124,6 +124,6 @@ $ ->
 
   $("a.pin_stage").click(
     (evt) ->
-      alert "hehe"
+      $.post($(this).attr("href"), {"stage_number": $(this).attr("data-stage-number")})
       evt.preventDefault()
   )

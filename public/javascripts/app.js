@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Wed, 12 Jan 2011 11:11:14 GMT from
+/* DO NOT MODIFY. This file was compiled Thu, 13 Jan 2011 02:05:37 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -103,7 +103,9 @@
       return evt.preventDefault();
     });
     return $("a.pin_stage").click(function(evt) {
-      alert("hehe");
+      $.post($(this).attr("href"), {
+        "stage_number": $(this).attr("data-stage-number")
+      });
       return evt.preventDefault();
     });
   });
