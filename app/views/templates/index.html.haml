@@ -17,9 +17,7 @@
   %section#view
     .records
       - if @templates.blank?
-        %p.welcome
-          No template available. Do you want to
-          = link_to("create one.", new_template_path)
+        %p.welcome No template available. Do you want to #{link_to("create one", new_template_path)}?
       - else
         %table.records
           %thead
