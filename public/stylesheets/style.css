@@ -1048,6 +1048,18 @@ ul.template_records {
       background: white url("/images/sheet_bg.gif") right bottom no-repeat;
       margin: 0 auto;
       margin-bottom: 1em; }
+      ul.template_records li div.sheet div.small_text_block {
+        background: url("/images/small_text_block.gif") no-repeat;
+        width: 44px;
+        height: 77px; }
+      ul.template_records li div.sheet div.medium_text_block {
+        background: url("/images/medium_text_block.gif") no-repeat;
+        width: 44px;
+        height: 77px; }
+      ul.template_records li div.sheet div.large_text_block {
+        background: url("/images/large_text_block.gif") no-repeat;
+        width: 44px;
+        height: 77px; }
     ul.template_records li a.sheet_name {
       -webkit-border-radius: 15px;
       -moz-border-radius: 15px;

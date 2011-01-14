@@ -1048,6 +1048,21 @@ ul.template_records {
       border: 3px solid #ffd600;
       background: #fff url('/images/sheet_bg.gif') right bottom no-repeat;
       margin: 0 auto; margin-bottom: 1em;
+
+      div.small_text_block {
+        background: url('/images/small_text_block.gif') no-repeat;
+        width: 44px; height: 77px;
+      }
+
+      div.medium_text_block {
+        background: url('/images/medium_text_block.gif') no-repeat;
+        width: 44px; height: 77px;
+      }
+
+      div.large_text_block {
+        background: url('/images/large_text_block.gif') no-repeat;
+        width: 44px; height: 77px;
+      }
     }
 
     a.sheet_name {

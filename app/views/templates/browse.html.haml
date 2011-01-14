@@ -32,4 +32,5 @@
           - @templates.each do |template|
             %li
               .sheet
-              = link_to truncate(template.name, 20), template, :class => "sheet_name"
+                = render "text_block", :template => template
+              = link_to truncate(template.name, 15), template, :class => "sheet_name", :title => template.name
