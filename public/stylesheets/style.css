@@ -552,6 +552,8 @@ section#view {
           width: 13px;
           height: 13px;
           text-indent: -99999px; }
+          section#view div.drawer .content .pin_location a.dismiss:active {
+            bottom: 9px; }
   section#view .overlay {
     background: #f6f5ee;
     opacity: 0.7;

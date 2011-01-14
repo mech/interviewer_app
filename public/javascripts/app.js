@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Thu, 13 Jan 2011 09:04:01 GMT from
+/* DO NOT MODIFY. This file was compiled Fri, 14 Jan 2011 05:28:04 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -127,7 +127,8 @@
       $(".overlay").fadeOut();
       $("div.drawer").slideUp("fast");
       bouncePin();
-      return evt.preventDefault();
+      evt.preventDefault();
+      return history.replaceState(null, "Browser Templates", location.href.replace("?new_pin=yes", ""));
     });
   });
 }).call(this);

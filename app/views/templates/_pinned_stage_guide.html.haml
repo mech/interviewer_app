@@ -1,0 +1,13 @@
+- if params[:new_pin] == "yes"
+  .overlay{:style => "display: block;"}
+  .drawer{:style => "display: block;"}
+    .content.group
+      %h1 {position.title} pinned!
+
+      .pin_location
+        %ol
+          %li Choose your template
+          %li Review the questions
+          %li Drag it directly to the pin
+
+        = link_to "Got it", browse_templates_path, :class => "dismiss"

@@ -520,6 +520,10 @@ section#view {
           background: url('/images/13_icons.png') 0 -156px no-repeat;
           display: block; position: absolute; right: 10px; bottom: 10px;
           width: 13px; height: 13px; text-indent: -99999px;
+
+          &:active {
+            bottom: 9px;
+          }
         }
       }
     }

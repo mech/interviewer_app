@@ -22,22 +22,7 @@
         
 
   %section#view
-    .drawer
-      .content.group
-        = form_for :template, :url => [:templates, @position, @stage], :html => {:class => "entry"}, :remote => true do |f|
-          %fieldset
-            %div
-              %label{:for => "template_name"}
-                Template Name
-              = f.text_field :name, :size => 42, :class => "first"
-              = f.check_box :public
-              %label{:for => "template_public", :class => "cb"} Share with public
-            %p.tips
-              Name your template on the industries or fields your questions are based on.
-              %span.eg e.g. Mid-level Java Developer
-              Do not append the word &quot;questions&quot; behind.
-          %div.action
-            = f.submit "Save as template", :class => "button"
+    = render "templates/new_template_drawer", :position => @position, :stage => @stage
     .entry
       .question_guide
         %h2 Stage #{@stage_index} interview

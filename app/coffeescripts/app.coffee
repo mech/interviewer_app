@@ -133,8 +133,10 @@ $ ->
 
   $(".pin_location a.dismiss").click(
     (evt) ->
+      # TODO - remove query string new_pin=yes
       $(".overlay").fadeOut()
       $("div.drawer").slideUp("fast")
       bouncePin()
       evt.preventDefault()
+      history.replaceState(null, "Browser Templates", location.href.replace("?new_pin=yes", ""))
   )
