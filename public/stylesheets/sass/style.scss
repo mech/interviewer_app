@@ -1033,6 +1033,42 @@ table.records {
   }
 }
 
+ul.template_records {
+  list-style: none;
+
+  li {
+    float: left;
+    text-align: center;
+    width: 150px;
+    
+    div.sheet {
+      @include rounded-corner(4px);
+      @include box-shadow(3px 5px 5px rgba(0, 0, 0, 0.2));
+      width: 62px; height:77px;
+      border: 3px solid #ffd600;
+      background: #fff url('/images/sheet_bg.gif') right bottom no-repeat;
+      margin: 0 auto; margin-bottom: 1em;
+    }
+
+    a.sheet_name {
+      @include rounded-corner(15px);
+      display: block;
+      width: 100px;
+      background: #d9d8d2;
+      padding: 4px 6px;
+      margin: 0 auto;
+      color: #424242;
+      font-size: 85%; font-weight: bold;
+      text-decoration: none;
+
+      &:hover {
+        background: #c9c7bd;
+        color: #000;
+      }
+    }
+  }
+}
+
 .trash {
   background: url('/images/13_icons.png') 0 -104px no-repeat;
   padding-left: 15px;

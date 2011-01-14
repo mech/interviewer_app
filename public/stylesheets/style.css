@@ -1029,6 +1029,42 @@ table.records {
     background: url("/images/13_icons.png") 5px -44px no-repeat;
     padding-left: 20px; }
 
+ul.template_records {
+  list-style: none; }
+  ul.template_records li {
+    float: left;
+    text-align: center;
+    width: 150px; }
+    ul.template_records li div.sheet {
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      -webkit-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+      box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+      width: 62px;
+      height: 77px;
+      border: 3px solid #ffd600;
+      background: white url("/images/sheet_bg.gif") right bottom no-repeat;
+      margin: 0 auto;
+      margin-bottom: 1em; }
+    ul.template_records li a.sheet_name {
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      border-radius: 15px;
+      display: block;
+      width: 100px;
+      background: #d9d8d2;
+      padding: 4px 6px;
+      margin: 0 auto;
+      color: #424242;
+      font-size: 85%;
+      font-weight: bold;
+      text-decoration: none; }
+      ul.template_records li a.sheet_name:hover {
+        background: #c9c7bd;
+        color: #000; }
+
 .trash {
   background: url("/images/13_icons.png") 0 -104px no-repeat;
   padding-left: 15px; }

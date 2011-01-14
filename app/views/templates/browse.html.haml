@@ -28,13 +28,8 @@
       - if @templates.blank?
         %p.welcome No template available. Do you want to #{link_to("create one", new_template_path)}?
       - else
-        %table.records
-          %thead
-            %tr
-              %th Name
-          %tbody
-            - @templates.each do |template|
-              %tr
-                %td.title
-                  .wrap
-                    %h1= link_to template.name, template
+        %ul.template_records
+          - @templates.each do |template|
+            %li
+              .sheet
+              = link_to truncate(template.name, 20), template, :class => "sheet_name"
