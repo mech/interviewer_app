@@ -2,6 +2,10 @@
   %ul
     %li
       %span.add= link_to "New template", new_template_url
+    %li
+      %span.list_view= link_to "List view", browse_templates_path(:view => "list"), :title => "List view"
+    %li
+      %span.grid_view= link_to "Grid view", browse_templates_path, :title => "Grid view"
 
 #splitview-wrap.group
   %section#action

@@ -405,6 +405,10 @@ body {
       background: url("/images/16_icons.png") 0 -96px no-repeat; }
     #sub-action ul li span.action > a {
       background: url("/images/16_icons.png") 0 -128px no-repeat; }
+    #sub-action ul li span.grid_view > a {
+      background: url("/images/16_icons.png") 0 -160px no-repeat; }
+    #sub-action ul li span.list_view > a {
+      background: url("/images/16_icons.png") 0 -192px no-repeat; }
 
 #splitview-wrap {
   -webkit-border-bottom-left-radius: 3px;
@@ -1047,6 +1051,8 @@ table.records {
       position: relative;
       left: 20px;
       top: 135px; }
+      .template_records .prev a.previous_page:active {
+        top: 136px; }
     .template_records .prev span.previous_page {
       background: url("/images/prev.png") no-repeat;
       display: block;
@@ -1071,6 +1077,8 @@ table.records {
       position: relative;
       left: 20px;
       top: 135px; }
+      .template_records .next a.next_page:active {
+        top: 136px; }
     .template_records .next span.next_page {
       background: url("/images/next.png") no-repeat;
       display: block;
