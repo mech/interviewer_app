@@ -45,6 +45,22 @@ $ ->
       $(this).find(".button").val("Saving...")
   )
 
+  $(".template_records .sheet a").bind(
+    "ajax:beforeSend",
+    ->
+      li = $(this).closest("li")
+      li.find("div.sheet").css("opacity", 0.3)
+      li.find(".loading").show()
+  )
+
+  $(".template_records .sheet a").bind(
+    "ajax:complete",
+    ->
+      li = $(this).closest("li")
+      li.find("div.sheet").animate({opacity: 1.0})
+      li.find(".loading").hide()
+  )
+
   $("ul#questions input, ul#questions textarea, ul#questions select").live(
     "focus",
     ->

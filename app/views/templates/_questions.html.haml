@@ -1,0 +1,10 @@
+%table.records
+  %thead
+    %tr
+      %th No.
+      %th Questions
+  %tbody
+    - template.questions.each_with_index do |question, index|
+      %tr
+        %td= index + 1
+        %td.title= link_to question.question, "/"

@@ -23,7 +23,8 @@ class TemplatesController < ApplicationController
   end
 
   def show
-    @question = @template.questions.build
+    @question = @template.questions.build unless request.xhr?
+    respond_with @template
   end
 
   protected

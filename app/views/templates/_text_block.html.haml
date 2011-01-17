@@ -1,6 +1,7 @@
-- if template.questions.count < 10
-  .small_text_block
-- elsif (10..30).include? template.questions.count
-  .medium_text_block
-- else
-  .large_text_block 
+%a{:href => template_path(template), :data => {:remote => "true"}}
+  - if template.questions.count < 10
+    .small_text_block
+  - elsif (10..30).include? template.questions.count
+    .medium_text_block
+  - else
+    .large_text_block 

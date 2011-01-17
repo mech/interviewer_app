@@ -1049,7 +1049,7 @@ table.records {
       width: 18px;
       height: 18px;
       position: relative;
-      left: 20px;
+      left: 42px;
       top: 135px; }
       .template_records .prev a.previous_page:active {
         top: 136px; }
@@ -1086,7 +1086,7 @@ table.records {
       width: 18px;
       height: 18px;
       position: relative;
-      left: 42px;
+      left: 20px;
       top: 135px;
       opacity: 0.5; }
   .template_records ul {
@@ -1100,7 +1100,8 @@ table.records {
       text-align: center;
       width: 150px;
       height: 130px;
-      padding-top: 1em; }
+      padding-top: 1em;
+      position: relative; }
       .template_records ul li div.sheet {
         -webkit-border-radius: 4px;
         -moz-border-radius: 4px;
@@ -1113,7 +1114,8 @@ table.records {
         border: 3px solid #ffd600;
         background: white url("/images/sheet_bg.gif") right bottom no-repeat;
         margin: 0 auto;
-        margin-bottom: 1em; }
+        margin-bottom: 1em;
+        z-index: 80; }
         .template_records ul li div.sheet div.small_text_block {
           background: url("/images/small_text_block.gif") no-repeat;
           width: 44px;
@@ -1126,6 +1128,13 @@ table.records {
           background: url("/images/large_text_block.gif") no-repeat;
           width: 44px;
           height: 77px; }
+      .template_records ul li .loading {
+        z-index: 90;
+        position: absolute;
+        top: 50px;
+        left: 67px; }
+      .template_records ul li div.selected {
+        border-color: #2770bf; }
       .template_records ul li a.sheet_name {
         -webkit-border-radius: 15px;
         -moz-border-radius: 15px;
@@ -1143,6 +1152,11 @@ table.records {
         .template_records ul li a.sheet_name:hover {
           background: #c9c7bd;
           color: #000; }
+
+#questions_view {
+  margin-top: 1em; }
+  #questions_view table {
+    width: 500px; }
 
 .trash {
   background: url("/images/13_icons.png") 0 -104px no-repeat;

@@ -35,9 +35,13 @@
         .template_records.group
           = will_paginate(@templates, :page_links => false, :class => "prev")
           %ul
-            - @templates.each do |template|
+            - @templates.each_with_index do |template, index|
               %li
-                .sheet
+                .loading
+                .sheet{:class => index == 0 ? "selected" : "", :id => dom_id(template)}
                   = render "text_block", :template => template
                 = link_to truncate(template.name, :length => 15), template, :class => "sheet_name", :title => template.name
           = will_paginate(@templates, :page_links => false, :class => "next")
+
+        #questions_view
+          = render "questions", :template => @templates.first
