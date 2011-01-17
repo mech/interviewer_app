@@ -24,13 +24,16 @@
 
   %section#view
     = render "pinned_stage_guide" 
-    .records
+    .records.group
       - if @templates.blank?
         %p.welcome No template available. Do you want to #{link_to("create one", new_template_path)}?
       - else
-        %ul.template_records
-          - @templates.each do |template|
-            %li
-              .sheet
-                = render "text_block", :template => template
-              = link_to truncate(template.name, 15), template, :class => "sheet_name", :title => template.name
+        .template_records.group
+          = will_paginate(@templates, :page_links => false, :class => "prev")
+          %ul
+            - @templates.each do |template|
+              %li
+                .sheet
+                  = render "text_block", :template => template
+                = link_to truncate(template.name, :length => 15), template, :class => "sheet_name", :title => template.name
+          = will_paginate(@templates, :page_links => false, :class => "next")

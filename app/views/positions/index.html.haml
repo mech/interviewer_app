@@ -30,7 +30,7 @@
                 %td.title
                   .wrap
                     %h1= link_to position.title, position
-                    %p.desc{:title => position.description}= truncate position.description, 60
+                    %p.desc{:title => position.description}= truncate_words position.description, 60
                     .mode
                       = link_to "edit", [:edit, position], :class => "edit"
                       = link_to "remove", position, :confirm => "Remove \"#{position.title}\". Proceed?", :method => :delete, :class => "remove"

@@ -575,7 +575,6 @@ div.entry {
   }
 
   .guide, .question_guide, .template_guide {
-    background: url('/images/guide.png') 0 5px no-repeat;
     padding-left: 55px;
     line-height: 1.5em;
     margin: 0 0 2em 0;
@@ -1033,52 +1032,117 @@ table.records {
   }
 }
 
-ul.template_records {
-  list-style: none;
-
-  li {
+.template_records {
+  background: url('/images/template_bg.png');
+  margin: -25px -10px 0 -10px;
+  border-bottom: 1px solid #f3e9d1;
+  
+  .prev {
+    width: 84.5px;
     float: left;
-    text-align: center;
-    width: 150px;
+    display: block;
     
-    div.sheet {
-      @include rounded-corner(4px);
-      @include box-shadow(3px 5px 5px rgba(0, 0, 0, 0.2));
-      width: 62px; height:77px;
-      border: 3px solid #ffd600;
-      background: #fff url('/images/sheet_bg.gif') right bottom no-repeat;
-      margin: 0 auto; margin-bottom: 1em;
-
-      div.small_text_block {
-        background: url('/images/small_text_block.gif') no-repeat;
-        width: 44px; height: 77px;
-      }
-
-      div.medium_text_block {
-        background: url('/images/medium_text_block.gif') no-repeat;
-        width: 44px; height: 77px;
-      }
-
-      div.large_text_block {
-        background: url('/images/large_text_block.gif') no-repeat;
-        width: 44px; height: 77px;
-      }
+    .next_page {
+      display: none;
     }
 
-    a.sheet_name {
-      @include rounded-corner(15px);
+    a.previous_page {
+      background: url('/images/prev.png') no-repeat;
       display: block;
-      width: 100px;
-      background: #d9d8d2;
-      padding: 4px 6px;
-      margin: 0 auto;
-      color: #424242;
-      font-size: 85%; font-weight: bold;
-      text-decoration: none;
+      text-indent: -99999px;
+      width: 18px; height: 18px;
+      position: relative; left: 20px; top: 135px;
+    }
 
-      &:hover {
-        background: #c9c7bd;
-        color: #000;
+    span.previous_page {
+      background: url('/images/prev.png') no-repeat;
+      display: block;
+      text-indent: -99999px;
+      width: 18px; height: 18px;
+      position: relative; left: 42px; top: 135px;
+      opacity: 0.5;
+    }
+  }
+
+  .next {
+    width: 84.5px;
+    float: left;
+
+    .previous_page {
+      display: none;
+    }
+
+    a.next_page {
+      background: url('/images/next.png') no-repeat;
+      display: block;
+      text-indent: -99999px;
+      width: 18px; height: 18px;
+      position: relative; left: 20px; top: 135px;
+    }
+
+    span.next_page {
+      background: url('/images/next.png') no-repeat;
+      display: block;
+      text-indent: -99999px;
+      width: 18px; height: 18px;
+      position: relative; left: 42px; top: 135px;
+      opacity: 0.5;
+    }
+  }
+  
+  ul {
+    list-style: none;
+    width: 600px;
+    margin: 0 auto;
+    float: left;
+    position: relative;
+
+    li {
+      float: left;
+      text-align: center;
+      width: 150px; height: 130px;
+      padding-top: 1em;
+
+      div.sheet {
+        @include rounded-corner(4px);
+        @include box-shadow(3px 5px 5px rgba(0, 0, 0, 0.2));
+        width: 62px; height:77px;
+        border: 3px solid #ffd600;
+        background: #fff url('/images/sheet_bg.gif') right bottom no-repeat;
+        margin: 0 auto; margin-bottom: 1em;
+
+        div.small_text_block {
+          background: url('/images/small_text_block.gif') no-repeat;
+          width: 44px; height: 77px;
+        }
+
+        div.medium_text_block {
+          background: url('/images/medium_text_block.gif') no-repeat;
+          width: 44px; height: 77px;
+        }
+
+        div.large_text_block {
+          background: url('/images/large_text_block.gif') no-repeat;
+          width: 44px; height: 77px;
+        }
+      }
+
+      a.sheet_name {
+        @include rounded-corner(15px);
+        display: block;
+        width: 100px;
+        background: #d9d8d2;
+        padding: 3px 5px;
+        margin: 0 auto;
+        color: #424242;
+        font-size: 85%; font-weight: bold;
+        text-decoration: none;
+        text-shadow: 0 1px 2px #fff;
+
+        &:hover {
+          background: #c9c7bd;
+          color: #000;
+        }
       }
     }
   }

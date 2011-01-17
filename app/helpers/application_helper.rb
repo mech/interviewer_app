@@ -32,7 +32,7 @@ IE_HTML
     "#{time_ago_in_words(date)} ago"
   end
 
-  def truncate(text, length=30, truncate_string="...")
+  def truncate_words(text, length=30, truncate_string="...")
     return if text.blank?
     l = length - truncate_string.chars.to_a.length
     text.chars.to_a.length > length ? text[/\A.{#{l}}\w*\;?/m][/.*[\w\;]/m] + truncate_string : text
