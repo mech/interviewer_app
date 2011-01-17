@@ -157,7 +157,7 @@ $ ->
       history.replaceState(null, "Browser Templates", location.href.replace("?new_pin=yes", ""))
   )
 
-  $(".template_records .sheet").draggable({revert: true})
+  $(".template_records .sheet").draggable({revert: true, containment: "#splitview-wrap"})
 
   $("#pinned li a").droppable({
     activeClass: "droppable_active",

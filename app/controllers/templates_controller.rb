@@ -5,6 +5,11 @@ class TemplatesController < ApplicationController
 
   def browse
     # TODO - List view has 10 records and icon view has 8 records
+    if params[:new_pin] == "yes"
+      @new_pin = true
+      params.delete(:new_pin) # remove it so that pagination will not show drawer repetitively
+    end
+
     @templates = Template.paginate(:page => params[:page], :per_page => 8)
   end
 

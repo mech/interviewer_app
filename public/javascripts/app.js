@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Mon, 17 Jan 2011 09:22:41 GMT from
+/* DO NOT MODIFY. This file was compiled Mon, 17 Jan 2011 09:44:00 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -145,7 +145,8 @@
       return history.replaceState(null, "Browser Templates", location.href.replace("?new_pin=yes", ""));
     });
     $(".template_records .sheet").draggable({
-      revert: true
+      revert: true,
+      containment: "#splitview-wrap"
     });
     return $("#pinned li a").droppable({
       activeClass: "droppable_active",
