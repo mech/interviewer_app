@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Mon, 17 Jan 2011 09:44:00 GMT from
+/* DO NOT MODIFY. This file was compiled Mon, 17 Jan 2011 11:26:51 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -152,12 +152,13 @@
       activeClass: "droppable_active",
       hoverClass: "droppable_hover",
       drop: function(evt, ui) {
-        var template_id;
+        var pin_stage_id, template_id;
         template_id = ui.draggable.attr("id").replace("template_", "");
+        pin_stage_id = evt.target.id.replace("pin_stage_", "");
         $(this).effect("pulsate", {
           times: 2
         }, 200);
-        return console.log(template_id);
+        return console.log(pin_stage_id);
       }
     });
   });

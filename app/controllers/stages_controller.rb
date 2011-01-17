@@ -38,8 +38,8 @@ class StagesController < ApplicationController
 
   def pinned
     # TODO - Save the current user
-    @pin_stage = PinStage.new(:position => @position, :stage_number => params[:stage_number])
-    # @pin_stage.save
+    @pin_stage = PinStage.new(:position_id => @position.id, :stage_number => params[:stage_number])
+    @pin_stage.save
   end
 
   private

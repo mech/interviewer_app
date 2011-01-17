@@ -10,7 +10,7 @@ class Position
   field :description, :type => String
   field :location,    :type => String
   field :salary,      :type => BigDecimal
-
+  
   references_one :company
   embeds_many :stages
 

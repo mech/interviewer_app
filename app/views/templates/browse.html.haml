@@ -17,8 +17,9 @@
         %span.pinned= image_tag "pinned.png"
         Pinned stages
       %ul
-        %li= link_to "Software engineer", "/"
-        %li= link_to "J2EE analyst", "/"
+        - PinStage.all.each do |pin_stage|
+          %li= link_to truncate(pin_stage.position_title_with_stage, :length => 25), "/", :title => pin_stage.position.title, :id => dom_id(pin_stage)
+
     .tear_off
       
     %header

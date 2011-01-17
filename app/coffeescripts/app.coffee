@@ -164,6 +164,7 @@ $ ->
     hoverClass: "droppable_hover",
     drop: (evt, ui) ->
       template_id = ui.draggable.attr("id").replace("template_", "")
+      pin_stage_id = evt.target.id.replace("pin_stage_", "")
       $(this).effect("pulsate", {times: 2}, 200)
-      console.log template_id
+      console.log pin_stage_id
   })
