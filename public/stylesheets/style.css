@@ -481,8 +481,20 @@ section#action {
     section#action #pinned ul {
       background: #f2f6fb;
       padding-left: 10px;
-      padding-bottom: 5px;
+      padding-bottom: 2px;
       list-style: none; }
+      section#action #pinned ul li {
+        background: url("/images/dot.png") left center no-repeat;
+        padding: 0 5px 0 10px; }
+        section#action #pinned ul li a {
+          text-decoration: none;
+          padding: 2px 5px;
+          display: block; }
+        section#action #pinned ul li a.droppable_hover {
+          -webkit-border-radius: 15px;
+          -moz-border-radius: 15px;
+          border-radius: 15px;
+          background: #fee852; }
   section#action .tear_off {
     background: #cad7e5 url("/images/tear_off.png") repeat-x;
     height: 9px; }
@@ -1062,7 +1074,7 @@ table.records {
       position: relative;
       left: 42px;
       top: 135px;
-      opacity: 0.5; }
+      opacity: 0.3; }
   .template_records .next {
     width: 84.5px;
     float: left; }
@@ -1088,7 +1100,7 @@ table.records {
       position: relative;
       left: 20px;
       top: 135px;
-      opacity: 0.5; }
+      opacity: 0.3; }
   .template_records ul {
     list-style: none;
     width: 600px;

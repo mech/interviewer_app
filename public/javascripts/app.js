@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Mon, 17 Jan 2011 07:19:08 GMT from
+/* DO NOT MODIFY. This file was compiled Mon, 17 Jan 2011 09:22:41 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -137,12 +137,27 @@
         top: "+=10px"
       }, 100);
     };
-    return $(".pin_location a.dismiss").click(function(evt) {
+    $(".pin_location a.dismiss").click(function(evt) {
       $(".overlay").fadeOut();
       $("div.drawer").slideUp("fast");
       bouncePin();
       evt.preventDefault();
       return history.replaceState(null, "Browser Templates", location.href.replace("?new_pin=yes", ""));
+    });
+    $(".template_records .sheet").draggable({
+      revert: true
+    });
+    return $("#pinned li a").droppable({
+      activeClass: "droppable_active",
+      hoverClass: "droppable_hover",
+      drop: function(evt, ui) {
+        var template_id;
+        template_id = ui.draggable.attr("id").replace("template_", "");
+        $(this).effect("pulsate", {
+          times: 2
+        }, 200);
+        return console.log(template_id);
+      }
     });
   });
 }).call(this);

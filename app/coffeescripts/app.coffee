@@ -156,3 +156,14 @@ $ ->
       evt.preventDefault()
       history.replaceState(null, "Browser Templates", location.href.replace("?new_pin=yes", ""))
   )
+
+  $(".template_records .sheet").draggable({revert: true})
+
+  $("#pinned li a").droppable({
+    activeClass: "droppable_active",
+    hoverClass: "droppable_hover",
+    drop: (evt, ui) ->
+      template_id = ui.draggable.attr("id").replace("template_", "")
+      $(this).effect("pulsate", {times: 2}, 200)
+      console.log template_id
+  })

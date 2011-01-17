@@ -26,7 +26,7 @@
     !window.jQuery && document.write(unescape('%3Cscript src="javascripts/jquery-1.4.4.js"%3E%3C/script%3E'))
     jQuery.ajaxSetup({ beforeSend: function (xhr) { xhr.setRequestHeader("Accept", "text/javascript"); } });
     
-  = javascript_include_tag "jquery.ui.core.min", "jquery.ui.widget.min", "jquery.ui.mouse.min", "jquery.ui.sortable.min", "rails", "app"
+  = javascript_include_tag "jquery.ui.core.min", "jquery.ui.widget.min", "jquery.ui.mouse.min", "jquery.ui.draggable", "jquery.ui.droppable", "jquery.ui.sortable.min", "jquery.effects.core", "jquery.effects.pulsate", "rails", "app"
 
   /[if lt IE 7]
     = javascript_include_tag "dd_belatedpng"
