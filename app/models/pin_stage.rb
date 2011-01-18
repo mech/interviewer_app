@@ -25,6 +25,7 @@ class PinStage
 
   # Pull the questions out from the template
   # and save it into the position stage
+  # Overwrite any duplicate
   #
   # @param [Template] template
   # @return [Boolean] whether it has been saved or not
@@ -32,7 +33,13 @@ class PinStage
     return true if template.questions.empty?
 
     template.questions.each do |question|
-      stage.stage_questions.create(:category => question.category, :question => question.question, :answer => question.answer, :points => question.points)
+      existing = stage.stage_questions.where(:template_question_id => question.id).limit(1).first
+
+      if existing
+        existing.update_attributes(:category => question.category, :question => question.question, :answer => question.answer, :points => question.points)
+      else
+        stage.stage_questions.create(:template_question_id => question.id, :category => question.category, :question => question.question, :answer => question.answer, :points => question.points)
+      end
     end
   end
 end

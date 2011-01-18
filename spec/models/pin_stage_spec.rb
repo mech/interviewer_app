@@ -21,5 +21,20 @@ describe PinStage do
       @empty_template = Template.create(:name => "No question")
       @pin_stage.save_questions_from_template(@empty_template).should be_true
     end
+
+    it "should not add duplicate question entry" do
+      @pin_stage.save_questions_from_template(@template)
+      @pin_stage.save_questions_from_template(@template)
+      @pin_stage.stage.stage_questions.count.should == 2
+    end
+
+    it "overwrites duplicate question entry" do
+      @pin_stage.save_questions_from_template(@template)
+      qn = @template.questions.first
+      qn.question = "Modified"
+      qn.save
+      @pin_stage.save_questions_from_template(@template)
+      @pin_stage.stage.stage_questions.where(:template_question_id => qn.id).limit(1).first.question.should == "Modified"
+    end
   end
 end
