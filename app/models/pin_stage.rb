@@ -18,4 +18,21 @@ class PinStage
   def position_title_with_stage
     "S#{stage_number}:#{position.title}"
   end
+
+  def stage
+    @stage ||= position.stage_at(stage_number)
+  end
+
+  # Pull the questions out from the template
+  # and save it into the position stage
+  #
+  # @param [Template] template
+  # @return [Boolean] whether it has been saved or not
+  def save_questions_from_template(template)
+    return true if template.questions.empty?
+
+    template.questions.each do |question|
+      stage.stage_questions.create(:category => question.category, :question => question.question, :answer => question.answer, :points => question.points)
+    end
+  end
 end

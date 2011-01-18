@@ -26,7 +26,7 @@ class StagesController < ApplicationController
     respond_with @stage
   end
 
-  def templates
+  def save_as_templates
     @template = Template.new(params[:template])
 
     if @template.save
@@ -40,6 +40,13 @@ class StagesController < ApplicationController
     # TODO - Save the current user
     @pin_stage = PinStage.new(:position_id => @position.id, :stage_number => params[:stage_number])
     @pin_stage.save
+  end
+
+  def pull_questions
+    # TODO - Scope to current user
+    pin_stage = PinStage.find params[:pin_stage_id]
+    template = Template.find params[:template_id]
+    pin_stage.save_questions_from_template(template)
   end
 
   private

@@ -625,6 +625,7 @@ div.entry {
     height: 18px;
     text-shadow: 0 1px 0 #e4e4e4; }
   div.entry .guide, div.entry .question_guide, div.entry .template_guide {
+    background: url("/images/guide.png") 0 5px no-repeat;
     padding-left: 55px;
     line-height: 1.5em;
     margin: 0 0 2em 0;

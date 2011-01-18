@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Mon, 17 Jan 2011 11:26:51 GMT from
+/* DO NOT MODIFY. This file was compiled Tue, 18 Jan 2011 08:04:29 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -158,7 +158,10 @@
         $(this).effect("pulsate", {
           times: 2
         }, 200);
-        return console.log(pin_stage_id);
+        return $.post($(this).attr("data-action"), {
+          "template_id": template_id,
+          "pin_stage_id": pin_stage_id
+        });
       }
     });
   });

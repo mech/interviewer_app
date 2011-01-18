@@ -56,18 +56,52 @@ describe StagesController do
     end
   end
 
-  describe "POST 'templates'" do
+  describe "POST 'save_as_templates'" do
     it "assigns @template" do
-      xhr :post, "templates", :position_id => @position.id, :id => @position.stage_at(1).stage_number, :template => {:name => "Untitled"}
+      xhr :post, "save_as_templates", :position_id => @position.id, :id => @position.stage_at(1).stage_number, :template => {:name => "Untitled"}
       assigns(:template).should be_true
     end
 
     it "saves a new template" do
       expect {
-        xhr :post, "templates", :position_id => @position.id, :id => @position.stage_at(1).stage_number, :template => {:name => "Untitled"}
+        xhr :post, "save_as_templates", :position_id => @position.id, :id => @position.stage_at(1).stage_number, :template => {:name => "Untitled"}
       }.to change {
         Template.count
       }.by(1)
+    end
+  end
+
+  describe "POST 'pinned'" do
+    it "assigns @pin_stage" do
+      xhr :post, 'pinned', :position_id => @position.id, :id => @position.stage_at(1).stage_number, :stage_number => @position.stage_at(1).stage_number
+      assigns(:pin_stage).should_not be_nil
+    end
+
+    it "saves a new pin stage" do
+      expect {
+        xhr :post, 'pinned', :position_id => @position.id, :id => @position.stage_at(1).stage_number, :stage_number => @position.stage_at(1).stage_number
+      }.to change {
+        PinStage.count
+      }.by(1)
+    end
+  end
+
+  describe "POST 'pull_questions'" do
+    before do
+      @template = Template.create(:name => "Mid-level Project Manager")
+      @pin_stage = PinStage.create(:position_id => @position.id, :stage_number => @position.stage_at(1).stage_number)
+      2.times do
+        @template.questions << Question.new(:category => "Direct", :question => "test", :answer => "test", :points => 10)
+      end
+      @template.save
+    end
+
+    it "saves all questions from template to the stage" do
+      expect {
+        xhr :post, 'pull_questions', :position_id => @position.id, :id => @position.stage_at(1).stage_number, :pin_stage_id => @pin_stage.id, :template_id => @template.id
+      }.to change {
+        @position.reload.stage_at(@pin_stage.stage_number).stage_questions.count
+      }.by(2)
     end
   end
 end

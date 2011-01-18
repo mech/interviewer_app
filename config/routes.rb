@@ -2,8 +2,9 @@ InterviewerApp::Application.routes.draw do
 
   resources :positions do
     resources :stages do
-      post 'templates', :on => :member
+      post 'save_as_templates', :on => :member
       post 'pinned', :on => :member
+      post 'pull_questions', :on => :member
       
       resources :stage_questions do
         delete 'index', :on => :collection

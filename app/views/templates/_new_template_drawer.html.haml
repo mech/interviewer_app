@@ -1,6 +1,6 @@
 .drawer
   .content.group
-    = form_for :template, :url => [:templates, position, stage], :html => {:class => "entry"}, :remote => true do |f|
+    = form_for :template, :url => [:save_as_templates, position, stage], :html => {:class => "entry"}, :remote => true do |f|
       %fieldset
         %div
           %label{:for => "template_name"}

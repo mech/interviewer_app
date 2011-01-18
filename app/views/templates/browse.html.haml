@@ -18,7 +18,7 @@
         Pinned stages
       %ul
         - PinStage.all.each do |pin_stage|
-          %li= link_to truncate(pin_stage.position_title_with_stage, :length => 25), "/", :title => pin_stage.position.title, :id => dom_id(pin_stage)
+          %li= link_to truncate(pin_stage.position_title_with_stage, :length => 25), position_stage_path(pin_stage.position_id, pin_stage.stage_number), :title => pin_stage.position.title, :id => dom_id(pin_stage), "data-action" => pull_questions_position_stage_path(pin_stage.position.id, pin_stage.stage_number)
 
     .tear_off
       
