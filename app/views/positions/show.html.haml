@@ -7,8 +7,9 @@
           .pointer
           .content
             %ul
-              %li= link_to "Add interview stage", [:new, @position, :stage]
-              %li= link_to "Add position", new_position_url
+              %li= link_to "New Interview...", [:new, @position, :interview]
+              %li= link_to "Add Interview Stage", [:new, @position, :stage]
+              %li= link_to "Add Position", new_position_url
 
     %li
       %span.edit
@@ -31,6 +32,7 @@
   %section#view
     #job_details
       %h1= @position.title
+      = link_to "New Interview", [:new, @position, :interview], :class => "button action"
       %ul.minibar
         %li.location= @position.location
         %li.date= relative_date @position.created_at

@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Tue, 18 Jan 2011 08:04:29 GMT from
+/* DO NOT MODIFY. This file was compiled Wed, 19 Jan 2011 08:45:18 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -102,7 +102,7 @@
       popover.toggle();
       return evt.preventDefault();
     });
-    $("a.sst").click(function(evt) {
+    $("a.sst").live("click", function(evt) {
       $(".overlay").remove();
       $(".popover-wrap").hide();
       $("div.drawer").slideDown("fast");

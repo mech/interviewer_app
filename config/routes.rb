@@ -11,6 +11,8 @@ InterviewerApp::Application.routes.draw do
         post 'sort', :on => :collection
       end
     end
+
+    resources :interviews
   end
 
   resources :templates do

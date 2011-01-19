@@ -121,7 +121,8 @@ $ ->
       evt.preventDefault()
   )
 
-  $("a.sst").click(
+  $("a.sst").live(
+    "click",
     (evt) ->
       $(".overlay").remove()
       $(".popover-wrap").hide()

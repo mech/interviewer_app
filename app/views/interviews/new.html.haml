@@ -1,0 +1,46 @@
+%header#sub-action
+
+
+#splitview-wrap.group
+  %section#action
+    = form_tag("/") do
+      = text_field_tag(:q, "", :class => "search", :placeholder => "Find positions")
+
+    %header
+      %hgroup
+        %h1 POSITIONS
+        = link_to("Options", "/", :class => "options")
+        %small Last access 1 day ago
+
+  %section#view
+    .entry
+      .question_guide
+        %h2= "New interview for \"#{@position.title}\""
+        %p.tips Email notification will be sent to all participants.
+      %header
+        %h1 New session for candidate
+      = form_for [@position, @interview], :html => {:class => "entry"} do |f|
+        = render "shared/error_messages", :target => @interview unless @interview.errors.blank?
+        %fieldset
+          %div
+            %label{:for => "interview_candidate_name"}
+              Candidate name
+            = f.text_field :candidate_name, :size => 40
+          %div
+            %label{:for => "interview_candidate_email"}
+              Candidate email
+            = f.text_field :candidate_email, :size => 40
+          %div
+            %label{:for => "interview_where"}
+              Where
+            = f.text_field :where, :size => 60, :placeholder => "Street/Road, Country"
+          %div
+            %label{:for => "interview_when"}
+              When
+            = f.datetime_select :when
+
+        %fieldset
+
+
+        %div.action
+          = f.submit "Create interview", :class => "button"

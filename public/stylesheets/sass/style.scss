@@ -651,6 +651,16 @@ div.entry {
   }
 }
 
+#interview_details {
+  padding: 10px;
+
+  h1 {
+    line-height: 150%;
+    font-size: 120%;
+    margin-bottom: 3px;
+  }
+}
+
 #stages {
   padding: 0 10px;
   
@@ -971,7 +981,18 @@ a.fw {
 }
 
 .button {
-  @include button(#60b165, #459c4b, #ffffff, #398b3e, #276b35, #3f682d, #459c4b, #60b165)
+  @include button(#60b165, #459c4b, #ffffff, #398b3e, #276b35, #3f682d, #459c4b, #60b165);
+}
+
+a.button {
+  @include button(#60b165, #459c4b, #ffffff, #398b3e, #276b35, #3f682d, #459c4b, #60b165);
+  color: #fff;
+  text-decoration: none;
+}
+
+a.action {
+  float: right;
+  position: relative; top: -20px;
 }
 
 div.records {

@@ -1,0 +1,16 @@
+%header#sub-action
+
+#splitview-wrap.group
+  %section#action
+    = form_tag("/") do
+      = text_field_tag(:q, "", :class => "search", :placeholder => "Find positions")
+
+    %header
+      %hgroup
+        %h1 POSITIONS
+        = link_to("Options", "/", :class => "options")
+        %small
+
+  %section#view
+    #interview_details
+      %h1= "Interview \"#{@interview.candidate_name}\" for \"#{@position.title}\"" 

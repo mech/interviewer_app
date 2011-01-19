@@ -7,7 +7,7 @@
           .pointer
           .content
             %ul
-              %li= link_to "Save as template...", [:save_as_templates, @position, @stage], :class => "sst"
+              %li= link_to "Save As Template...", [:save_as_templates, @position, @stage], :class => "sst"
 
       %span.remove= link_to "Remove all questions", [@position, @stage, :stage_questions], :confirm => "This will remove all questions for this stage. Proceed?", :method => :delete
 

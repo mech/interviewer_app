@@ -13,6 +13,7 @@ class Position
   
   references_one :company
   embeds_many :stages
+  references_many :interviews
 
   validates_presence_of :title, :status#, :company
 
