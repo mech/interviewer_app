@@ -82,6 +82,7 @@ class Stage
 
   def assign_stage_number
     # TODO - Do sequence check
+    # Ask yourself if stage can be removed or not. If yes, then we need to be in sync
     self.stage_number = position.stages.count + 1
   end
 end

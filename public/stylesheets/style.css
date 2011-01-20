@@ -1224,6 +1224,20 @@ table.records {
   line-height: 150%;
   text-align: left; }
 
+#flash_message {
+  color: #444;
+  background: #f9f1bb; }
+  #flash_message p {
+    width: 960px;
+    margin: 0 auto;
+    padding: 5px 0; }
+    #flash_message p a.dismiss {
+      background: url("/images/13_icons.png") 0 -156px no-repeat;
+      float: right;
+      width: 13px;
+      height: 13px;
+      text-indent: -99999px; }
+
 .error_messages {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;

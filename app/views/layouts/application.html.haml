@@ -12,12 +12,12 @@
   = stylesheet_link_tag :all
 
 %body
+  =raw flash_message
   #header-wrap
     %header#mast
       = render "shared/primary_nav"
 
   #content-wrap
-    #flash_message= flash_message
     = yield
 
   = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"

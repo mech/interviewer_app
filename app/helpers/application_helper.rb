@@ -12,9 +12,11 @@ IE_HTML
   def flash_message
     if flash.any?
       if flash.notice
-        return flash.notice
+#        return flash.notice
+        content_tag(:div, content_tag(:p, flash.notice), :id => "flash_message")
       elsif flash.alert
-        return flash.alert
+        content_tag(:div, content_tag(:p, flash.alert.html_safe << (content_tag(:a, "Hide", :href => "/", :class => "dismiss"))), :id => "flash_message")
+#        return flash.alert
       end
     end
   ensure

@@ -1,4 +1,5 @@
 class InterviewsController < ApplicationController
+  include Exceptions
   respond_to :html, :js, :json
   
   before_filter :find_position
@@ -14,8 +15,20 @@ class InterviewsController < ApplicationController
     # interview
     @interview = @position.interviews.build(params[:interview])
 
-    flash[:notice] = "Interview has been created successfully." if @interview.save
-    respond_with @interview, :location => [@position, @interview]
+    begin
+      if @interview.save!
+        flash[:notice] = "Interview has been created successfully."
+        respond_with @interview, :location => [@position, @interview]
+      end
+    rescue TooManyInterviewsError
+    rescue PendingInterviewError
+      flash[:alert] = "There are pending interview."
+      @pending_interview = @position.interviews.pending(@interview.candidate_email).limit(1).first
+      redirect_to [@position, @pending_interview]
+    rescue PointsNotEnoughError
+      flash[:alert] = "Points not enough."
+      redirect_to [@position, @interview.last_completed_interview]
+    end
   end
 
   def show

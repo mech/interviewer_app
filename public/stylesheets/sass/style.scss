@@ -1224,7 +1224,21 @@ table.records {
   text-align: left;
 }
 
+#flash_message {
+  color: #444;
+  background: #f9f1bb;
 
+  p {
+    width: 960px; margin: 0 auto;
+    padding: 5px 0;
+
+    a.dismiss {
+      background: url('/images/13_icons.png') 0 -156px no-repeat;
+      float: right;
+      width: 13px; height: 13px; text-indent: -99999px;
+    }
+  }
+}
 
 .error_messages {
   @include rounded-corner(3px);
