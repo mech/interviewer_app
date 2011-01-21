@@ -94,9 +94,8 @@ describe Stage do
 
   describe "#stage_question_at" do
     before do
-      @qn_1 = stage_one.stage_questions.create(:question_number => 1, :question => "One")
-      @qn_2 = stage_one.stage_questions.create(:question_number => 1, :question => "Two")
-      @qn_2.question_number = 1; @qn_2.save
+      @qn_1 = stage_one.stage_questions.create(:question => "One", :points => 1)
+      @qn_2 = stage_one.stage_questions.create(:question => "Two", :points => 2)
     end
 
     it "accepts one Integer argument" do
@@ -105,14 +104,31 @@ describe Stage do
       }.should raise_exception(ArgumentError)
     end
 
+    it "returns question number 1 when asked for number 1" do
+      qn = stage_one.stage_question_at(1)
+      qn.question_number.should == 1
+    end
+
+    it "returns question number 2 when asked for number 2" do
+      qn = stage_one.stage_question_at(2)
+      qn.question_number.should == 2
+    end
+
     it "returns nil if number argument is nil" do
       stage_one.stage_question_at(nil).should be_nil
     end
 
     it "raises RepeatedQuestionNumberError when finding more than one record" do
       lambda {
+        @qn_2.update_attributes(:question_number => 1)
         stage_one.stage_question_at(1)
       }.should raise_exception(Exceptions::RepeatedQuestionNumberError)
+    end
+
+    it "self-heal the repeated question number on next call" do
+      @qn_2.update_attributes(:question_number => 1)
+      stage_one.stage_question_at(1) rescue nil
+      @qn_2.question_number.should == 2
     end
   end
 end

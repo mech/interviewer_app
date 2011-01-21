@@ -39,6 +39,7 @@ class Stage
 
     if _stage_questions.count > 1
       # TODO - Do internal fixing, self-heal
+      sort_questions
       raise RepeatedQuestionNumberError
     else
       _stage_questions.first

@@ -21,7 +21,6 @@ describe InterviewsController do
     before do
       @stage_one = position.stage_at(1)
       @stage_two = position.stages.create
-      @stage_three = position.stages.create
 
       # Stage one question
       @stage_one.stage_questions.create(:question => "a", :answer => "b", :points => 5)
@@ -37,9 +36,9 @@ describe InterviewsController do
       }
     end
 
-    context "we have 3 stages" do
-      it "position has 3 stages" do
-        position.should have(3).stages
+    context "we have 2 stages" do
+      it "position has 2 stages" do
+        position.should have(2).stages
       end
     end
 
@@ -53,6 +52,8 @@ describe InterviewsController do
     context "second interview" do
       before do
         @first_interview = position.interviews.create(@valid_params[:interview])
+        @first_interview.responses.create(:question_number => 1, :points => 5)
+        @first_interview.responses.create(:question_number => 2, :points => 5)
       end
       
       context "first interview has not finished" do
@@ -77,8 +78,8 @@ describe InterviewsController do
         end
 
         context "insufficient points" do
-
           it "raise insufficient points" do
+            @first_interview.responses.first.update_attributes(:points => 4)
             post :create, @valid_params
             flash[:alert].should == "Points not enough."
             response.should redirect_to([position, @first_interview])
@@ -86,16 +87,24 @@ describe InterviewsController do
         end
 
         context "enough points" do
+          it "create a second interview" do
+            post :create, @valid_params
+            flash[:alert].should be_blank
+            response.should redirect_to([position, assigns(:interview)])
+          end
         end
       end
     end
 
-    context "third interview" do
-
-    end
-
     context "too many interviews" do
+      before do
+        @first_interview = position.interviews.create(@valid_params[:interview])
+        @second_interview = position.interviews.create(@valid_params[:interview])
+      end
 
+      it "raises error if interview exceed the number of stages" do
+        
+      end
     end
   end
 end

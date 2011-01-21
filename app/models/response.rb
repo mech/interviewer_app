@@ -7,6 +7,9 @@ class Response
   embedded_in :interview
   # embeds_many :comments, :class_name => ResponseComment
 
+  validates_presence_of :question_number
+  validates_uniqueness_of :question_number, :scope => :interview
+
   def stage
     @stage ||= interview.stage
   end
@@ -21,6 +24,4 @@ class Response
 
   def failed?
   end
-
-  validates_presence_of :question_number
 end

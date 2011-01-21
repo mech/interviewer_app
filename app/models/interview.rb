@@ -63,7 +63,6 @@ class Interview
     interviews_count = position.interviews.where(:candidate_email => candidate_email).count
 
     if interviews_count >= stages_count
-      # errors.add(:stage_number, "too many interviews")
       raise TooManyInterviewsError
     else
       self.stage_number = interviews_count + 1
