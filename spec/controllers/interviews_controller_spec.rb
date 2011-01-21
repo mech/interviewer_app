@@ -86,7 +86,6 @@ describe InterviewsController do
         end
 
         context "enough points" do
-
         end
       end
     end

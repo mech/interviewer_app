@@ -15,7 +15,7 @@ class Interview
   field :status,                  :type => String, :default => "pending"
 
   referenced_in :position
-  # embeds_many :responses # each stage correspond to 1 response
+  embeds_many :responses
   # embeds_many :comments
 
   validates_presence_of :candidate_name, :candidate_email
@@ -39,7 +39,11 @@ class Interview
   end
 
   def points
-    9
+    responses.sum(&:points)
+  end
+
+  def passed?
+    !failed?
   end
 
   def failed?
