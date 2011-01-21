@@ -22,10 +22,15 @@ describe InterviewsController do
       @stage_one = position.stage_at(1)
       @stage_two = position.stages.create
 
-      # Stage one question
+      # Stage one questions
       @stage_one.stage_questions.create(:question => "a", :answer => "b", :points => 5)
       @stage_one.stage_questions.create(:question => "a", :answer => "b", :points => 5)
       @stage_one.update_attributes(:points => 10)
+
+      # Stage two questions
+      @stage_two.stage_questions.create(:question => "c", :answer => "d", :points => 5)
+      @stage_two.stage_questions.create(:question => "c", :answer => "d", :points => 5)
+      @stage_two.update_attributes(:points => 10)
 
       @valid_params = {
         :position_id => position.id,
@@ -98,12 +103,19 @@ describe InterviewsController do
 
     context "too many interviews" do
       before do
-        @first_interview = position.interviews.create(@valid_params[:interview])
-        @second_interview = position.interviews.create(@valid_params[:interview])
+        @first_interview = position.interviews.create(@valid_params[:interview].merge(:status => "completed"))
+        @first_interview.responses.create(:question_number => 1, :points => 5)
+        @first_interview.responses.create(:question_number => 2, :points => 5)
+
+        @second_interview = position.interviews.create(@valid_params[:interview].merge(:status => "completed"))
+        @second_interview.responses.create(:question_number => 1, :points => 5)
+        @second_interview.responses.create(:question_number => 2, :points => 5)
       end
 
       it "raises error if interview exceed the number of stages" do
-        
+        post :create, @valid_params
+        flash[:alert].should == "No stage to proceed next."
+        response.should redirect_to([position, @second_interview])
       end
     end
   end

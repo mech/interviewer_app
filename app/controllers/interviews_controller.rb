@@ -21,6 +21,8 @@ class InterviewsController < ApplicationController
         respond_with @interview, :location => [@position, @interview]
       end
     rescue TooManyInterviewsError
+      flash[:alert] = "No stage to proceed next."
+      redirect_to [@position, @interview.last_completed_interview]
     rescue PendingInterviewError
       flash[:alert] = "There are pending interview."
       @pending_interview = @position.interviews.pending(@interview.candidate_email).limit(1).first

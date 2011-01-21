@@ -38,8 +38,7 @@ class Stage
     _stage_questions = stage_questions.where(:question_number => number).limit(2) # 2 is enough for us to determine duplication
 
     if _stage_questions.count > 1
-      # TODO - Do internal fixing, self-heal
-      sort_questions
+      sort_questions # Self-heal, we know there is repeated error, we fixed it
       raise RepeatedQuestionNumberError
     else
       _stage_questions.first
