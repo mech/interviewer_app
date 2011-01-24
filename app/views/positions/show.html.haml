@@ -32,7 +32,7 @@
   %section#view
     #job_details
       %h1= @position.title
-      = link_to "New Interview", [:new, @position, :interview], :class => "button action"
+      = link_to "New Interview", [:new, @position, :interview], :class => "action"
       %ul.minibar
         %li.location= @position.location
         %li.date= relative_date @position.created_at

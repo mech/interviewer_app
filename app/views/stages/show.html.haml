@@ -25,8 +25,7 @@
     = render "templates/new_template_drawer", :position => @position, :stage => @stage
     .entry
       .question_guide
-        %h2 Stage #{@stage_index} interview
-        = link_to @position.title, @position, :class => "fw"
+        %h1 Stage #{@stage_index} interview for #{@position.title}
         %p.pin= link_to "Pin this stage to the side", [:pinned, @position, @stage], :class => "pin_stage", "data-stage-number" => @stage.stage_number
         .points
           = form_for [@position, @stage], :remote => true do |f|

@@ -171,6 +171,34 @@ button {  width: auto; overflow: visible; }
   }
 }
 
+@mixin sl_button($from, $to, $text_color, $border_color, $text_shadow_color, $hover_border_color) {
+  @include rounded-corner(2px);
+  display: inline-block;
+  color: $text_color;
+  background: $from;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+  background-image: -moz-linear-gradient(top, $from, $to);
+  border: 1px solid $border_color;
+  padding: .4em .8em;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0 1px 0 $text_shadow_color;
+  text-decoration: none;
+
+  -webkit-transition-property: border-color;
+  -webkit-transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease;
+
+  &:hover {
+    border-color: $hover_border_color;
+  }
+
+  &:active {
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($to), to($from));
+    background-image: -moz-linear-gradient(top, $to, $from);
+  }
+}
+
 @mixin helvetica($size, $weight) {
   font: $weight $size/1.231 "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -590,12 +618,13 @@ div.entry {
   .guide, .question_guide, .template_guide {
     background: url('/images/guide.png') 0 5px no-repeat;
     padding-left: 55px;
-    line-height: 1.5em;
     margin: 0 0 2em 0;
-    font-size: 120%;
+    /*font-size: 120%;*/
+    line-height: 1.5em;
     min-height: 47px;
 
-    h2 {
+    h1 {
+      font-size: 150%;
       font-weight: bold;
       margin-bottom: 3px;
     }
@@ -629,10 +658,11 @@ div.entry {
 
 #job_details {
   padding: 10px;
+  position: relative;
 
   h1 {
     line-height: 150%;
-    font-size: 120%;
+    font-size: 150%;
     margin-bottom: 3px;
   }
 
@@ -653,13 +683,50 @@ div.entry {
 
 #interview_details {
   padding: 10px;
+  position: relative;
+  margin-bottom: 1em;
 
   h1 {
     line-height: 150%;
     font-size: 120%;
     margin-bottom: 3px;
   }
+
+  .info {
+    .b_avatar {
+      float: left; margin-right: 10px;
+    }
+
+    h1 {
+      font-size: 150%;
+    }
+
+    ul {
+      list-style: none;
+
+      li {
+        display: inline;
+        margin-right: 1em;
+        padding-left: 15px;
+        color: #777;
+      }
+
+      li.where { background: url('/images/13_icons.png') 0 -182px no-repeat; }
+      li.when { background: url('/images/13_icons.png') 0 -208px no-repeat; }
+    }
+  }
 }
+
+.b_avatar {
+  border: 1px solid #d9d8d2;
+  width: 88px;
+  
+  img.avatar {
+    border: 4px solid #fff;
+    display: block;
+  }
+}
+
 
 #stages {
   padding: 0 10px;
@@ -990,9 +1057,14 @@ a.button {
   text-decoration: none;
 }
 
+/*button($from, $to, $text_color, $border_color, $text_shadow_color, $hover_border_color, $active_from, $active_to) {*/
+
 a.action {
+  @include sl_button(#f9f9f9, #e1e1e1, #555, #cacaca, #f7f7f7, #cccccc);
   float: right;
-  position: relative; top: -20px;
+  position: absolute; top: 10px; right: 10px;
+  /*@include rounded-corner(20px);*/
+  /*padding: 2px 8px;*/
 }
 
 div.records {
@@ -1292,6 +1364,10 @@ html.ie6 .group {
 
 
 @media all and (orientation:portrait) {
+  #content-wrap {
+    width: 760px;
+  }
+
 
 }
 

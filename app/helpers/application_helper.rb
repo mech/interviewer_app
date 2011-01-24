@@ -34,6 +34,16 @@ IE_HTML
     "#{time_ago_in_words(date)} ago"
   end
 
+  def interview_datetime(datetime)
+    return if datetime.blank?
+    "#{datetime.strftime("%b %d")}, #{display_time(datetime)}"
+  end
+
+  def display_time(time)
+    return nil if time.nil?
+    time.acts_like_time? ? time.strftime("%I:%M %p") : ""
+  end
+
   def truncate_words(text, length=30, truncate_string="...")
     return if text.blank?
     l = length - truncate_string.chars.to_a.length

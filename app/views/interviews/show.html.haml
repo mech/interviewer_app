@@ -12,5 +12,16 @@
         %small
 
   %section#view
-    #interview_details
-      %h1= "Interview \"#{@interview.candidate_name}\" for \"#{@position.title}\"" 
+    #interview_details.group
+      .info
+        .b_avatar= gravatar_image_tag(@interview.candidate_email, :class => "avatar")
+        %h1= @interview.candidate_name
+        %ul
+          %li.when= interview_datetime(@interview.when)
+          %li.where= @interview.where
+        %p= link_to "Stage #{@interview.stage_number} for #{@position.title}", @position, :class => "fw"
+      = link_to "Start Interviewing...", [@position, @interview], :class => "action"
+
+    #interviews-wrap
+      #content
+        Some long text

@@ -17,7 +17,8 @@
   %section#view
     .entry
       .template_guide
-        %h2= "Add questions to template \"#{@template.name}\""
+        %h1= "Add questions to template \"#{@template.name}\""
+        %p A template is a way to share frequently asked questions for an interview.
 
       %ul#questions
         = render "questions/questions", :template => @template
