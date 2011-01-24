@@ -12,7 +12,9 @@ InterviewerApp::Application.routes.draw do
       end
     end
 
-    resources :interviews
+    resources :interviews do
+      resources :questions
+    end
   end
 
   resources :templates do

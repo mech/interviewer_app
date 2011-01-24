@@ -25,21 +25,6 @@ class StageQuestion
     question_number.to_s
   end
 
-#  def template_question
-#    @template_question ||= Question.find(question_id) unless question_id.blank?
-#  end
-#
-#  def template_question=(template_question)
-#    @template_question = question
-#    self.question_id = template_question.id
-#    self.category = template_question.category
-#    self.question = template_question.question
-#    self.answer = template_question.answer
-#    self.points = template_question.points
-#
-#    @template_question
-#  end
-
   protected
 
   def assign_question_number

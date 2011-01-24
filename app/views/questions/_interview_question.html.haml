@@ -1,0 +1,23 @@
+%header#sub-action
+  %ul
+    %li= link_to "Done", [position, interview], :class => "done"
+#splitview-wrap.group
+  %section#view.expand
+    #question_details.group
+      .q_num= question.question_number
+      .question
+        %h1= question.question
+        .answer
+          %h2 Expected Response
+          :markdown
+            #{question.answer}
+      .points
+        .q_point= question.points
+        %ul.response
+          %li.ok_g= link_to "OK", "/"
+          %li.nok_g= link_to "Not OK", "/"
+    #interviewer_area
+      .comment
+        = form_for @response, :url => "/", :remote => true do |f|
+          = f.label :question_number, "How did candidate perform on this question?"
+          = f.text_area :question_number, :rows => 10, :cols => 100

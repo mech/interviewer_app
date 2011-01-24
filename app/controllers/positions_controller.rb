@@ -33,6 +33,7 @@ class PositionsController < ApplicationController
   protected
 
   def find_position
+    # TODO - Scope to company
     @position = Position.find(params[:id])
   end
 

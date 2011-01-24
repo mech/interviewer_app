@@ -156,6 +156,7 @@ button {  width: auto; overflow: visible; }
   font-weight: bold;
   cursor: pointer;
   text-shadow: 0 1px 0 $text_shadow_color;
+  text-decoration: none;
 
   -webkit-transition-property: border-color;
   -webkit-transition-duration: 0.3s;
@@ -391,6 +392,11 @@ body {
     li span.action > a { background: url('/images/16_icons.png') 0 -128px no-repeat; }
     li span.grid_view > a { background: url('/images/16_icons.png') 0 -160px no-repeat; }
     li span.list_view > a { background: url('/images/16_icons.png') 0 -192px no-repeat; }  }
+
+    a.done {
+      @include sl_button(#f9f9f9, #e1e1e1, #555, #cacaca, #f7f7f7, #cccccc);
+      position: absolute; top: -5px; right: -4px;
+    }
 }
 
 #splitview-wrap {
@@ -581,6 +587,12 @@ section#view {
   }
 }
 
+section#view.expand {
+  @include rounded-bottom-corner(3px);
+  width: 100%;
+  border-left: none;
+}
+
 .count {
   @include rounded-corner(10px);
   @include box-shadow(0px 1px 3px rgba(34, 34, 34, 1));
@@ -713,6 +725,105 @@ div.entry {
 
       li.where { background: url('/images/13_icons.png') 0 -182px no-repeat; }
       li.when { background: url('/images/13_icons.png') 0 -208px no-repeat; }
+    }
+  }
+}
+
+#question_details {
+  padding: 10px;
+  position: relative;
+  margin-left: 50px;
+
+  .q_num {
+    float: left;
+    color: #888;
+    font-size: 280%;
+    font-weight: bold;
+    width: 50px;
+
+    &:after {
+      content: ".";
+    }
+  }
+
+  .points {
+    float: right;
+    width: 100px;
+    font-size: 200%;
+
+    .q_point {
+      text-align: right;
+    }
+
+    ul.response {
+      list-style: none;
+      float: right;
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      li a {
+        display: block;
+        width: 30px; height: 30px;
+        text-indent: -99999px;
+      }
+      
+      li.ok_g a {
+        background: url('/images/tick_cross.png') 0 0 no-repeat;
+      }
+
+      li.ok a, li.ok_g a:hover {
+        background: url('/images/tick_cross.png') 0 -30px no-repeat;
+      }
+
+      li.nok_g a {
+        background: url('/images/tick_cross.png') 0 -60px no-repeat;
+      }
+
+      li.nok a, li.nok_g a:hover {
+        background: url('/images/tick_cross.png') 0 -90px no-repeat;
+      }
+    }
+  }
+
+  .question {
+    float: left;
+    width: 700px;
+
+    h1 {      
+      font-size: 280%;
+      font-weight: bold;
+      color: #00a851;
+      text-shadow: 0 1px 1px #09542d;
+      /*font-family: Georgia, Times, Times New Roman, serif;*/
+    }
+
+    .answer {
+      width: 700px;
+      color: #777;
+    }
+  }  
+}
+
+#interviewer_area {
+  @include rounded-bottom-corner(3px);
+  background: #fff;
+  border-top: 1px solid #d9d8d2;
+  min-height: 300px;
+
+  .comment {
+    padding: 10px;
+    form {
+      label {
+        display: block;
+        font-size: 110%;
+        font-weight: bold;
+        line-height: 150%;
+      }
+      textarea {
+        /*width: */
+      }
     }
   }
 }
@@ -1085,6 +1196,10 @@ a.fw {
   @include button(#d3e8ed, #bdd3de, #4b6c7c, #82a2b0, #f5f5f5, #638ea1, #bdd3de, #d3e8ed);
 }
 
+a.b_button {
+  color: #4b6c7c;
+}
+
 .button {
   @include button(#60b165, #459c4b, #ffffff, #398b3e, #276b35, #3f682d, #459c4b, #60b165);
 }
@@ -1180,7 +1295,7 @@ table.records {
 .template_records {
   background: url('/images/template_bg.png');
   margin: -25px -10px 0 -10px;
-  border-bottom: 1px solid #f3e9d1;
+  border-bottom: 1px solid #d9d8d2;
   
   .prev {
     width: 84.5px;

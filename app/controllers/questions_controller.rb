@@ -3,9 +3,20 @@ class QuestionsController < ApplicationController
 
   before_filter :find_template
   before_filter :find_question, :only => [:update, :destroy]
+  before_filter :find_interview, :only => [:show]
 
   def index
     
+  end
+
+  def show
+    if @interview
+      @question = @interview.stage.stage_questions.where(:question_number => params[:id]).limit(1).first
+      @response = @interview.responses.where(:question_number => params[:id]).limit(1).first || @interview.responses.build(:question_number => params[:id])
+      
+    else
+      # normal template question
+    end
   end
 
   def create
@@ -31,10 +42,19 @@ class QuestionsController < ApplicationController
   protected
 
   def find_template
-    @template = Template.find(params[:template_id])
+    @template = Template.find(params[:template_id]) if params[:template_id]
   end
 
   def find_question
     @question = @template.questions.find(params[:id]) if @template
+  end
+
+  def find_interview
+    # TODO - Scope to company
+    @position = Position.find(params[:position_id]) if params[:position_id]
+
+    if @position
+      @interview = @position.interviews.find(params[:interview_id]) if params[:interview_id]
+    end
   end
 end

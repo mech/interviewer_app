@@ -20,7 +20,7 @@
           %li.when= interview_datetime(@interview.when)
           %li.where= @interview.where
         %p= link_to "Stage #{@interview.stage_number} for #{@position.title}", @position, :class => "fw"
-      = link_to "Start Interviewing...", [@position, @interview], :class => "action"
+      = render "status", :position => @position, :interview => @interview
 
     #interviews-wrap
       #content

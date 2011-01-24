@@ -1,0 +1,4 @@
+- if interview.pending?
+  = link_to "Start Interviewing...", position_interview_question_path(position, interview, 1), :class => "action"
+- elsif interview.completed?
+  .completed Completed
