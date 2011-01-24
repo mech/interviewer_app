@@ -775,6 +775,44 @@ div.entry {
     border-left: 1px solid #bfbfbf;
     min-height: 200px;
     padding: 10px;
+
+    table#questions {
+      td {
+        font-size: 120%;
+        line-height: 150%;
+        padding: 5px;
+      }
+      
+      thead {
+        display: none;
+      }
+
+      td.index {
+        color: #aaa;
+        text-align: right;
+        width: 20px;
+      }
+      
+      td.question {
+        color: #00a851;
+        font-weight: bold;
+        border-bottom: 1px solid #e1e1e1;
+
+        span.correct {
+          color: #00a851;
+        }
+
+        span.wrong {
+          color: #f27078;
+        }
+      }
+
+      td.points {
+        font-size: 100%;
+        color: #888;
+        border-left: 1px solid #ccc;
+      }
+    }
   }
 }
 
@@ -803,7 +841,7 @@ span.eg {
   color: #aaa;
 }
 
-#questions {
+ul#questions {
   list-style: none;
   margin: 0; padding: 0;
   position: relative;

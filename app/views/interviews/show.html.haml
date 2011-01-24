@@ -24,4 +24,16 @@
 
     #interviews-wrap
       #content
-        Some long text
+        %table#questions
+          %thead
+            %tr
+              %th No.
+              %th Question
+              %th Points
+          %tbody
+            - @interview.stage.stage_questions.each_with_index do |question, index|
+              %tr
+                %td.index= index + 1
+                %td.question= question.question
+                %td.points= question.points
+

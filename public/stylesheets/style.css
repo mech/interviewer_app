@@ -750,6 +750,28 @@ div.entry {
     border-left: 1px solid #bfbfbf;
     min-height: 200px;
     padding: 10px; }
+    #interviews-wrap #content table#questions td {
+      font-size: 120%;
+      line-height: 150%;
+      padding: 5px; }
+    #interviews-wrap #content table#questions thead {
+      display: none; }
+    #interviews-wrap #content table#questions td.index {
+      color: #aaa;
+      text-align: right;
+      width: 20px; }
+    #interviews-wrap #content table#questions td.question {
+      color: #00a851;
+      font-weight: bold;
+      border-bottom: 1px solid #e1e1e1; }
+      #interviews-wrap #content table#questions td.question span.correct {
+        color: #00a851; }
+      #interviews-wrap #content table#questions td.question span.wrong {
+        color: #f27078; }
+    #interviews-wrap #content table#questions td.points {
+      font-size: 100%;
+      color: #888;
+      border-left: 1px solid #ccc; }
 
 .notes {
   -webkit-border-radius: 3px;
@@ -775,17 +797,17 @@ span.eg {
   font-style: italic;
   color: #aaa; }
 
-#questions {
+ul#questions {
   list-style: none;
   margin: 0;
   padding: 0;
   position: relative; }
-  #questions li.active {
+  ul#questions li.active {
     border: 2px solid #0093ff;
     -webkit-box-shadow: 0 1px 5px rgba(88, 166, 220, 0.8);
     -moz-box-shadow: 0 1px 5px rgba(88, 166, 220, 0.8);
     box-shadow: 0 1px 5px rgba(88, 166, 220, 0.8); }
-  #questions .question {
+  ul#questions .question {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -795,11 +817,11 @@ span.eg {
     font-size: 90%;
     position: relative;
     border: 2px solid #c7c7c7; }
-    #questions .question:last-child {
+    ul#questions .question:last-child {
       margin-bottom: 0px; }
-    #questions .question .edit_form {
+    ul#questions .question .edit_form {
       display: none; }
-    #questions .question .no {
+    ul#questions .question .no {
       padding: 5px;
       float: left;
       width: 50px;
@@ -811,17 +833,17 @@ span.eg {
       border-right: 1px solid #c7c7c7;
       border-bottom: 1px solid #c7c7c7;
       text-shadow: 0 1px 0 #fff; }
-    #questions .question .entry {
+    ul#questions .question .entry {
       padding: 5px;
       float: left;
       width: 550px;
       position: relative; }
-      #questions .question .entry h2 {
+      ul#questions .question .entry h2 {
         font-size: 120%;
         line-height: 150%;
         margin-bottom: 8px;
         color: #3a3a3a; }
-        #questions .question .entry h2 span {
+        ul#questions .question .entry h2 span {
           -webkit-border-radius: 15px;
           -moz-border-radius: 15px;
           border-radius: 15px;
@@ -829,14 +851,14 @@ span.eg {
           padding: 2px 5px;
           font-size: 70%;
           color: #fff; }
-      #questions .question .entry .mode {
+      ul#questions .question .entry .mode {
         display: none;
         position: absolute;
         top: 6px;
         right: -60px;
         padding: 0 10px;
         z-index: 1000; }
-        #questions .question .entry .mode a.edit {
+        ul#questions .question .entry .mode a.edit {
           background: url("/images/13_icons.png") 0 -130px no-repeat;
           display: block;
           float: left;
@@ -844,36 +866,36 @@ span.eg {
           height: 13px;
           text-indent: -99999px;
           margin-right: 5px; }
-        #questions .question .entry .mode a.remove {
+        ul#questions .question .entry .mode a.remove {
           background: url("/images/13_icons.png") 0 -156px no-repeat;
           display: block;
           float: left;
           width: 13px;
           height: 13px;
           text-indent: -99999px; }
-        #questions .question .entry .mode a:active {
+        ul#questions .question .entry .mode a:active {
           position: relative;
           top: 1px; }
-      #questions .question .entry p {
+      ul#questions .question .entry p {
         margin-bottom: 5px;
         color: #666;
         font-size: 110%; }
-      #questions .question .entry .error_messages h2 {
+      ul#questions .question .entry .error_messages h2 {
         font-size: 100%; }
-      #questions .question .entry textarea {
+      ul#questions .question .entry textarea {
         width: 400px; }
-      #questions .question .entry .button {
+      ul#questions .question .entry .button {
         padding: 4px 5px;
         font-size: 90%; }
-      #questions .question .entry .field_with_errors {
+      ul#questions .question .entry .field_with_errors {
         display: inline; }
-        #questions .question .entry .field_with_errors input[type=text] {
+        ul#questions .question .entry .field_with_errors input[type=text] {
           border: 1px solid #d94349; }
-    #questions .question .loading {
+    ul#questions .question .loading {
       margin-top: 2em;
       margin-left: 43%;
       position: absolute; }
-    #questions .question .points {
+    ul#questions .question .points {
       background: url("/images/drag_handle.gif") 105px center no-repeat;
       padding: 5px;
       padding-right: 30px;
@@ -881,15 +903,15 @@ span.eg {
       width: 90px;
       cursor: move;
       text-align: right; }
-      #questions .question .points input {
+      ul#questions .question .points input {
         width: 40px; }
-      #questions .question .points .field_with_errors {
+      ul#questions .question .points .field_with_errors {
         display: inline; }
-        #questions .question .points .field_with_errors input[type=text] {
+        ul#questions .question .points .field_with_errors input[type=text] {
           border: 1px solid #d94349; }
-    #questions .question form fieldset > div {
+    ul#questions .question form fieldset > div {
       margin-bottom: 1em; }
-    #questions .question form label {
+    ul#questions .question form label {
       padding-right: 5px;
       cursor: pointer;
       font-size: 110%;
@@ -897,7 +919,7 @@ span.eg {
       float: left;
       text-align: right;
       width: 80px; }
-      #questions .question form label small {
+      ul#questions .question form label small {
         font-size: 85%;
         font-weight: normal;
         color: #999;
