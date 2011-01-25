@@ -4,6 +4,8 @@ class Template
 
   field :name,    :type => String, :default => "Untitled"
   field :public,  :type => Boolean, :default => false
+
+  index :public
   # TODO - Score template to company? What about sharable template?
 
   validates :name, :presence => true

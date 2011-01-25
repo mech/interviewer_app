@@ -803,6 +803,8 @@ div.entry {
   min-height: 300px; }
   #interviewer_area .comment {
     padding: 10px; }
+    #interviewer_area .comment form div {
+      margin-bottom: 5px; }
     #interviewer_area .comment form label {
       display: block;
       font-size: 110%;

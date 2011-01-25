@@ -9,8 +9,8 @@ class Interview
 
   field :where,                   :type => String
   field :when,                    :type => DateTime
-  field :candidate_email,         :type => String
   field :candidate_name,          :type => String
+  field :candidate_email,         :type => String
   field :candidate_linkedin_id,   :type => String
   field :stage_number,            :type => Integer
   field :status,                  :type => String, :default => "pending"

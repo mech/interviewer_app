@@ -12,6 +12,8 @@ class PinStage
   field :stage_number, :type => Integer
   field :position_id, :type => BSON::ObjectId
 
+  index :position_id
+
   def position
     @position ||= Position.find position_id rescue nil
   end

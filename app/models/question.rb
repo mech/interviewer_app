@@ -7,6 +7,8 @@ class Question
   field :points,          :type => Integer, :default => 0
   field :category,        :type => String
 
+  index :category
+
   embeds_many :notes # or comments?
   references_and_referenced_in_many :templates
 

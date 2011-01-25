@@ -12,6 +12,9 @@ class StageQuestion
   field :category,        :type => String
   # field :locked,          :type => Boolean, :default => false
 
+  index :question_number
+  index :category
+
   # TODO - who have to know who asked what question and who is responsible
   # Not sure if this referencing works as we are in embedded document and user is another root document
   # referenced_in :user
@@ -24,6 +27,11 @@ class StageQuestion
 
   def to_param
     question_number.to_s
+  end
+
+  def next_question
+    next_question_number = question_number.succ
+    stage.stage_questions.where(question_number: next_question_number).limit(1).first
   end
 
   protected

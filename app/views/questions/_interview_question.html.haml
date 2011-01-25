@@ -17,10 +17,12 @@
             #{question.answer}
     #interviewer_area
       .comment
-        = form_for @response, :url => position_interview_question_responses_path(position, interview, question), :remote => true do |f|
-          = f.fields_for @response_comment do |rc|
-            = rc.label :comment, "Comment on candidate's performance"
-            = rc.text_area :comment, :rows => 10, :cols => 100
+        = form_for @response, :url => position_interview_question_responses_path(position, interview, question) do |f|
+          %fieldset
+            %div
+              = f.fields_for @response_comment do |rc|
+                = rc.label :comment, "Comment on candidate's performance"
+                = rc.text_area :comment, :rows => 10, :cols => 100
           %div.action
             = f.submit "Award #{pluralize(question.points, "point")}", :class => "button"
             = f.submit "No points", :class => "r_button"

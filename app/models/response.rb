@@ -4,6 +4,9 @@ class Response
 
   field :question_number, :type => Integer
   field :points,          :type => Integer
+  field :answered,        :type => Boolean, :default => false
+
+  index :question_number
 
   embedded_in :interview
   embeds_many :response_comments

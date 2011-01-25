@@ -11,6 +11,8 @@ class Stage
   field :points,        :type => Integer, :default => 0 # Entry requirement points or veto?
   field :locked,        :type => Boolean, :default => false
 
+  index :stage_number
+
   embedded_in :position
   embeds_many :stage_questions
 

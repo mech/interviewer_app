@@ -20,6 +20,8 @@ class InterviewsController < ApplicationController
         flash[:notice] = "Interview has been created successfully."
         respond_with @interview, :location => [@position, @interview]
       end
+    rescue Mongoid::Errors::Validations
+      render :action => "new"
     rescue TooManyInterviewsError
       flash[:alert] = "No stage to proceed next."
       redirect_to [@position, @interview.last_completed_interview]

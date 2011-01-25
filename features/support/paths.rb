@@ -14,6 +14,10 @@ module NavigationHelpers
       position_stage_path(@position, $1)
     when /the show template page/
       template_path(@template)
+    when /the new interview page/
+      new_position_interview_path(@position)
+    when /the interview question (\d+) page/
+      position_interview_question_path(@position, @interview, $1)
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
