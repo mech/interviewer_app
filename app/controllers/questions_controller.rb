@@ -2,8 +2,8 @@ class QuestionsController < ApplicationController
   respond_to :html, :js, :json
 
   before_filter :find_template
-  before_filter :find_question, :only => [:update, :destroy]
-  before_filter :find_interview, :only => [:show]
+  before_filter :find_question, {only: [:update, :destroy]}
+  before_filter :find_interview, {only: [:show]}
 
   def index
     
@@ -11,9 +11,9 @@ class QuestionsController < ApplicationController
 
   def show
     if @interview
-      @question = @interview.stage.stage_questions.where(:question_number => params[:id]).limit(1).first
-      @response = @interview.responses.where(:question_number => params[:id]).limit(1).first || @interview.responses.build(:question_number => params[:id])
-      
+      @question = @interview.stage.stage_questions.where(question_number: params[:id]).limit(1).first
+      @response = @interview.responses.where(question_number: params[:id]).limit(1).first || @interview.responses.build(question_number: params[:id])
+      @response_comment = @response.response_comments.build
     else
       # normal template question
     end

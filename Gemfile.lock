@@ -31,8 +31,8 @@ GEM
     arel (2.0.7)
     barista (0.7.0.pre3)
       coffee-script (~> 2.1.1)
-    bson (1.1.5)
-    bson_ext (1.1.5)
+    bson (1.2.0)
+    bson_ext (1.2.0)
     builder (2.1.2)
     capybara (0.4.0)
       celerity (>= 0.7.9)
@@ -95,12 +95,12 @@ GEM
     mime-types (1.16)
     mocha (0.9.10)
       rake
-    mongo (1.1.5)
-      bson (>= 1.1.5)
+    mongo (1.2.0)
+      bson (>= 1.2.0)
     mongo_ext (0.19.3)
-    mongoid (2.0.0.rc.5)
+    mongoid (2.0.0.rc.6)
       activemodel (~> 3.0)
-      mongo (~> 1.1.5)
+      mongo (~> 1.2)
       tzinfo (~> 0.3.22)
       will_paginate (~> 3.0.pre)
     nokogiri (1.4.4)
@@ -177,7 +177,7 @@ DEPENDENCIES
   jquery-rails
   mocha
   mongo_ext
-  mongoid (= 2.0.0.rc.5)
+  mongoid (= 2.0.0.rc.6)
   rails (= 3.0.3)
   rdiscount
   rspec-rails

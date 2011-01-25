@@ -17,5 +17,8 @@ Fellowship of the Apps {
 
 }
 
-= Setup
+== Setup
 http://railswizard.org/da4ce2e2ee4d577fa4d2.rb
+
+== Console
+Mongoid.config.logger = Logger.new $stdout

@@ -1,5 +1,6 @@
 class StageQuestion
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   before_create :assign_question_number
   after_destroy :sort_questions

@@ -1,5 +1,6 @@
 class Interview
   include Mongoid::Document
+  include Mongoid::Timestamps
   include Exceptions
 
   before_create :assign_stage_number

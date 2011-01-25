@@ -3,6 +3,7 @@
 # Limit to 10 pins per user
 class PinStage
   include Mongoid::Document
+  include Mongoid::Timestamps
 
 #  validate :limit_pins_per_user
   validates_uniqueness_of :position_id, :scope => :stage_number

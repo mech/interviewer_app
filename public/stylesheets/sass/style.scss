@@ -797,11 +797,23 @@ div.entry {
       color: #00a851;
       text-shadow: 0 1px 1px #09542d;
       /*font-family: Georgia, Times, Times New Roman, serif;*/
+
+      span.pts {
+        font-size: 50%;
+        font-style: italic;
+        color: #888;
+        text-shadow: none;
+      }
     }
 
     .answer {
       width: 700px;
       color: #777;
+
+      span.ret {
+        position: relative; top: 5px;
+        font-weight: bold;
+      }
     }
   }  
 }
@@ -820,6 +832,7 @@ div.entry {
         font-size: 110%;
         font-weight: bold;
         line-height: 150%;
+        color: #555;
       }
       textarea {
         /*width: */
@@ -1202,6 +1215,10 @@ a.b_button {
 
 .button {
   @include button(#60b165, #459c4b, #ffffff, #398b3e, #276b35, #3f682d, #459c4b, #60b165);
+}
+
+.r_button {
+  @include button(#e85b64, #c33f47, #ffffff, #c5323b, #b0222b, #b0222b, #c33f47, #e85b64);
 }
 
 a.button {

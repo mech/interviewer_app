@@ -6,18 +6,23 @@
     #question_details.group
       .q_num= question.question_number
       .question
-        %h1= question.question
+        %h1
+          = question.question
+          %span.pts #{pluralize(question.points, "point")}
         .answer
-          %h2 Expected Response
+          %h2
+            Expected Response
+            %span.ret &#x21A9;
           :markdown
             #{question.answer}
-      .points
-        .q_point= question.points
-        %ul.response
-          %li.ok_g= link_to "OK", "/"
-          %li.nok_g= link_to "Not OK", "/"
     #interviewer_area
       .comment
-        = form_for @response, :url => "/", :remote => true do |f|
-          = f.label :question_number, "How did candidate perform on this question?"
-          = f.text_area :question_number, :rows => 10, :cols => 100
+        = form_for @response, :url => position_interview_question_responses_path(position, interview, question), :remote => true do |f|
+          = f.fields_for @response_comment do |rc|
+            = rc.label :comment, "Comment on candidate's performance"
+            = rc.text_area :comment, :rows => 10, :cols => 100
+          %div.action
+            = f.submit "Award #{pluralize(question.points, "point")}", :class => "button"
+            = f.submit "No points", :class => "r_button"
+            or
+            = link_to "Skip question", "/"
