@@ -36,9 +36,16 @@
               - response = @interview.responses.where(question_number: question.question_number).limit(1).first
               %tr
                 %td.index= question.question_number
-                %td.question= question.question
+                %td.question
+                  - if response
+                    = link_to question.question, position_interview_question_path(@position, @interview, question.question_number)
+                  - else
+                    = question.question
                 %td.points= question.points
-                %td{:class => (response.passed? ? "passed" : "failed")}= response.points
+                - if response
+                  %td{:class => (response.passed? ? "passed" : "failed")}= response.points
+                - else
+                  %td
             %tr
               %td.total_l{:colspan => 2} Total
               %td.total{:colspan => 2}= @interview.responses.sum(&:points)

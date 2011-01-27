@@ -706,6 +706,13 @@ div.entry {
     margin-bottom: 3px;
   }
 
+  .completed {
+    @include button(#60b165, #459c4b, #ffffff, #398b3e, #276b35, #3f682d, #459c4b, #60b165);
+    cursor: default;
+    float: right;
+    position: absolute; top: 10px; right: 10px;
+  }
+
   .info {
     .b_avatar {
       float: left; margin-right: 10px;
@@ -960,6 +967,11 @@ div.entry {
         span.wrong {
           color: #f27078;
         }
+
+        a {
+          color: #00a851;
+          text-decoration: none;
+        }
       }
 
       td.points {
@@ -989,6 +1001,7 @@ div.entry {
         color: #777;
         text-align: right;
         border-right: 1px solid #ccc;
+        border-bottom: none;
       }
 
       td.total {
@@ -996,6 +1009,7 @@ div.entry {
         font-weight: bold;
         color: #888;
         text-align: center;
+        border-bottom: none;
       }
     }
   }

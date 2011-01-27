@@ -8,7 +8,7 @@ class ResponsesController < ApplicationController
     if @question
       @response = @interview.responses.where(question_number: @question.question_number).limit(1).first || @interview.responses.build(question_number: @question.question_number)
       @response.answered = true unless @response.answered?
-      @response.points = @question.points if params[:commit] == "Award 10 points"
+      @response.points = @question.points if params[:commit] =~ /Award/
       @response.save
 
       @response.response_comments.create(params[:response][:response_comment])

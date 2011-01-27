@@ -2,6 +2,8 @@ class Response
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  after_save :update_interview_status
+
   field :question_number, :type => Integer
   field :points,          :type => Integer, :default => 0
   field :answered,        :type => Boolean, :default => false
@@ -28,5 +30,14 @@ class Response
 
   def failed?
     !passed?
+  end
+
+  protected
+
+  def update_interview_status
+    questions_count = stage.stage_questions.count
+    answers_count = interview.responses.count
+
+    interview.update_attributes(:status => "completed") if answers_count >= questions_count
   end
 end
