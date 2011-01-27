@@ -58,7 +58,6 @@ describe InterviewsController do
       before do
         @first_interview = position.interviews.create(@valid_params[:interview])
         @first_interview.responses.create(:question_number => 1, :points => 5)
-        @first_interview.responses.create(:question_number => 2, :points => 5)
       end
       
       context "first interview has not finished" do
@@ -75,7 +74,7 @@ describe InterviewsController do
 
       context "first interview has finished" do
         before do
-          @first_interview.update_attributes(:status => "completed")
+          @first_interview.responses.create(:question_number => 2, :points => 5)
         end
 
         it "first interview completed" do

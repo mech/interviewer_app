@@ -50,4 +50,20 @@ describe Interview do
       }.to raise_error(Exceptions::PointsNotEnoughError)
     end
   end
+
+  describe "interview status" do
+    before do
+      stage_one.stage_questions.create(:question => "a", :answer => "b", :points => 5)
+      stage_one.stage_questions.create(:question => "a", :answer => "b", :points => 5)
+      stage_one.update_attributes(:points => 10)
+
+      @first_interview = position.interviews.create(:candidate_name => "mech", :candidate_email => "mech@me.com")
+      @first_interview.responses.create(:question_number => 1, :points => 5)
+      @first_interview.responses.create(:question_number => 2, :points => 5)
+    end
+
+    it "updates interview status to completed when all questions have been answered" do
+      @first_interview.should be_completed
+    end
+  end
 end
