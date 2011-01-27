@@ -2,9 +2,10 @@ class ResponseComment
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  field :comment, :type => String
+  # TODO - who commented on it
+
   embedded_in :response
 
-  field :comment, :type => String
-
-  # TODO - who commented on it
+  validates_presence_of :comment
 end

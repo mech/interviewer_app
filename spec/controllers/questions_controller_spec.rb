@@ -54,4 +54,11 @@ describe QuestionsController do
       xhr :post, 'update', :template_id => valid_template.id, :id => valid_question.id, :question => @params
     end
   end
+
+  describe "GET 'show'" do
+    context "with interview" do
+      it "shows stage question" do
+      end
+    end
+  end
 end

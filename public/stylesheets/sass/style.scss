@@ -394,8 +394,10 @@ body {
     li span.list_view > a { background: url('/images/16_icons.png') 0 -192px no-repeat; }  }
 
     a.done {
+      float: right;
+      margin-left: 5px;
       @include sl_button(#f9f9f9, #e1e1e1, #555, #cacaca, #f7f7f7, #cccccc);
-      position: absolute; top: -5px; right: -4px;
+      position: relative; top: -5px; right: -4px;
     }
 }
 
@@ -747,43 +749,16 @@ div.entry {
   }
 
   .points {
-    float: right;
-    width: 100px;
-    font-size: 200%;
+    position: absolute; right: 20px;
 
-    .q_point {
-      text-align: right;
+    .passed {
+      background: url('/images/tick_cross.png') 0 -30px no-repeat;
+      width: 30px; height: 30px;
     }
 
-    ul.response {
-      list-style: none;
-      float: right;
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      li a {
-        display: block;
-        width: 30px; height: 30px;
-        text-indent: -99999px;
-      }
-      
-      li.ok_g a {
-        background: url('/images/tick_cross.png') 0 0 no-repeat;
-      }
-
-      li.ok a, li.ok_g a:hover {
-        background: url('/images/tick_cross.png') 0 -30px no-repeat;
-      }
-
-      li.nok_g a {
-        background: url('/images/tick_cross.png') 0 -60px no-repeat;
-      }
-
-      li.nok a, li.nok_g a:hover {
-        background: url('/images/tick_cross.png') 0 -90px no-repeat;
-      }
+    .failed {
+      background: url('/images/tick_cross.png') 0 -90px no-repeat;
+      width: 30px; height: 30px;
     }
   }
 
@@ -810,9 +785,12 @@ div.entry {
       width: 700px;
       color: #777;
 
-      span.ret {
-        position: relative; top: 5px;
-        font-weight: bold;
+      .response {
+        background: url('/images/response_s.png') right center no-repeat;
+        padding-right: 20px;
+        width: 140px;
+        font-size: 110%;
+        margin-bottom: 5px;
       }
     }
   }  
@@ -824,8 +802,9 @@ div.entry {
   border-top: 1px solid #d9d8d2;
   min-height: 300px;
 
-  .comment {
+  .comments {
     padding: 10px;
+
     form {
       div {
         margin-bottom: 5px;        
@@ -841,6 +820,53 @@ div.entry {
       textarea {
         /*width: */
       }
+    }
+
+    h1 {
+      background: url('/images/16_icons.png') 0 -221px no-repeat;
+      padding-left: 20px;
+      font-size: 130%;
+    }
+
+    ul {
+      list-style: none;
+      font-size: 110%;
+      margin: 1em 0 1em 20px;
+      width: 500px;
+
+      li.form {
+        border-bottom: none;
+
+        input[type=submit] {
+          font-size: 80%;
+        }
+      }
+
+      li {
+        border-bottom: 1px solid #eee;
+        margin-bottom: 5px;
+
+        dt {
+          font-weight: bold;
+          
+          a {
+            text-decoration: none;
+          }
+
+          em {
+            font-size: 90%;
+            font-weight: normal;
+            color: #999;
+          }
+        }
+
+        dd {
+          .msg {
+            padding-top: 3px;
+            color: #555;
+          }
+        }
+      }      
     }
   }
 }

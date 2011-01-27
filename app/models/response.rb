@@ -3,7 +3,7 @@ class Response
   include Mongoid::Timestamps
 
   field :question_number, :type => Integer
-  field :points,          :type => Integer
+  field :points,          :type => Integer, :default => 0
   field :answered,        :type => Boolean, :default => false
 
   index :question_number
@@ -27,5 +27,6 @@ class Response
   end
 
   def failed?
+    points > stage_question.points
   end
 end

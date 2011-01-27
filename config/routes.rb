@@ -16,7 +16,9 @@ InterviewerApp::Application.routes.draw do
       # We are using QuestionsController to represent StageQuestion model because of naming
       resources :questions do
         # Each StageQuestion can have many responses (but only makes sense under the context of specific interview)
-        resources :responses
+        resources :responses do
+          resources :response_comments
+        end
       end
     end
   end

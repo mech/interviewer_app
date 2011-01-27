@@ -1,6 +1,7 @@
 %header#sub-action
   %ul
     %li= link_to "Done", [position, interview], :class => "done"
+    %li= link_to "Next question", position_interview_question_path(position, interview, question.next_question.question_number), :class => "done"
 #splitview-wrap.group
   %section#view.expand
     #question_details.group
@@ -10,21 +11,50 @@
           = question.question
           %span.pts #{pluralize(question.points, "point")}
         .answer
-          %h2
-            Expected Response
-            %span.ret &#x21A9;
+          %h2.response Expected Response
           :markdown
             #{question.answer}
+      .points
+        - if @response.passed?
+          .passed
+        - else
+          .failed
     #interviewer_area
-      .comment
-        = form_for @response, :url => position_interview_question_responses_path(position, interview, question) do |f|
-          %fieldset
-            %div
-              = f.fields_for @response_comment do |rc|
-                = rc.label :comment, "Comment on candidate's performance"
-                = rc.text_area :comment, :rows => 10, :cols => 100
-          %div.action
-            = f.submit "Award #{pluralize(question.points, "point")}", :class => "button"
-            = f.submit "No points", :class => "r_button"
-            or
-            = link_to "Skip question", "/"
+      .comments
+        - if @response.new_record?
+          = form_for @response, :url => position_interview_question_responses_path(position, interview, question) do |f|
+            %fieldset
+              %div
+                = f.fields_for @response_comment do |rc|
+                  = rc.label :comment, "Comment on candidate's performance"
+                  = rc.text_area :comment, :rows => 10, :cols => 100
+            %div.action
+              = f.submit "Award #{pluralize(question.points, "point")}", :class => "button"
+              = f.submit "No points", :class => "r_button"
+              or
+              = link_to "Skip question", "/"
+        - else
+          %h1 Comments
+          %ul
+            - @response.response_comments.each do |comment|
+              - if comment.new_record?
+                %li.form
+                  %dl
+                    %dt Post a comment...
+                    %dd
+                      = form_for comment, :url => position_interview_question_response_response_comments_path(position, interview, question, @response) do |f|
+                        %fieldset
+                          %div
+                            = f.text_area :comment, :rows => 5, :cols => 70
+                        %div.action
+                          = f.submit "Comment", :class => "button"
+              - else
+                %li
+                  %dl
+                    %dt
+                      =link_to "Someone says", "/"
+                      %em= relative_date(comment.created_at)
+                    %dd
+                      .msg
+                        :markdown
+                          #{comment.comment}

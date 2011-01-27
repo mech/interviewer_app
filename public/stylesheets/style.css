@@ -410,6 +410,8 @@ body {
     #sub-action ul li span.list_view > a {
       background: url("/images/16_icons.png") 0 -192px no-repeat; }
   #sub-action a.done {
+    float: right;
+    margin-left: 5px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
@@ -427,7 +429,7 @@ body {
     -webkit-transition-property: border-color;
     -webkit-transition-duration: 0.3s;
     -webkit-transition-timing-function: ease;
-    position: absolute;
+    position: relative;
     top: -5px;
     right: -4px; }
     #sub-action a.done:hover {
@@ -746,29 +748,16 @@ div.entry {
     #question_details .q_num:after {
       content: "."; }
   #question_details .points {
-    float: right;
-    width: 100px;
-    font-size: 200%; }
-    #question_details .points .q_point {
-      text-align: right; }
-    #question_details .points ul.response {
-      list-style: none;
-      float: right; }
-      #question_details .points ul.response li {
-        margin-bottom: 8px; }
-      #question_details .points ul.response li a {
-        display: block;
-        width: 30px;
-        height: 30px;
-        text-indent: -99999px; }
-      #question_details .points ul.response li.ok_g a {
-        background: url("/images/tick_cross.png") 0 0 no-repeat; }
-      #question_details .points ul.response li.ok a, #question_details .points ul.response li.ok_g a:hover {
-        background: url("/images/tick_cross.png") 0 -30px no-repeat; }
-      #question_details .points ul.response li.nok_g a {
-        background: url("/images/tick_cross.png") 0 -60px no-repeat; }
-      #question_details .points ul.response li.nok a, #question_details .points ul.response li.nok_g a:hover {
-        background: url("/images/tick_cross.png") 0 -90px no-repeat; }
+    position: absolute;
+    right: 20px; }
+    #question_details .points .passed {
+      background: url("/images/tick_cross.png") 0 -30px no-repeat;
+      width: 30px;
+      height: 30px; }
+    #question_details .points .failed {
+      background: url("/images/tick_cross.png") 0 -90px no-repeat;
+      width: 30px;
+      height: 30px; }
   #question_details .question {
     float: left;
     width: 700px; }
@@ -786,10 +775,12 @@ div.entry {
     #question_details .question .answer {
       width: 700px;
       color: #777; }
-      #question_details .question .answer span.ret {
-        position: relative;
-        top: 5px;
-        font-weight: bold; }
+      #question_details .question .answer .response {
+        background: url("/images/response_s.png") right center no-repeat;
+        padding-right: 20px;
+        width: 140px;
+        font-size: 110%;
+        margin-bottom: 5px; }
 
 #interviewer_area {
   -webkit-border-bottom-left-radius: 3px;
@@ -801,18 +792,45 @@ div.entry {
   background: #fff;
   border-top: 1px solid #d9d8d2;
   min-height: 300px; }
-  #interviewer_area .comment {
+  #interviewer_area .comments {
     padding: 10px; }
-    #interviewer_area .comment form div {
+    #interviewer_area .comments form div {
       margin-bottom: 5px; }
-    #interviewer_area .comment form label {
+    #interviewer_area .comments form label {
       display: block;
       font-size: 110%;
       font-weight: bold;
       line-height: 150%;
       color: #555; }
-    #interviewer_area .comment form textarea {
+    #interviewer_area .comments form textarea {
       /*width: */ }
+    #interviewer_area .comments h1 {
+      background: url("/images/16_icons.png") 0 -221px no-repeat;
+      padding-left: 20px;
+      font-size: 130%; }
+    #interviewer_area .comments ul {
+      list-style: none;
+      font-size: 110%;
+      margin: 1em 0 1em 20px;
+      width: 500px; }
+      #interviewer_area .comments ul li.form {
+        border-bottom: none; }
+        #interviewer_area .comments ul li.form input[type=submit] {
+          font-size: 80%; }
+      #interviewer_area .comments ul li {
+        border-bottom: 1px solid #eee;
+        margin-bottom: 5px; }
+        #interviewer_area .comments ul li dt {
+          font-weight: bold; }
+          #interviewer_area .comments ul li dt a {
+            text-decoration: none; }
+          #interviewer_area .comments ul li dt em {
+            font-size: 90%;
+            font-weight: normal;
+            color: #999; }
+        #interviewer_area .comments ul li dd .msg {
+          padding-top: 3px;
+          color: #555; }
 
 .b_avatar {
   border: 1px solid #d9d8d2;
