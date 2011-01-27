@@ -1,7 +1,8 @@
 %header#sub-action
   %ul
     %li= link_to "Done", [position, interview], :class => "done"
-    %li= link_to "Next question", position_interview_question_path(position, interview, question.next_question.question_number), :class => "done"
+    - if question.next_question
+      %li= link_to "Next question", position_interview_question_path(position, interview, question.next_question.question_number), :class => "done"
 #splitview-wrap.group
   %section#view.expand
     #question_details.group
@@ -15,10 +16,11 @@
           :markdown
             #{question.answer}
       .points
-        - if @response.passed?
-          .passed
-        - else
-          .failed
+        - if @response.answered?
+          - if @response.passed?
+            .passed
+          - else
+            .failed
     #interviewer_area
       .comments
         - if @response.new_record?

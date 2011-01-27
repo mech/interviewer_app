@@ -12,8 +12,12 @@ class ResponsesController < ApplicationController
       @response.save
 
       @response.response_comments.create(params[:response][:response_comment])
-      
-      redirect_to position_interview_question_path(@position, @interview, @question.next_question)
+
+      if @question.next_question
+        redirect_to position_interview_question_path(@position, @interview, @question.next_question)
+      else
+        redirect_to [@position, @interview]
+      end
     end
   end
 

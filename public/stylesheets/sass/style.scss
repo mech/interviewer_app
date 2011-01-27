@@ -749,7 +749,7 @@ div.entry {
   }
 
   .points {
-    position: absolute; right: 20px;
+    position: absolute; top:18px; right: 20px;
 
     .passed {
       background: url('/images/tick_cross.png') 0 -30px no-repeat;
@@ -941,16 +941,17 @@ div.entry {
         display: none;
       }
 
+      td { border-bottom: 1px solid #e1e1e1; }
+
       td.index {
         color: #aaa;
-        text-align: right;
+        text-align: left;
         width: 20px;
       }
       
       td.question {
         color: #00a851;
         font-weight: bold;
-        border-bottom: 1px solid #e1e1e1;
 
         span.correct {
           color: #00a851;
@@ -963,8 +964,38 @@ div.entry {
 
       td.points {
         font-size: 100%;
+        font-weight: bold;
         color: #888;
         border-left: 1px solid #ccc;
+        text-align: center;
+        font-style: italic;
+      }
+
+      td.passed {
+        background: url('/images/tick.png') 5px 8px no-repeat;
+        text-indent: -9999px;
+        width: 16px;
+        border-left: 1px solid #ccc;
+      }
+
+      td.failed {
+        background: url('/images/cross.png') 5px 8px no-repeat;
+        text-indent: -9999px;
+        width: 16px;
+        border-left: 1px solid #ccc;
+      }
+
+      td.total_l {
+        color: #777;
+        text-align: right;
+        border-right: 1px solid #ccc;
+      }
+
+      td.total {
+        font-size: 120%;
+        font-weight: bold;
+        color: #888;
+        text-align: center;
       }
     }
   }

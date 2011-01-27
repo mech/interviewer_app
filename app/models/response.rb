@@ -23,10 +23,10 @@ class Response
   end
 
   def passed?
-    !failed?
+    points >= stage_question.points
   end
 
   def failed?
-    points > stage_question.points
+    !passed?
   end
 end

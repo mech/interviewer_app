@@ -30,10 +30,16 @@
               %th No.
               %th Question
               %th Points
+              %th Marks
           %tbody
-            - @interview.stage.stage_questions.each_with_index do |question, index|
+            - @interview.stage.stage_questions.each do |question|
+              - response = @interview.responses.where(question_number: question.question_number).limit(1).first
               %tr
-                %td.index= index + 1
+                %td.index= question.question_number
                 %td.question= question.question
                 %td.points= question.points
+                %td{:class => (response.passed? ? "passed" : "failed")}= response.points
+            %tr
+              %td.total_l{:colspan => 2} Total
+              %td.total{:colspan => 2}= @interview.responses.sum(&:points)
 
