@@ -393,7 +393,7 @@ body {
     li span.grid_view > a { background: url('/images/16_icons.png') 0 -160px no-repeat; }
     li span.list_view > a { background: url('/images/16_icons.png') 0 -192px no-repeat; }  }
 
-    a.done {
+    a.sa {
       float: right;
       margin-left: 5px;
       @include sl_button(#f9f9f9, #e1e1e1, #555, #cacaca, #f7f7f7, #cccccc);
@@ -746,7 +746,7 @@ div.entry {
   .q_num {
     float: left;
     color: #888;
-    font-size: 280%;
+    font-size: 280%; line-height: 100%;
     font-weight: bold;
     width: 50px;
 
@@ -774,7 +774,7 @@ div.entry {
     width: 700px;
 
     h1 {      
-      font-size: 280%;
+      font-size: 280%; line-height: 100%;
       font-weight: bold;
       color: #00a851;
       text-shadow: 0 1px 1px #09542d;
@@ -1609,16 +1609,62 @@ html.ie6 .group {
 }
 
 
-@media all and (orientation:portrait) {
+@media screen and (orientation:portrait) {
   #content-wrap {
     width: 760px;
   }
 
+  #header-wrap {
+    header {
+      width: 760px;
 
+      nav {
+        position: absolute; right: 20px; bottom: -60px;
+      }
+    }
+  }
+
+  section#view {
+    width: 569px;
+  }
+
+  form.entry {
+    textarea { width: 300px; }
+  }
+
+  #question_details {
+    .question {
+      width: 400px;
+    }
+  }
+
+  .template_records {
+    ul {
+      width: 450px;
+    }
+  }
+
+  ul#questions {
+    .question {
+      width: 548px;
+
+      .entry {
+        width: 350px;
+
+        textarea {
+          width: 240px;
+        }
+
+        input[type=text] {
+          width: 200px;
+        }
+      }
+    }
+  }
 }
 
-@media all and (orientation:landscape) {
-
+@media screen and (orientation:landscape) {
+  
 }
 
 @media screen and (max-device-width: 480px) {

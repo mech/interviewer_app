@@ -409,7 +409,7 @@ body {
       background: url("/images/16_icons.png") 0 -160px no-repeat; }
     #sub-action ul li span.list_view > a {
       background: url("/images/16_icons.png") 0 -192px no-repeat; }
-  #sub-action a.done {
+  #sub-action a.sa {
     float: right;
     margin-left: 5px;
     -webkit-border-radius: 2px;
@@ -432,9 +432,9 @@ body {
     position: relative;
     top: -5px;
     right: -4px; }
-    #sub-action a.done:hover {
+    #sub-action a.sa:hover {
       border-color: #cccccc; }
-    #sub-action a.done:active {
+    #sub-action a.sa:active {
       background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e1e1e1), to(#f9f9f9));
       background-image: -moz-linear-gradient(top, #e1e1e1, #f9f9f9); }
 
@@ -774,6 +774,7 @@ div.entry {
     float: left;
     color: #888;
     font-size: 280%;
+    line-height: 100%;
     font-weight: bold;
     width: 50px; }
     #question_details .q_num:after {
@@ -795,6 +796,7 @@ div.entry {
     width: 700px; }
     #question_details .question h1 {
       font-size: 280%;
+      line-height: 100%;
       font-weight: bold;
       color: #00a851;
       text-shadow: 0 1px 1px #09542d;
@@ -1589,11 +1591,39 @@ html.ie6 .group {
 *:first-child + html.ie7 .group {
   min-height: 1px; }
 
-@media all and (orientation:portrait) {
+@media screen and (orientation:portrait) {
   #content-wrap {
-    width: 760px; } }
+    width: 760px; }
 
-@media all and (orientation:landscape) {}
+  #header-wrap header {
+    width: 760px; }
+    #header-wrap header nav {
+      position: absolute;
+      right: 20px;
+      bottom: -60px; }
+
+  section#view {
+    width: 569px; }
+
+  form.entry textarea {
+    width: 300px; }
+
+  #question_details .question {
+    width: 400px; }
+
+  .template_records ul {
+    width: 450px; }
+
+  ul#questions .question {
+    width: 548px; }
+    ul#questions .question .entry {
+      width: 350px; }
+      ul#questions .question .entry textarea {
+        width: 240px; }
+      ul#questions .question .entry input[type=text] {
+        width: 200px; } }
+
+@media screen and (orientation:landscape) {}
 @media screen and (max-device-width: 480px) {
   /* html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */ }
 

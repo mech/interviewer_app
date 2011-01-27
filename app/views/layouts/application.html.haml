@@ -6,15 +6,15 @@
   %meta{:charset => "utf-8"}
   %meta{"http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1"}
   %meta{:name => "MSSmartTagsPreventParsing", :content => "true"}
-  %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+  %meta{:name => "viewport", :content => "width=device-width, minimum-scale=1.0, maximum-scale=1.0"}
   = csrf_meta_tag
   = javascript_include_tag "modernizr-1.6.min"
   = stylesheet_link_tag :all
 
 %body
   =raw flash_message
-  #header-wrap
-    %header#mast
+  #header-wrap.group
+    %header#mast.group
       = render "shared/primary_nav"
 
   #content-wrap
