@@ -29,6 +29,11 @@ class StageQuestion
     question_number.to_s
   end
 
+  def previous_question
+    previous_question_number = question_number.pred
+    stage.stage_questions.where(question_number: previous_question_number).limit(1).first
+  end
+
   def next_question
     next_question_number = question_number.succ
     stage.stage_questions.where(question_number: next_question_number).limit(1).first

@@ -66,4 +66,29 @@ describe Interview do
       @first_interview.should be_completed
     end
   end
+
+  describe "#next_interview" do
+    before do
+      @first_interview = position.interviews.create(:candidate_name => "mech", :candidate_email => "mech@me.com")
+    end
+
+    context "with no more interview" do
+      it "returns nil if there is no next interview" do
+        @first_interview.next_interview.should be_nil
+      end
+    end
+
+    context "with more interview" do
+      before do
+        @first_interview.responses.create(:question_number => 1, :points => 5)
+        @first_interview.responses.create(:question_number => 2, :points => 5)
+        @second_interview = position.interviews.create(:candidate_name => "mech", :candidate_email => "mech@me.com")
+      end
+
+      it "returns next interview" do
+        puts "@second_interview: #{@first_interview.stage_number}"
+        @first_interview.next_interview.should == @second_interview
+      end
+    end
+  end
 end

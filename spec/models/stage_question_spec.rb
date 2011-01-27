@@ -30,6 +30,28 @@ describe StageQuestion do
     end
   end
 
+  describe "#previous_question" do
+    context "with no more previous question" do
+      it "returns nil if there is no previous question" do
+        @valid_stage_question.previous_question.should be_nil
+      end
+    end
+
+    context "with previous questions" do
+      before do
+        @next_question = valid_stage.stage_questions.create(
+          :question => "Who invented Rails?",
+          :answer => "DHH",
+          :points => 5
+        )
+      end
+
+      it "returns previous question" do
+        @next_question.previous_question.should == @valid_stage_question
+      end
+    end
+  end
+
   describe "#next_question" do
     context "with no more question" do
       it "returns nil if there is no next question" do

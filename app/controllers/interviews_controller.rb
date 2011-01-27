@@ -22,15 +22,15 @@ class InterviewsController < ApplicationController
       end
     rescue Mongoid::Errors::Validations
       render :action => "new"
-    rescue TooManyInterviewsError
-      flash[:alert] = "No stage to proceed next."
-      redirect_to [@position, @interview.last_completed_interview]
     rescue PendingInterviewError
       flash[:alert] = "There are pending interview."
       @pending_interview = @position.interviews.pending(@interview.candidate_email).limit(1).first
       redirect_to [@position, @pending_interview]
     rescue PointsNotEnoughError
       flash[:alert] = "Points not enough."
+      redirect_to [@position, @interview.last_completed_interview]
+    rescue TooManyInterviewsError
+      flash[:alert] = "No stage to proceed next."
       redirect_to [@position, @interview.last_completed_interview]
     end
   end

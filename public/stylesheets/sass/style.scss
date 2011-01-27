@@ -409,7 +409,7 @@ body {
 section#action {
   @include rounded-bottom-left-corner(3px);
   width: 190px; float: left;
-  min-height: 400px;
+  min-height: 300px;
   height: 100%;
 
   form {
@@ -509,7 +509,7 @@ section#view {
   @include rounded-bottom-right-corner(3px);
   background: #f6f5ee url('/images/view_bg.png') repeat-x;
   width: 769px; float: right;
-  min-height: 400px;
+  min-height: 300px;
   border-left: 1px solid #bfbfbf;
   padding-top: 15px;
   position: relative;
@@ -932,6 +932,7 @@ div.entry {
   margin-top: 10px; margin-left: 30px;
   
   #content {
+    @include rounded-bottom-right-corner(3px);
     background: #fff;
     border-left: 1px solid #bfbfbf;
     min-height: 200px;

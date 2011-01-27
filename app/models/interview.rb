@@ -3,9 +3,9 @@ class Interview
   include Mongoid::Timestamps
   include Exceptions
 
-  before_create :assign_stage_number
   before_create :check_pending_interviews
   before_create :check_enough_points
+  before_create :assign_stage_number
 
   field :where,                   :type => String
   field :when,                    :type => DateTime
@@ -28,6 +28,17 @@ class Interview
     define_method "#{s}?" do
       self.status == s
     end
+  end
+
+  # TODO - maybe use candidate_id instead of email, because they may change this email information
+  def previous_inteview
+    previous_stage_number = stage_number.pred
+    position.interviews.where(candidate_email: candidate_email, stage_number: previous_stage_number).limit(1).first
+  end
+
+  def next_interview
+    next_stage_number = stage_number.succ
+    position.interviews.where(candidate_email: candidate_email, stage_number: next_stage_number).limit(1).first
   end
 
   # The corresponding stage this interview is tied to
@@ -57,6 +68,17 @@ class Interview
 
   protected
 
+  def check_pending_interviews
+    pending_interviews_count = position.interviews.pending(candidate_email).count
+    raise PendingInterviewError unless pending_interviews_count.zero?
+  end
+
+  def check_enough_points
+    if last_completed_interview
+      raise PointsNotEnoughError if last_completed_interview.failed?
+    end
+  end
+
   # We need to find out if this is the first interview and how
   # many stages the position has
   def assign_stage_number
@@ -67,17 +89,6 @@ class Interview
       raise TooManyInterviewsError
     else
       self.stage_number = interviews_count + 1
-    end
-  end
-
-  def check_pending_interviews
-    pending_interviews_count = position.interviews.pending(candidate_email).count
-    raise PendingInterviewError unless pending_interviews_count.zero?
-  end
-
-  def check_enough_points
-    if last_completed_interview
-      raise PointsNotEnoughError if last_completed_interview.failed?
     end
   end
 end
