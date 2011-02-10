@@ -98,7 +98,7 @@ GEM
     mongo (1.2.0)
       bson (>= 1.2.0)
     mongo_ext (0.19.3)
-    mongoid (2.0.0.rc.6)
+    mongoid (2.0.0.rc.7)
       activemodel (~> 3.0)
       mongo (~> 1.2)
       tzinfo (~> 0.3.22)
@@ -177,7 +177,7 @@ DEPENDENCIES
   jquery-rails
   mocha
   mongo_ext
-  mongoid (= 2.0.0.rc.6)
+  mongoid (= 2.0.0.rc.7)
   rails (= 3.0.3)
   rdiscount
   rspec-rails
