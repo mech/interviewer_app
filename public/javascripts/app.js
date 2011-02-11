@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Wed, 19 Jan 2011 08:45:18 GMT from
+/* DO NOT MODIFY. This file was compiled Fri, 11 Feb 2011 03:26:59 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -148,7 +148,7 @@
       revert: true,
       containment: "#splitview-wrap"
     });
-    return $("#pinned li a").droppable({
+    $("#pinned li a").droppable({
       activeClass: "droppable_active",
       hoverClass: "droppable_hover",
       drop: function(evt, ui) {
@@ -163,6 +163,12 @@
           "pin_stage_id": pin_stage_id
         });
       }
+    });
+    return $("ul.applicants span.indicator").live("click", function(evt) {
+      var li;
+      li = $(this).parent().parent();
+      li.find(".applicant").toggle();
+      return li.toggleClass("open");
     });
   });
 }).call(this);

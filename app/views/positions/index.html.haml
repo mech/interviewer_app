@@ -8,11 +8,39 @@
     = form_tag("/") do
       = text_field_tag(:q, "", :class => "search", :placeholder => "Find positions")
 
+    -#%ul.list
+    -#  %li
+    -#    %a.active{:href => "/today"}
+    -#      %span Today
     %header
       %hgroup
         %h1 POSITIONS
         = link_to("Options", "/", :class => "options")
-        %small
+    %ul.applicants
+      %li
+        %h2
+          %span.indicator
+          C# developer at Central
+        .applicant.group
+          .avatar= gravatar_image_tag("mech@me.com", :gravatar => { :size => 25 })
+          .name= link_to "Swee Me Chai", "/"
+          .accessory= link_to "Interview ID", "/"
+        .applicant.group
+          .avatar= gravatar_image_tag("wycats@gmail.com", :gravatar => { :size => 25 })
+          .name= link_to "Yehuda Katz", "/"
+          .accessory= link_to "Interview ID", "/"
+        .applicant.group
+          .avatar= gravatar_image_tag("peepcode@topfunky.com", :gravatar => { :size => 25 })
+          .name= link_to "Ali PeepCode", "/"
+          .accessory= link_to "Interview ID", "/"
+      %li
+        %h2
+          %span.indicator
+          Java Enterprise EE Analyst
+        .applicant.group.active
+          .avatar= gravatar_image_tag("mech@me.com", :gravatar => { :size => 25 })
+          .name= link_to "Swee Me Chai", "/"
+          .accessory= link_to "Interview ID", "/"
 
   %section#view
     .records

@@ -465,15 +465,19 @@ section#action {
       border-radius: 10px;
       background: white url("/images/13_icons.png") 3px 2px no-repeat;
       padding: 2px;
-      padding-left: 16px;
-      width: 162px;
+      padding-left: 18px;
+      width: 160px;
       border: 1px solid #bbb;
       outline: none;
       font-size: 12px;
-      color: #555; }
+      color: #777; }
+      section#action form input.search:focus {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none; }
   section#action header {
     background: #cad7e5;
-    padding: 15px 10px; }
+    padding: 15px 5px 10px 10px; }
     section#action header hgroup {
       position: relative; }
       section#action header hgroup h1 {
@@ -494,6 +498,89 @@ section#action {
       font-size: 9px;
       color: #6c6c6c;
       padding-left: 20px; }
+  section#action ul.applicants {
+    list-style: none;
+    margin-top: 5px; }
+    section#action ul.applicants li h2 {
+      font-family: "Lucida Grande",Arial,Helvetica,sans-serif;
+      font-size: 11px;
+      line-height: 18px;
+      margin-bottom: 5px;
+      padding-left: 5px;
+      color: #363636; }
+    section#action ul.applicants li h2 span.indicator {
+      margin-right: 3px;
+      width: 18px;
+      height: 20px;
+      display: block;
+      float: left;
+      cursor: pointer; }
+    section#action ul.applicants li.closed h2 span.indicator, section#action ul.applicants li h2 span.indicator {
+      background: url("/images/disclosure.png") -18px 0 no-repeat; }
+    section#action ul.applicants li.open h2 span.indicator {
+      background: url("/images/disclosure.png") 0 0 no-repeat; }
+    section#action ul.applicants .applicant.active {
+      background: #748DBB;
+      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#adbdd7), to(#748dbb));
+      background-image: -moz-linear-gradient(center top, #adbdd7, #748dbb);
+      border-bottom: 1px solid #738CBD;
+      border-top: 1px solid #A2B1CB;
+      margin: -1px -1px 0 0; }
+      section#action ul.applicants .applicant.active .name a {
+        color: #fff;
+        font-weight: bold;
+        text-shadow: 0 1px 1px #474E59; }
+    section#action ul.applicants .applicant {
+      display: none;
+      padding: 3px 0 3px 26px;
+      line-height: 29px; }
+      section#action ul.applicants .applicant .avatar {
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        border: 3px solid #26aefe;
+        width: 25px;
+        height: 25px;
+        float: left; }
+      section#action ul.applicants .applicant .name {
+        float: left;
+        width: 100px;
+        padding-left: 5px; }
+        section#action ul.applicants .applicant .name a {
+          text-decoration: none;
+          color: #474747; }
+      section#action ul.applicants .applicant .accessory {
+        float: right;
+        width: 17px;
+        display: none; }
+        section#action ul.applicants .applicant .accessory a {
+          display: block;
+          text-indent: -9999px;
+          background: url("/images/disclose.png") left center no-repeat; }
+  section#action ul.list {
+    list-style: none; }
+    section#action ul.list li {
+      position: relative; }
+      section#action ul.list li a {
+        font-family: "Lucida Grande",Arial,Helvetica,sans-serif;
+        font-size: 11px;
+        display: block;
+        cursor: default;
+        text-decoration: none;
+        padding: 0 8px 0 12px; }
+        section#action ul.list li a span {
+          background-position: 0 7px;
+          color: #fff;
+          text-shadow: 0 1px 1px #474E59; }
+      section#action ul.list li a.active {
+        background: #748DBB;
+        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#adbdd7), to(#748dbb));
+        background-image: -moz-linear-gradient(center top, #adbdd7, #748dbb);
+        border-bottom: 1px solid #738CBD;
+        border-top: 1px solid #A2B1CB;
+        margin: -1px -1px 0 0;
+        line-height: 29px;
+        height: 29px; }
   section#action #pinned {
     border-top: 1px solid #fff; }
     section#action #pinned h1 {
@@ -535,7 +622,7 @@ section#view {
   width: 769px;
   float: right;
   min-height: 300px;
-  border-left: 1px solid #bfbfbf;
+  /*border-left: 1px solid #b4bbc4;*/
   padding-top: 15px;
   position: relative; }
   section#view div.drawer {
@@ -1333,12 +1420,17 @@ a.action {
   top: 10px;
   right: 10px;
   /*@include rounded-corner(20px);*/
-  /*padding: 2px 8px;*/ }
+  /*padding: 2px 8px;*/
+  -webkit-box-shadow: #fff 0 1px 0 inset;
+  box-shadow: 0 1px 0 #fff inset; }
   a.action:hover {
     border-color: #cccccc; }
   a.action:active {
     background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e1e1e1), to(#f9f9f9));
     background-image: -moz-linear-gradient(top, #e1e1e1, #f9f9f9); }
+  a.action:active {
+    -webkit-box-shadow: #e1e1e1 0 1px 0 inset;
+    box-shadow: 0 1px 0 #e1e1e1 inset; }
 
 div.records {
   padding: 10px; }

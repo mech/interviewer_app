@@ -169,3 +169,11 @@ $ ->
       $(this).effect("pulsate", {times: 2}, 200)
       $.post($(this).attr("data-action"), {"template_id": template_id, "pin_stage_id": pin_stage_id})
   })
+
+  $("ul.applicants span.indicator").live(
+    "click",
+    (evt) ->
+      li = $(this).parent().parent()
+      li.find(".applicant").toggle()
+      li.toggleClass("open")
+  )

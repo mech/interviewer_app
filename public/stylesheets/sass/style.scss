@@ -420,18 +420,20 @@ section#action {
     input.search {
       @include rounded-corner(10px);
       background: #fff url('/images/13_icons.png') 3px 2px no-repeat;
-      padding: 2px; padding-left: 16px;
-      width: 162px;
+      padding: 2px; padding-left: 18px;
+      width: 160px;
       border: 1px solid #bbb;
       outline: none;
       font-size: 12px;
-      color: #555;
+      color: #777;
+
+      &:focus { @include box-shadow(none); }
     }
   }
 
   header {
     background: #cad7e5;
-    padding: 15px 10px;
+    padding: 15px 5px 10px 10px;
 
     hgroup {
       position: relative;
@@ -456,6 +458,129 @@ section#action {
       font-size: 9px;
       color: #6c6c6c;
       padding-left: 20px;
+    }
+  }
+
+  ul.applicants {
+    list-style: none;
+    margin-top: 5px;
+
+    li {
+      h2 {
+        font-family: "Lucida Grande",Arial,Helvetica,sans-serif;
+        font-size: 11px;
+        line-height: 18px;
+        margin-bottom: 5px;
+        padding-left: 5px;
+        color: #363636;
+      }
+    }
+
+    li h2 span.indicator {
+      margin-right: 3px;
+      width: 18px;
+      height: 20px;
+      display: block; float: left;
+      cursor: pointer;
+    }
+
+    li.closed h2, li h2 {
+      span.indicator {
+        background: url('/images/disclosure.png') -18px 0 no-repeat;
+      }
+    }
+
+    li.open h2 {
+      span.indicator {
+        background: url('/images/disclosure.png') 0 0 no-repeat;
+      }
+    }
+
+    .applicant.active {
+      background: #748DBB;
+      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ADBDD7), to(#748DBB));
+      background-image: -moz-linear-gradient(center top , #ADBDD7, #748DBB);
+      border-bottom: 1px solid #738CBD;
+      border-top: 1px solid #A2B1CB;
+      margin: -1px -1px 0 0;
+
+      .name {
+        a {
+          color: #fff;
+          font-weight: bold;
+          text-shadow: 0 1px 1px #474E59;
+        }
+      }
+    }
+
+    .applicant {
+      display: none;
+      padding: 3px 0 3px 26px;
+      line-height: 29px;
+
+      .avatar {
+        @include rounded-corner(3px);
+        border: 3px solid #26aefe;
+        width: 25px; height: 25px;
+        float: left;
+      }
+
+      .name {
+        float: left;
+        width: 100px;
+        padding-left: 5px;
+        
+        a {
+          text-decoration: none;
+          color: #474747;
+        }
+      }
+
+      .accessory {
+        float: right;
+        width: 17px;
+        display: none;
+
+        a {
+          display: block;
+          text-indent: -9999px;
+          background: url('/images/disclose.png') left center no-repeat;
+        }
+      }
+    }
+  }
+
+  ul.list {
+    list-style: none;
+
+    li {
+      position: relative;
+      
+      a {
+        font-family: "Lucida Grande",Arial,Helvetica,sans-serif;
+        font-size: 11px;
+        display: block;
+        cursor: default;
+        text-decoration: none;
+        padding: 0 8px 0 12px;
+
+        span {
+          background-position: 0 7px;
+          color: #fff;
+          text-shadow: 0 1px 1px #474E59;
+        }
+      }
+
+      a.active {
+        background: #748DBB;
+        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ADBDD7), to(#748DBB));
+        background-image: -moz-linear-gradient(center top , #ADBDD7, #748DBB);
+        border-bottom: 1px solid #738CBD;
+        border-top: 1px solid #A2B1CB;
+        margin: -1px -1px 0 0;
+        line-height: 29px;
+        height: 29px;
+      }
     }
   }
 
@@ -510,7 +635,7 @@ section#view {
   background: #f6f5ee url('/images/view_bg.png') repeat-x;
   width: 769px; float: right;
   min-height: 300px;
-  border-left: 1px solid #bfbfbf;
+  /*border-left: 1px solid #b4bbc4;*/
   padding-top: 15px;
   position: relative;
 
@@ -1311,6 +1436,13 @@ a.action {
   position: absolute; top: 10px; right: 10px;
   /*@include rounded-corner(20px);*/
   /*padding: 2px 8px;*/
+  -webkit-box-shadow: #fff 0 1px 0 inset;
+  box-shadow: 0 1px 0 #fff inset;
+
+  &:active {
+    -webkit-box-shadow: #e1e1e1 0 1px 0 inset;
+    box-shadow: 0 1px 0 #e1e1e1 inset;
+  }
 }
 
 div.records {
