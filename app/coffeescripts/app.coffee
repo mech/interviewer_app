@@ -177,3 +177,11 @@ $ ->
       li.find(".applicant").toggle()
       li.toggleClass("open")
   )
+
+  $(".applicant").live(
+    "click",
+    (evt) ->
+      $(".applicant").removeClass("active")
+      $(this).addClass("active")
+      evt.preventDefault()
+  )

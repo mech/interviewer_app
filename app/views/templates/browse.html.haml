@@ -28,7 +28,7 @@
         = link_to("Options", "/", :class => "options")
 
   %section#view
-    = render "pinned_stage_guide" 
+    = render "pinned_stage_guide"
     .records.group
       - if @templates.blank?
         %p.welcome No template available. Do you want to #{link_to("create one", new_template_path)}?

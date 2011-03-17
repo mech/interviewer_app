@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Fri, 11 Feb 2011 03:26:59 GMT from
+/* DO NOT MODIFY. This file was compiled Fri, 11 Feb 2011 03:54:50 GMT from
  * /Users/mech/Works/Source/interviewer_app/app/coffeescripts/app.coffee
  */
 
@@ -164,11 +164,16 @@
         });
       }
     });
-    return $("ul.applicants span.indicator").live("click", function(evt) {
+    $("ul.applicants span.indicator").live("click", function(evt) {
       var li;
       li = $(this).parent().parent();
       li.find(".applicant").toggle();
       return li.toggleClass("open");
+    });
+    return $(".applicant").live("click", function(evt) {
+      $(".applicant").removeClass("active");
+      $(this).addClass("active");
+      return evt.preventDefault();
     });
   });
 }).call(this);

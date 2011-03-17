@@ -383,7 +383,7 @@ body {
             }
           }
         }
-      }  
+      }
     }
 
     li span.add > a { background: url('/images/16_icons.png') 0 -32px no-repeat; }
@@ -473,6 +473,8 @@ section#action {
         margin-bottom: 5px;
         padding-left: 5px;
         color: #363636;
+        -webkit-user-select: none;
+        -moz-user-select: none;
       }
     }
 
@@ -529,7 +531,7 @@ section#action {
         float: left;
         width: 100px;
         padding-left: 5px;
-        
+
         a {
           text-decoration: none;
           color: #474747;
@@ -555,7 +557,7 @@ section#action {
 
     li {
       position: relative;
-      
+
       a {
         font-family: "Lucida Grande",Arial,Helvetica,sans-serif;
         font-size: 11px;
@@ -594,7 +596,7 @@ section#action {
       color: #2e69a3;
       font-size: 85%;
       text-shadow: 0 1px 0 #fff;
-      
+
       span.pinned {
         position: relative; top: 5px;
       }
@@ -656,7 +658,7 @@ section#view {
 
       form {
         border: none;
-        
+
         label {
           display: block;
           float: none;
@@ -776,7 +778,7 @@ div.entry {
   .question_guide {
     background: url('/images/interview_guide.png') 0 5px no-repeat;
     position: relative;
-    
+
     .points {
       position: absolute; top: 10px; right: 0;
       padding: 5px;
@@ -898,7 +900,7 @@ div.entry {
     float: left;
     width: 700px;
 
-    h1 {      
+    h1 {
       font-size: 280%; line-height: 100%;
       font-weight: bold;
       color: #00a851;
@@ -925,7 +927,7 @@ div.entry {
         margin-bottom: 5px;
       }
     }
-  }  
+  }
 }
 
 #interviewer_area {
@@ -939,7 +941,7 @@ div.entry {
 
     form {
       div {
-        margin-bottom: 5px;        
+        margin-bottom: 5px;
       }
 
       label {
@@ -980,7 +982,7 @@ div.entry {
 
         dt {
           font-weight: bold;
-          
+
           a {
             text-decoration: none;
           }
@@ -998,7 +1000,7 @@ div.entry {
             color: #555;
           }
         }
-      }      
+      }
     }
   }
 }
@@ -1006,7 +1008,7 @@ div.entry {
 .b_avatar {
   border: 1px solid #d9d8d2;
   width: 88px;
-  
+
   img.avatar {
     border: 4px solid #fff;
     display: block;
@@ -1016,10 +1018,10 @@ div.entry {
 
 #stages {
   padding: 0 10px;
-  
+
   nav ul {
     @include rounded-corner(3px);
-    
+
     li {
       float: left;
       border-left: 1px solid #434a58;
@@ -1055,7 +1057,7 @@ div.entry {
   background: url('/images/paper_stack.png') left top no-repeat;
   padding-top: 5px;
   margin-top: 10px; margin-left: 30px;
-  
+
   #content {
     @include rounded-bottom-right-corner(3px);
     background: #fff;
@@ -1069,7 +1071,7 @@ div.entry {
         line-height: 150%;
         padding: 5px;
       }
-      
+
       thead {
         display: none;
       }
@@ -1081,7 +1083,7 @@ div.entry {
         text-align: left;
         width: 20px;
       }
-      
+
       td.question {
         color: #00a851;
         font-weight: bold;
@@ -1175,7 +1177,7 @@ ul#questions {
     border: 2px solid #0093ff;
     @include box-shadow(0 1px 5px rgba(88, 166, 220, 0.8));
   }
-  
+
   .question {
     @include rounded-corner(3px);
     background: #fff;
@@ -1329,7 +1331,7 @@ form.entry {
   background: #fff;
   padding: 10px;
   border: 1px solid #c7c7c7; border-top: 1px solid #ac9d88;
-  
+
   fieldset > div {
     margin-bottom: 1em;
   }
@@ -1471,7 +1473,7 @@ table.records {
         .wrap {
           position: relative;
         }
-        
+
         h1 {
           font-weight: bold;
 
@@ -1521,12 +1523,12 @@ table.records {
   background: url('/images/template_bg.png');
   margin: -25px -10px 0 -10px;
   border-bottom: 1px solid #d9d8d2;
-  
+
   .prev {
     width: 84.5px;
     float: left;
     display: block;
-    
+
     .next_page {
       display: none;
     }
@@ -1582,7 +1584,7 @@ table.records {
       opacity: 0.3;
     }
   }
-  
+
   ul {
     list-style: none;
     width: 600px;
@@ -1706,7 +1708,7 @@ table.records {
     display: none;
     list-style: none;
     margin: 0; padding: 5px 20px;
-    
+
     li {
       font-size: 100%;
       color: #888;
@@ -1796,7 +1798,7 @@ html.ie6 .group {
 }
 
 @media screen and (orientation:landscape) {
-  
+
 }
 
 @media screen and (max-device-width: 480px) {
